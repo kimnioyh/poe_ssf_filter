@@ -4,7 +4,7 @@ import { computeBases, completedBases, incompleteBases } from './completion'
 import { buildBlocks, buildFilter } from './buildFilter'
 
 const u = (name: string, baseItem: string, grouping: string, owned: boolean, category = 'Amulet'): Unique => ({
-  name, baseItem, category, grouping, owned,
+  name, baseItem, category, grouping, owned, disambiguation: '',
 })
 
 const data: Unique[] = [

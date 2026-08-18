@@ -7,6 +7,7 @@ export const en = {
   step4: '4. Preview & download',
   dropCsv: 'Drop or select your uniques CSV',
   csvHint: 'Export this CSV from the PoE ladder (log in first so ownership is included).',
+  sampleNotice: 'Showing sample data (nothing owned). Upload your own CSV exported from the PoE ladder to see your real collection.',
   uploaded: 'Loaded {n} uniques',
   ownedOf: '{owned} / {total} owned',
   uploadFilter: 'Upload .filter',

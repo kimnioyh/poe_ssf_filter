@@ -4,6 +4,8 @@ export interface Unique {
   category: string
   grouping: string
   owned: boolean
+  /** distinguishes same-name variants (e.g. Grand Spectrum). may be empty. */
+  disambiguation: string
 }
 
 /** grouping values that cannot drop from normal monster kills. */

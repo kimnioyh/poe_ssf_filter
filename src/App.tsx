@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useI18n } from './i18n'
 import { parseCsv } from './lib/parseCsv'
+import sampleCsv from '../sample-uniques.csv?raw'
 import { computeBases, completedBases, incompleteBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, uniqueImage } from './lib/nameMap'
@@ -25,6 +26,7 @@ export function App() {
   const [preset, setPreset] = useState<PresetId>('1-REGULAR')
   const [fetching, setFetching] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [isSample, setIsSample] = useState(false)
 
   const { groupings, categories } = useMemo(
     () => (uniques ? facets(uniques) : { groupings: [], categories: [] }),
@@ -38,16 +40,24 @@ export function App() {
   const done = completedBases(bases)
   const need = incompleteBases(bases)
 
-  function loadCsv(file: File) {
-    file.text().then((text) => {
-      const parsed = parseCsv(text)
-      setUniques(parsed)
-      // default: everything droppable except vaal/recipe groupings.
-      const g = facets(parsed).groupings.filter((x) => !NON_DROPPABLE_GROUPINGS.includes(x as never))
-      setInclude(new Set(g))
-      setExclude(new Set())
-    })
+  function applyUniques(parsed: Unique[], sample: boolean) {
+    setUniques(parsed)
+    // default: everything droppable except vaal/recipe groupings.
+    const g = facets(parsed).groupings.filter((x) => !NON_DROPPABLE_GROUPINGS.includes(x as never))
+    setInclude(new Set(g))
+    setExclude(new Set())
+    setIsSample(sample)
   }
+
+  function loadCsv(file: File) {
+    file.text().then((text) => applyUniques(parseCsv(text), false))
+  }
+
+  // Load the bundled all-unowned sample by default so the app isn't empty.
+  useEffect(() => {
+    applyUniques(parseCsv(sampleCsv), true)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const toggle = (set: Set<string>, key: string, apply: (s: Set<string>) => void) => {
     const next = new Set(set)
@@ -77,6 +87,8 @@ export function App() {
           <button className={locale === 'ko' ? 'on' : ''} onClick={() => setLocale('ko')}>한국어</button>
         </div>
       </header>
+
+      {isSample && <div className="notice">{t('sampleNotice')}</div>}
 
       <section>
         <h2>{t('step1')}</h2>
@@ -153,10 +165,12 @@ export function App() {
                       <ul className="need-detail">
                         {b.uniques
                           .filter((un) => !un.owned)
-                          .map((un) => {
+                          .map((un, i) => {
+                            // same-name variants (Grand Spectrum, Impresence, …) are
+                            // distinct collectibles — show each with its disambiguation.
                             const img = uniqueImage(un.name)
                             return (
-                              <li key={un.name}>
+                              <li key={`${un.name}|${un.disambiguation}|${i}`}>
                                 {img && (
                                   <img
                                     src={`${import.meta.env.BASE_URL}${img}`}
@@ -165,6 +179,7 @@ export function App() {
                                   />
                                 )}
                                 {localizeUnique(un.name, locale)}
+                                {un.disambiguation && <span className="disamb">{un.disambiguation}</span>}
                               </li>
                             )
                           })}

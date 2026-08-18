@@ -15,5 +15,6 @@ export function parseCsv(text: string): Unique[] {
       category: r.category ?? '',
       grouping: r.grouping ?? '',
       owned: r.owned === '1',
+      disambiguation: r.disambiguation ?? '',
     }))
 }

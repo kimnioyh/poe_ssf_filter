@@ -14,6 +14,11 @@ h1 { margin: 0; font-size: 1.6rem; }
 .locale button { margin-left: 4px; }
 .locale button.on { background: #3a5; color: #fff; }
 
+.notice {
+  border: 1px solid #6a5a2a; background: #2a2410; color: #e0c060;
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.92rem;
+}
+
 section { border: 1px solid #2a2c34; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
 h2 { margin: 0 0 12px; font-size: 1.1rem; }
 h3 { font-size: 1rem; }
@@ -40,6 +45,8 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 .need-detail { max-height: none; padding-left: 16px; margin: 2px 0 6px; list-style: none; }
 .need-detail li { color: #d9b36c; display: flex; align-items: center; gap: 6px; padding: 1px 0; }
 .need-detail img { width: 28px; height: 28px; object-fit: contain; flex: none; }
+.need-detail .disamb { color: #7f8fa0; font-size: 0.82em; }
+.need-detail .disamb::before { content: '· '; }
 
 .preview {
   background: #0e0f13; border: 1px solid #2a2c34; border-radius: 6px;
