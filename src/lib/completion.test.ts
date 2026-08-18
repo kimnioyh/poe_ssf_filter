@@ -49,6 +49,13 @@ assert.match(blocks, /Show[\s\S]*BaseType == "Paua Amulet"/, 'incomplete base ->
 assert.match(blocks, /Hide[\s\S]*BaseType == "Onyx Amulet"/, 'complete base -> Hide')
 assert.match(blocks, /Rarity Unique/)
 
+// base highlight: non-unique, non-corrupted Show block for searched bases.
+const withHl = buildBlocks(need, done, ['Two-Toned Boots', 'Vaal Regalia'])
+assert.match(withHl, /Show[\s\S]*BaseType == "Two-Toned Boots" "Vaal Regalia"/, 'highlight bases listed')
+assert.match(withHl, /Rarity Normal Magic Rare/, 'highlight targets non-unique rarities')
+assert.match(withHl, /Corrupted False/, 'highlight excludes corrupted')
+assert.doesNotMatch(buildBlocks(need, done), /Corrupted False/, 'no highlight block when none selected')
+
 // category exclusion drops the base entirely.
 const optsExcl = { includeGroupings: opts.includeGroupings, excludeCategories: new Set(['Amulet']) }
 assert.equal(computeBases(data, optsExcl).length, 0, 'excluded category -> no bases')

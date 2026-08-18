@@ -36,6 +36,20 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 
 .scope { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6px; }
 
+.search { width: 100%; max-width: 320px; background: #23252e; color: #e6e6e6;
+  border: 1px solid #3a3d48; border-radius: 6px; padding: 7px 10px; }
+.search-results { list-style: none; margin: 6px 0; padding: 0; max-width: 320px;
+  border: 1px solid #2a2c34; border-radius: 6px; max-height: 220px; overflow: auto; }
+.search-results li { border-bottom: 1px solid #23252e; }
+.search-results button { width: 100%; text-align: left; background: none; border: none;
+  border-radius: 0; padding: 6px 10px; }
+.search-results button:hover { background: #23252e; }
+.search-results .en { color: #7f8fa0; font-size: 0.82em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.chip { background: #0a3a4a; border: 1px solid #0e5a72; color: #7fe0ff;
+  border-radius: 14px; padding: 3px 10px; font-size: 0.85em; cursor: pointer; }
+.chip:hover { background: #0e4a5e; }
+
 .ok { color: #6c9; margin-left: 8px; }
 .err { color: #e77; margin-left: 8px; }
 .hint { color: #c93; margin-left: 8px; }

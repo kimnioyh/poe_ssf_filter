@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useI18n, type Locale } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import sampleCsv from '../sample-uniques.csv?raw'
+import baseTranslations from './data/base_translations.json'
 import { computeBases, completedBases, incompleteBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
@@ -76,6 +77,27 @@ export function App() {
     if (scopeHidden && hidden && !hidden.all) return need.filter((b) => hidden.bases.has(b))
     return need
   }, [need, scopeHidden, hidden])
+
+  // Base-item highlight (non-unique). Searchable over EN/KO names.
+  const [query, setQuery] = useState('')
+  const [highlightBases, setHighlightBases] = useState<string[]>([])
+  const baseEntries = useMemo(
+    () => Object.entries(baseTranslations as Record<string, string>),
+    [],
+  )
+  const matches = useMemo(() => {
+    const q = query.trim()
+    if (!q) return []
+    const ql = q.toLowerCase()
+    return baseEntries
+      .filter(([en, ko]) => !highlightBases.includes(en) && (en.toLowerCase().includes(ql) || ko.includes(q)))
+      .slice(0, 20)
+  }, [query, baseEntries, highlightBases])
+  const addBase = (en: string) => {
+    setHighlightBases((p) => (p.includes(en) ? p : [...p, en]))
+    setQuery('')
+  }
+  const removeBase = (en: string) => setHighlightBases((p) => p.filter((b) => b !== en))
 
   // Owned uniques grouped by category (curation view; independent of filter options).
   const ownedByCat = useMemo(() => {
@@ -246,6 +268,37 @@ export function App() {
           </section>
 
           <section>
+            <h2>{t('baseHighlight')}</h2>
+            <p className="hint">{t('baseHighlightHelp')}</p>
+            <input
+              className="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={t('searchPlaceholder')}
+            />
+            {matches.length > 0 && (
+              <ul className="search-results">
+                {matches.map(([en, ko]) => (
+                  <li key={en}>
+                    <button onClick={() => addBase(en)}>
+                      {localizeBase(en, locale)} <span className="en">{locale === 'ko' ? en : ko}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {highlightBases.length > 0 && (
+              <div className="chips">
+                {highlightBases.map((en) => (
+                  <span key={en} className="chip" onClick={() => removeBase(en)}>
+                    {localizeBase(en, locale)} ✕
+                  </span>
+                ))}
+              </div>
+            )}
+          </section>
+
+          <section>
             <h2>{t('step4')}</h2>
             <label className="scope">
               <input type="checkbox" checked={scopeHidden} onChange={() => setScopeHidden((v) => !v)} />
@@ -260,16 +313,17 @@ export function App() {
             <button
               disabled={!filterText}
               onClick={() =>
-                filterText && download('SSF-modified.filter', buildFilter(showBases, done, filterText))
+                filterText &&
+                download('SSF-modified.filter', buildFilter(showBases, done, filterText, highlightBases))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, done))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, done, highlightBases))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
-            <pre className="preview">{buildBlocks(showBases, done)}</pre>
+            <pre className="preview">{buildBlocks(showBases, done, highlightBases)}</pre>
           </section>
         </>
       )}

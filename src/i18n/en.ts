@@ -30,6 +30,9 @@ export const en = {
   scopeHidden: 'Emphasize only uniques NeverSink hides',
   scopeHiddenHelp: "Reads the loaded filter's Hide rules; leaves uniques NeverSink already shows untouched.",
   scopeHiddenCount: 'Emphasizing {show} of {need} still-needed.',
+  baseHighlight: 'Highlight base items',
+  baseHighlightHelp: 'Search base types to highlight (Normal/Magic/Rare, non-corrupted).',
+  searchPlaceholder: 'Search base type…',
 } as const
 
 export type MessageKey = keyof typeof en
