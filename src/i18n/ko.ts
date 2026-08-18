@@ -8,6 +8,7 @@ export const ko: Record<MessageKey, string> = {
   step3: '3. 옵션',
   step4: '4. 미리보기 & 다운로드',
   dropCsv: '유니크 CSV를 놓거나 선택',
+  csvHint: 'PoE ladder에 로그인한 뒤 CSV를 export해서 올리세요 (보유 현황이 포함됩니다).',
   uploaded: '유니크 {n}개 로드됨',
   ownedOf: '{owned} / {total} 보유',
   uploadFilter: '.filter 업로드',

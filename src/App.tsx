@@ -80,6 +80,7 @@ export function App() {
 
       <section>
         <h2>{t('step1')}</h2>
+        <p className="hint">{t('csvHint')}</p>
         <input
           type="file"
           accept=".csv"

@@ -15,8 +15,9 @@ SSF에서는 중복 유니크가 판매 가치가 없다. 유니크는 미감정
 
 ## 사용법
 
-1. **CSV 업로드** — 유니크 수집 트래커에서 export한 CSV (`name, baseItem, category, owned, grouping …`).
-   보유 여부는 `owned` 컬럼(`1` = 보유)으로 판별한다.
+1. **CSV 업로드** — **PoE ladder에 로그인해 export한 CSV** (`name, baseItem, category, owned, grouping …`).
+   보유 여부는 `owned` 컬럼(`1` = 보유)으로 판별하므로, 실제 수집 현황이 반영되려면 반드시
+   ladder에 로그인한 상태로 export해야 한다.
 2. **NeverSink 필터 선택** — 내 `.filter` 업로드 또는 GitHub에서 strictness 프리셋 fetch.
 3. **옵션 조정** — "드랍 가능 유형(grouping)" 토글로 완료 판정 기준을 조절.
    기본값은 몬스터 자연 드랍이 불가능한 `Vaal_Orb`·`Recipe`를 제외. 카테고리 단위 제외도 가능.
