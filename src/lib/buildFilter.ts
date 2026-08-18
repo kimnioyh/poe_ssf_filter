@@ -1,6 +1,3 @@
-import type { BaseStatus } from './completion'
-import { completedBases, incompleteBases } from './completion'
-
 const BEGIN = '# >>> POE-SSF-FILTER GENERATED (do not edit this region) >>>'
 const END = '# <<< POE-SSF-FILTER GENERATED <<<'
 
@@ -19,15 +16,19 @@ function block(comment: string, verb: 'Show' | 'Hide', bases: string[], extra = 
   return lines.join('\n') + '\n\n'
 }
 
-/** Generate the two prepended blocks, wrapped in sentinel markers. */
-export function buildBlocks(bases: BaseStatus[]): string {
+/**
+ * Generate the two prepended blocks, wrapped in sentinel markers.
+ * @param showBases still-needed bases to force-show + emphasize
+ * @param hideBases fully-collected bases to hide
+ */
+export function buildBlocks(showBases: string[], hideBases: string[]): string {
   const show = block(
     'SSF still-needed uniques (generated)',
     'Show',
-    incompleteBases(bases),
+    showBases,
     'SetBorderColor 255 200 0',
   )
-  const hide = block('SSF collected-base hide (generated)', 'Hide', completedBases(bases))
+  const hide = block('SSF collected-base hide (generated)', 'Hide', hideBases)
   return `${BEGIN}\n\n${show}${hide}${END}\n\n`
 }
 
@@ -40,6 +41,6 @@ export function stripGenerated(text: string): string {
 const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 
 /** Prepend generated blocks, stripping any prior region first (idempotent). */
-export function buildFilter(bases: BaseStatus[], baseFilterText: string): string {
-  return buildBlocks(bases) + stripGenerated(baseFilterText)
+export function buildFilter(showBases: string[], hideBases: string[], baseFilterText: string): string {
+  return buildBlocks(showBases, hideBases) + stripGenerated(baseFilterText)
 }

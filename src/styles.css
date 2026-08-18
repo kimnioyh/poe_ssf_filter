@@ -34,6 +34,8 @@ button:disabled { opacity: 0.4; cursor: not-allowed; }
 fieldset { border: 1px solid #2a2c34; border-radius: 6px; margin: 8px 0; }
 fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap; }
 
+.scope { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+
 .ok { color: #6c9; margin-left: 8px; }
 .err { color: #e77; margin-left: 8px; }
 .hint { color: #c93; margin-left: 8px; }

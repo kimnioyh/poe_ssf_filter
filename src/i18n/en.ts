@@ -27,6 +27,9 @@ export const en = {
   status: 'Status',
   ownedByCategory: 'Owned uniques by category',
   noOwned: 'No owned uniques in this CSV.',
+  scopeHidden: 'Emphasize only uniques NeverSink hides',
+  scopeHiddenHelp: "Reads the loaded filter's Hide rules; leaves uniques NeverSink already shows untouched.",
+  scopeHiddenCount: 'Emphasizing {show} of {need} still-needed.',
 } as const
 
 export type MessageKey = keyof typeof en

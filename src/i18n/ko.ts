@@ -29,4 +29,7 @@ export const ko: Record<MessageKey, string> = {
   status: '상태',
   ownedByCategory: '보유 유니크 (카테고리별)',
   noOwned: '이 CSV에 보유 중인 유니크가 없어요.',
+  scopeHidden: '네버싱크가 숨기는 유니크만 강조',
+  scopeHiddenHelp: '불러온 필터의 Hide 규칙을 읽어, 네버싱크가 이미 보여주는 유니크는 건드리지 않아요.',
+  scopeHiddenCount: '미보유 {need}개 중 {show}개 강조.',
 }

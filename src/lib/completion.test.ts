@@ -2,6 +2,7 @@ import assert from 'node:assert'
 import type { Unique } from './types'
 import { computeBases, completedBases, incompleteBases } from './completion'
 import { buildBlocks, buildFilter } from './buildFilter'
+import { parseHiddenUniqueBases } from './neversink'
 
 const u = (name: string, baseItem: string, grouping: string, owned: boolean, category = 'Amulet'): Unique => ({
   name, baseItem, category, grouping, owned, disambiguation: '',
@@ -41,7 +42,9 @@ assert.equal(onyx2.total, 2, 'Uber excluded when toggled off')
 assert.equal(onyx2.complete, true)
 
 // buildBlocks: English BaseType, Show for incomplete + Hide for complete.
-const blocks = buildBlocks(bases)
+const need = incompleteBases(bases)
+const done = completedBases(bases)
+const blocks = buildBlocks(need, done)
 assert.match(blocks, /Show[\s\S]*BaseType == "Paua Amulet"/, 'incomplete base -> Show')
 assert.match(blocks, /Hide[\s\S]*BaseType == "Onyx Amulet"/, 'complete base -> Hide')
 assert.match(blocks, /Rarity Unique/)
@@ -52,10 +55,32 @@ assert.equal(computeBases(data, optsExcl).length, 0, 'excluded category -> no ba
 
 // Idempotency: re-applying to an already-modified filter must not stack blocks.
 const nsFilter = 'Show # existing rule\n    Rarity Rare\n'
-const once = buildFilter(bases, nsFilter)
-const twice = buildFilter(bases, once)
+const once = buildFilter(need, done, nsFilter)
+const twice = buildFilter(need, done, once)
 assert.equal(once, twice, 're-applying buildFilter must be idempotent')
 assert.equal(once.match(/POE-SSF-FILTER GENERATED \(do not edit/g)?.length, 1, 'exactly one generated region')
 assert.ok(once.endsWith(nsFilter), 'original filter text preserved at the end')
+
+// parseHiddenUniqueBases: only Hide blocks with Rarity Unique count.
+const nsSample = [
+  'Show # shown unique',
+  '\tRarity Unique',
+  '\tBaseType == "Onyx Amulet"',
+  '',
+  'Hide # hideable uniques',
+  '\tRarity Unique',
+  '\tBaseType == "Coral Amulet" "Despot Axe"',
+  '',
+  'Hide # non-unique hide (ignored)',
+  '\tRarity <= Normal',
+  '\tBaseType == "Wool Shoes"',
+].join('\n')
+const hidden = parseHiddenUniqueBases(nsSample)
+assert.ok(hidden.bases.has('Coral Amulet') && hidden.bases.has('Despot Axe'), 'unique Hide bases collected')
+assert.ok(!hidden.bases.has('Onyx Amulet'), 'Show block not counted as hidden')
+assert.ok(!hidden.bases.has('Wool Shoes'), 'non-unique Hide ignored')
+assert.equal(hidden.all, false, 'no catch-all when every unique Hide has BaseType')
+// catch-all: rarity-only unique Hide
+assert.equal(parseHiddenUniqueBases('Hide\n\tRarity Unique\n').all, true, 'rarity-only unique Hide -> all')
 
 console.log('completion.test.ts: all assertions passed')

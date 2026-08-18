@@ -6,7 +6,7 @@ import { computeBases, completedBases, incompleteBases, facets } from './lib/com
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
-import { PRESETS, fetchPreset, type PresetId } from './lib/neversink'
+import { PRESETS, fetchPreset, parseHiddenUniqueBases, type PresetId } from './lib/neversink'
 
 /** One unique row: icon + localized name + disambiguation label. */
 function UniqueItem({ u, locale }: { u: Unique; locale: Locale }) {
@@ -65,6 +65,17 @@ export function App() {
   )
   const done = completedBases(bases)
   const need = incompleteBases(bases)
+
+  // Scope emphasis to uniques NeverSink actually hides (reads filter, never edits it).
+  const [scopeHidden, setScopeHidden] = useState(true)
+  const hidden = useMemo(
+    () => (filterText ? parseHiddenUniqueBases(filterText) : null),
+    [filterText],
+  )
+  const showBases = useMemo(() => {
+    if (scopeHidden && hidden && !hidden.all) return need.filter((b) => hidden.bases.has(b))
+    return need
+  }, [need, scopeHidden, hidden])
 
   // Owned uniques grouped by category (curation view; independent of filter options).
   const ownedByCat = useMemo(() => {
@@ -236,17 +247,29 @@ export function App() {
 
           <section>
             <h2>{t('step4')}</h2>
+            <label className="scope">
+              <input type="checkbox" checked={scopeHidden} onChange={() => setScopeHidden((v) => !v)} />
+              {t('scopeHidden')}
+            </label>
+            <p className="hint">
+              {t('scopeHiddenHelp')}
+              {filterText && scopeHidden && (
+                <> {t('scopeHiddenCount', { show: showBases.length, need: need.length })}</>
+              )}
+            </p>
             <button
               disabled={!filterText}
-              onClick={() => filterText && download('SSF-modified.filter', buildFilter(bases, filterText))}
+              onClick={() =>
+                filterText && download('SSF-modified.filter', buildFilter(showBases, done, filterText))
+              }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(bases))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, done))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
-            <pre className="preview">{buildBlocks(bases)}</pre>
+            <pre className="preview">{buildBlocks(showBases, done)}</pre>
           </section>
         </>
       )}

@@ -20,3 +20,37 @@ export async function fetchPreset(id: PresetId): Promise<string> {
   if (!res.ok) throw new Error(`프리셋 다운로드 실패 (${res.status})`)
   return res.text()
 }
+
+/**
+ * Scan a filter for the unique BaseTypes it HIDES (read-only; never edits it).
+ * A `Hide` block with `Rarity Unique` and BaseTypes -> those bases are hidden.
+ * A `Rarity Unique` Hide with no BaseType -> catch-all: all uniques hidden (`all`).
+ */
+export function parseHiddenUniqueBases(filter: string): { bases: Set<string>; all: boolean } {
+  const bases = new Set<string>()
+  let all = false
+  let cur: string[] | null = null
+  let curType: 'Show' | 'Hide' | null = null
+
+  const flush = () => {
+    if (curType !== 'Hide' || !cur) return
+    const hidesUnique = cur.some((l) => /^\s*Rarity\b/.test(l) && /\bUnique\b/.test(l))
+    if (!hidesUnique) return
+    const baseLines = cur.filter((l) => /^\s*BaseType\b/.test(l))
+    if (baseLines.length === 0) all = true
+    else for (const bl of baseLines) for (const m of bl.matchAll(/"([^"]+)"/g)) bases.add(m[1])
+  }
+
+  for (const line of filter.split(/\r?\n/)) {
+    const m = /^(Show|Hide)\b/.exec(line)
+    if (m) {
+      flush()
+      curType = m[1] as 'Show' | 'Hide'
+      cur = [line]
+    } else if (cur) {
+      cur.push(line)
+    }
+  }
+  flush()
+  return { bases, all }
+}
