@@ -35,4 +35,8 @@ export const ko: Record<MessageKey, string> = {
   baseHighlight: '베이스 강조',
   baseHighlightHelp: '강조할 베이스타입을 검색 (노말/매직/레어, 타락 제외).',
   searchPlaceholder: '베이스 검색…',
+  minIlvl: '최소 아이템 레벨',
+  maxIlvl: '최대 아이템 레벨',
+  protectTop: 'T0~T2 베이스는 항상 표시',
+  protectTopHelp: 'T0~T2 유니크가 나올 수 있는 베이스는 다 모았어도 숨기지 않아요.',
 }

@@ -3,7 +3,7 @@ import { useI18n, type Locale } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import sampleCsv from '../sample-uniques.csv?raw'
 import baseTranslations from './data/base_translations.json'
-import { computeBases, completedBases, incompleteBases, facets } from './lib/completion'
+import { computeBases, completedBases, incompleteBases, hideableBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
@@ -78,9 +78,23 @@ export function App() {
     return need
   }, [need, scopeHidden, hidden])
 
+  // Never hide bases that can drop a top-tier (T0–T2) unique.
+  const [protectTop, setProtectTop] = useState(true)
+  const hideBases = useMemo(() => hideableBases(bases, protectTop), [bases, protectTop])
+
   // Base-item highlight (non-unique). Searchable over EN/KO names.
   const [query, setQuery] = useState('')
   const [highlightBases, setHighlightBases] = useState<string[]>([])
+  const [minIlvl, setMinIlvl] = useState('')
+  const [maxIlvl, setMaxIlvl] = useState('')
+  const highlight = useMemo(
+    () => ({
+      bases: highlightBases,
+      minIlvl: minIlvl.trim() === '' ? undefined : Number(minIlvl),
+      maxIlvl: maxIlvl.trim() === '' ? undefined : Number(maxIlvl),
+    }),
+    [highlightBases, minIlvl, maxIlvl],
+  )
   const baseEntries = useMemo(
     () => Object.entries(baseTranslations as Record<string, string>),
     [],
@@ -296,6 +310,16 @@ export function App() {
                 ))}
               </div>
             )}
+            <div className="ilvl">
+              <label>
+                {t('minIlvl')}
+                <input type="number" min={0} max={100} value={minIlvl} onChange={(e) => setMinIlvl(e.target.value)} />
+              </label>
+              <label>
+                {t('maxIlvl')}
+                <input type="number" min={0} max={100} value={maxIlvl} onChange={(e) => setMaxIlvl(e.target.value)} />
+              </label>
+            </div>
           </section>
 
           <section>
@@ -310,20 +334,25 @@ export function App() {
                 <> {t('scopeHiddenCount', { show: showBases.length, need: need.length })}</>
               )}
             </p>
+            <label className="scope">
+              <input type="checkbox" checked={protectTop} onChange={() => setProtectTop((v) => !v)} />
+              {t('protectTop')}
+            </label>
+            <p className="hint">{t('protectTopHelp')}</p>
             <button
               disabled={!filterText}
               onClick={() =>
                 filterText &&
-                download('SSF-modified.filter', buildFilter(showBases, done, filterText, highlightBases))
+                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, done, highlightBases))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
-            <pre className="preview">{buildBlocks(showBases, done, highlightBases)}</pre>
+            <pre className="preview">{buildBlocks(showBases, hideBases, highlight)}</pre>
           </section>
         </>
       )}

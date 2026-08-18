@@ -1,11 +1,11 @@
 import assert from 'node:assert'
 import type { Unique } from './types'
-import { computeBases, completedBases, incompleteBases } from './completion'
+import { computeBases, completedBases, incompleteBases, hideableBases } from './completion'
 import { buildBlocks, buildFilter } from './buildFilter'
 import { parseHiddenUniqueBases } from './neversink'
 
-const u = (name: string, baseItem: string, grouping: string, owned: boolean, category = 'Amulet'): Unique => ({
-  name, baseItem, category, grouping, owned, disambiguation: '',
+const u = (name: string, baseItem: string, grouping: string, owned: boolean, category = 'Amulet', tier = '3'): Unique => ({
+  name, baseItem, category, grouping, owned, disambiguation: '', tier,
 })
 
 const data: Unique[] = [
@@ -35,6 +35,15 @@ assert.equal(onyx.complete, true, 'Onyx Amulet all droppable owned -> complete')
 assert.deepEqual(incompleteBases(bases), ['Paua Amulet'])
 assert.deepEqual(completedBases(bases), ['Onyx Amulet'])
 
+// protectTop: a completed base with a T0–T2 unique is not hidden when protecting.
+const tierData: Unique[] = [
+  u('Top', 'Gold Amulet', 'T2', true, 'Amulet', '1'), // tier 1 -> protected
+  u('Low', 'Jade Amulet', 'T4', true, 'Amulet', '4'), // tier 4 -> hideable
+]
+const tierBases = computeBases(tierData, opts)
+assert.deepEqual(hideableBases(tierBases, false).sort(), ['Gold Amulet', 'Jade Amulet'], 'no protection -> both hidden')
+assert.deepEqual(hideableBases(tierBases, true), ['Jade Amulet'], 'protection keeps T0–T2 base visible')
+
 // If Uber toggled OFF and its unique were unowned, base must stay incomplete.
 const optsNoUber = { includeGroupings: new Set(['T2', 'T3', 'T4']), excludeCategories: new Set<string>() }
 const onyx2 = computeBases(data, optsNoUber).find((b) => b.baseItem === 'Onyx Amulet')!
@@ -50,11 +59,21 @@ assert.match(blocks, /Hide[\s\S]*BaseType == "Onyx Amulet"/, 'complete base -> H
 assert.match(blocks, /Rarity Unique/)
 
 // base highlight: non-unique, non-corrupted Show block for searched bases.
-const withHl = buildBlocks(need, done, ['Two-Toned Boots', 'Vaal Regalia'])
+const withHl = buildBlocks(need, done, { bases: ['Two-Toned Boots', 'Vaal Regalia'] })
 assert.match(withHl, /Show[\s\S]*BaseType == "Two-Toned Boots" "Vaal Regalia"/, 'highlight bases listed')
 assert.match(withHl, /Rarity Normal Magic Rare/, 'highlight targets non-unique rarities')
 assert.match(withHl, /Corrupted False/, 'highlight excludes corrupted')
 assert.doesNotMatch(buildBlocks(need, done), /Corrupted False/, 'no highlight block when none selected')
+
+// ilvl bounds only appear when set.
+const withIlvl = buildBlocks(need, done, { bases: ['Vaal Regalia'], minIlvl: 84 })
+assert.match(withIlvl, /ItemLevel >= 84/, 'min ilvl added')
+assert.doesNotMatch(withIlvl, /ItemLevel <=/, 'max ilvl omitted when unset')
+assert.match(
+  buildBlocks(need, done, { bases: ['Vaal Regalia'], minIlvl: 84, maxIlvl: 86 }),
+  /ItemLevel >= 84[\s\S]*ItemLevel <= 86/,
+  'both bounds when set',
+)
 
 // category exclusion drops the base entirely.
 const optsExcl = { includeGroupings: opts.includeGroupings, excludeCategories: new Set(['Amulet']) }

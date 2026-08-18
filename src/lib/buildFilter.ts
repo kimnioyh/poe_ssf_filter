@@ -16,22 +16,31 @@ function block(comment: string, verb: 'Show' | 'Hide', bases: string[], extra = 
   return lines.join('\n') + '\n\n'
 }
 
+export interface HighlightOpts {
+  bases: string[]
+  minIlvl?: number
+  maxIlvl?: number
+}
+
 /** Force-show + highlight specific base items (non-unique, non-corrupted). */
-function highlightBlock(bases: string[]): string {
+function highlightBlock({ bases, minIlvl, maxIlvl }: HighlightOpts): string {
   if (bases.length === 0) return ''
-  return (
-    [
-      '# SSF base highlight (generated)',
-      'Show',
-      `    BaseType == ${quote(bases)}`,
-      '    Rarity Normal Magic Rare',
-      '    Corrupted False',
-      '    SetBorderColor 0 180 255',
-      '    SetFontSize 40',
-      '    MinimapIcon 1 Cyan Diamond',
-      '    PlayEffect Cyan',
-    ].join('\n') + '\n\n'
+  const lines = [
+    '# SSF base highlight (generated)',
+    'Show',
+    `    BaseType == ${quote(bases)}`,
+    '    Rarity Normal Magic Rare',
+    '    Corrupted False',
+  ]
+  if (minIlvl != null) lines.push(`    ItemLevel >= ${minIlvl}`)
+  if (maxIlvl != null) lines.push(`    ItemLevel <= ${maxIlvl}`)
+  lines.push(
+    '    SetBorderColor 0 180 255',
+    '    SetFontSize 40',
+    '    MinimapIcon 1 Cyan Diamond',
+    '    PlayEffect Cyan',
   )
+  return lines.join('\n') + '\n\n'
 }
 
 /**
@@ -40,7 +49,11 @@ function highlightBlock(bases: string[]): string {
  * @param hideBases fully-collected unique bases to hide
  * @param highlightBases specific base items to highlight (Normal/Magic/Rare)
  */
-export function buildBlocks(showBases: string[], hideBases: string[], highlightBases: string[] = []): string {
+export function buildBlocks(
+  showBases: string[],
+  hideBases: string[],
+  highlight: HighlightOpts = { bases: [] },
+): string {
   const show = block(
     'SSF still-needed uniques (generated)',
     'Show',
@@ -48,8 +61,7 @@ export function buildBlocks(showBases: string[], hideBases: string[], highlightB
     'SetBorderColor 255 200 0',
   )
   const hide = block('SSF collected-base hide (generated)', 'Hide', hideBases)
-  const highlight = highlightBlock(highlightBases)
-  return `${BEGIN}\n\n${highlight}${show}${hide}${END}\n\n`
+  return `${BEGIN}\n\n${highlightBlock(highlight)}${show}${hide}${END}\n\n`
 }
 
 /** Remove a previously generated region so re-applying stays idempotent. */
@@ -65,7 +77,7 @@ export function buildFilter(
   showBases: string[],
   hideBases: string[],
   baseFilterText: string,
-  highlightBases: string[] = [],
+  highlight: HighlightOpts = { bases: [] },
 ): string {
-  return buildBlocks(showBases, hideBases, highlightBases) + stripGenerated(baseFilterText)
+  return buildBlocks(showBases, hideBases, highlight) + stripGenerated(baseFilterText)
 }

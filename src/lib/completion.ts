@@ -1,4 +1,4 @@
-import type { CompletionOptions, Unique } from './types'
+import { TOP_TIERS, type CompletionOptions, type Unique } from './types'
 
 export interface BaseStatus {
   baseItem: string
@@ -45,6 +45,15 @@ export const completedBases = (bases: BaseStatus[]) =>
 
 export const incompleteBases = (bases: BaseStatus[]) =>
   bases.filter((b) => !b.complete).map((b) => b.baseItem)
+
+/**
+ * Completed bases to actually hide. When `protectTop`, bases that can drop a
+ * top-tier (T0–T2) unique are kept visible even if fully collected.
+ */
+export const hideableBases = (bases: BaseStatus[], protectTop: boolean) =>
+  bases
+    .filter((b) => b.complete && (!protectTop || !b.uniques.some((u) => TOP_TIERS.has(u.tier))))
+    .map((b) => b.baseItem)
 
 /** Distinct grouping / category values present, for building UI toggles. */
 export function facets(uniques: Unique[]) {

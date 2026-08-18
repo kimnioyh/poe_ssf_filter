@@ -33,6 +33,10 @@ export const en = {
   baseHighlight: 'Highlight base items',
   baseHighlightHelp: 'Search base types to highlight (Normal/Magic/Rare, non-corrupted).',
   searchPlaceholder: 'Search base type…',
+  minIlvl: 'Min item level',
+  maxIlvl: 'Max item level',
+  protectTop: 'Never hide T0–T2 bases',
+  protectTopHelp: 'Keep bases that can drop a top-tier (T0–T2) unique visible even when fully collected.',
 } as const
 
 export type MessageKey = keyof typeof en
