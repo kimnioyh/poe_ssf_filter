@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.14.0',
+    ko: 'Vercel Web Analytics 방문 통계 연동.',
+    en: 'Vercel Web Analytics for visitor stats.',
+  },
+  {
     version: 'v0.13.0',
     ko: '헤더에 건의하기 버튼(구글폼 링크) 추가.',
     en: 'Feedback button (Google Form link) in the header.',
