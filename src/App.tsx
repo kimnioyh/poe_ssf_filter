@@ -3,7 +3,7 @@ import { useI18n } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import { computeBases, completedBases, incompleteBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
-import { localizeBase } from './lib/nameMap'
+import { localizeBase, localizeUnique } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
 import { PRESETS, fetchPreset, type PresetId } from './lib/neversink'
 
@@ -145,7 +145,19 @@ export function App() {
               <ul>
                 {bases.filter((b) => !b.complete).map((b) => (
                   <li key={b.baseItem}>
-                    {localizeBase(b.baseItem, locale)} <em>{t('ownedOf', { owned: b.owned, total: b.total })}</em>
+                    <details>
+                      <summary>
+                        {localizeBase(b.baseItem, locale)}{' '}
+                        <em>{t('ownedOf', { owned: b.owned, total: b.total })}</em>
+                      </summary>
+                      <ul className="need-detail">
+                        {b.uniques
+                          .filter((un) => !un.owned)
+                          .map((un) => (
+                            <li key={un.name}>{localizeUnique(un.name, locale)}</li>
+                          ))}
+                      </ul>
+                    </details>
                   </li>
                 ))}
               </ul>

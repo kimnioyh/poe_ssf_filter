@@ -36,6 +36,9 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 .lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .lists ul { max-height: 260px; overflow: auto; margin: 0; padding-left: 18px; }
 .lists em { color: #89a; font-style: normal; font-size: 0.85em; }
+.lists summary { cursor: pointer; }
+.need-detail { max-height: none; padding-left: 16px; margin: 2px 0 6px; }
+.need-detail li { color: #d9b36c; list-style: circle; }
 
 .preview {
   background: #0e0f13; border: 1px solid #2a2c34; border-radius: 6px;
