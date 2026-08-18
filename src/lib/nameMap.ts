@@ -1,5 +1,5 @@
 import type { Locale } from '../i18n'
-import { koBaseNames, koUniqueNames } from '../data/ko-names'
+import { koBaseNames, koUniqueNames, koCategories } from '../data/ko-names'
 import uniqueImages from '../data/unique-images.json'
 
 // Display-only localization. Falls back to the English canonical name when a
@@ -9,6 +9,9 @@ export const localizeBase = (en: string, locale: Locale) =>
 
 export const localizeUnique = (en: string, locale: Locale) =>
   locale === 'ko' ? koUniqueNames[en] ?? en : en
+
+export const localizeCategory = (en: string, locale: Locale) =>
+  locale === 'ko' ? koCategories[en] ?? en : en
 
 // Item art path (served from public/). undefined when not scraped.
 export const uniqueImage = (en: string): string | undefined =>

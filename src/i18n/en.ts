@@ -25,6 +25,8 @@ export const en = {
   needCsv: 'Upload a CSV to begin.',
   base: 'Base',
   status: 'Status',
+  ownedByCategory: 'Owned uniques by category',
+  noOwned: 'No owned uniques in this CSV.',
 } as const
 
 export type MessageKey = keyof typeof en

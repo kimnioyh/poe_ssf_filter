@@ -48,6 +48,28 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 .need-detail .disamb { color: #7f8fa0; font-size: 0.82em; }
 .need-detail .disamb::before { content: '· '; }
 
+.curation { margin: 4px 0 14px; }
+.curation > summary { cursor: pointer; padding: 3px 0; font-weight: 600; }
+.curation em { color: #89a; font-style: normal; font-size: 0.85em; font-weight: 400; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin: 10px 0 4px;
+}
+.card {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  background: #191b21; border: 1px solid #2f3038; border-radius: 8px;
+  padding: 10px 6px; text-align: center; min-width: 0;
+}
+.card-art { height: 48px; display: flex; align-items: center; }
+.card-art img { max-width: 56px; max-height: 48px; object-fit: contain; }
+.card-name { font-size: 0.8rem; line-height: 1.25; color: #cf9b52; word-break: keep-all; }
+.card-disamb { font-size: 0.7rem; color: #7f8fa0; }
+@media (max-width: 640px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 400px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+
 .preview {
   background: #0e0f13; border: 1px solid #2a2c34; border-radius: 6px;
   padding: 12px; max-height: 220px; overflow: auto; white-space: pre; font-size: 12px;

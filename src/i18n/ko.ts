@@ -27,4 +27,6 @@ export const ko: Record<MessageKey, string> = {
   needCsv: 'CSV를 업로드하면 시작합니다.',
   base: '베이스',
   status: '상태',
+  ownedByCategory: '보유 유니크 (카테고리별)',
+  noOwned: '이 CSV에 보유 중인 유니크가 없어요.',
 }

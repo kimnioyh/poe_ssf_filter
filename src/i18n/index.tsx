@@ -14,7 +14,7 @@ interface Ctx {
 const LocaleContext = createContext<Ctx | null>(null)
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>('en')
+  const [locale, setLocale] = useState<Locale>('ko')
   const t = (key: MessageKey, vars?: Record<string, string | number>) => {
     let s = dicts[locale][key] ?? en[key]
     if (vars) for (const [k, v] of Object.entries(vars)) s = s.replace(`{${k}}`, String(v))

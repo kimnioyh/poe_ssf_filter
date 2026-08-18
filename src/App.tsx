@@ -1,12 +1,38 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useI18n } from './i18n'
+import { useI18n, type Locale } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import sampleCsv from '../sample-uniques.csv?raw'
 import { computeBases, completedBases, incompleteBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
-import { localizeBase, localizeUnique, uniqueImage } from './lib/nameMap'
+import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
 import { PRESETS, fetchPreset, type PresetId } from './lib/neversink'
+
+/** One unique row: icon + localized name + disambiguation label. */
+function UniqueItem({ u, locale }: { u: Unique; locale: Locale }) {
+  const img = uniqueImage(u.name)
+  return (
+    <li>
+      {img && <img src={`${import.meta.env.BASE_URL}${img}`} alt="" loading="lazy" />}
+      {localizeUnique(u.name, locale)}
+      {u.disambiguation && <span className="disamb">{u.disambiguation}</span>}
+    </li>
+  )
+}
+
+/** PoE-ladder-style item card: art on top, name + disambiguation below. */
+function UniqueCard({ u, locale }: { u: Unique; locale: Locale }) {
+  const img = uniqueImage(u.name)
+  return (
+    <div className="card">
+      <div className="card-art">
+        {img && <img src={`${import.meta.env.BASE_URL}${img}`} alt="" loading="lazy" />}
+      </div>
+      <div className="card-name">{localizeUnique(u.name, locale)}</div>
+      {u.disambiguation && <div className="card-disamb">{u.disambiguation}</div>}
+    </div>
+  )
+}
 
 function download(name: string, text: string) {
   const url = URL.createObjectURL(new Blob([text], { type: 'text/plain' }))
@@ -39,6 +65,18 @@ export function App() {
   )
   const done = completedBases(bases)
   const need = incompleteBases(bases)
+
+  // Owned uniques grouped by category (curation view; independent of filter options).
+  const ownedByCat = useMemo(() => {
+    const m = new Map<string, Unique[]>()
+    for (const u of uniques ?? []) {
+      if (!u.owned) continue
+      const arr = m.get(u.category)
+      if (arr) arr.push(u)
+      else m.set(u.category, [u])
+    }
+    return [...m.entries()].sort((a, b) => a[0].localeCompare(b[0]))
+  }, [uniques])
 
   function applyUniques(parsed: Unique[], sample: boolean) {
     setUniques(parsed)
@@ -141,7 +179,7 @@ export function App() {
               {categories.map((c) => (
                 <label key={c}>
                   <input type="checkbox" checked={exclude.has(c)} onChange={() => toggle(exclude, c, setExclude)} />
-                  {localizeBase(c, locale)}
+                  {localizeCategory(c, locale)}
                 </label>
               ))}
             </fieldset>
@@ -165,30 +203,35 @@ export function App() {
                       <ul className="need-detail">
                         {b.uniques
                           .filter((un) => !un.owned)
-                          .map((un, i) => {
-                            // same-name variants (Grand Spectrum, Impresence, …) are
-                            // distinct collectibles — show each with its disambiguation.
-                            const img = uniqueImage(un.name)
-                            return (
-                              <li key={`${un.name}|${un.disambiguation}|${i}`}>
-                                {img && (
-                                  <img
-                                    src={`${import.meta.env.BASE_URL}${img}`}
-                                    alt=""
-                                    loading="lazy"
-                                  />
-                                )}
-                                {localizeUnique(un.name, locale)}
-                                {un.disambiguation && <span className="disamb">{un.disambiguation}</span>}
-                              </li>
-                            )
-                          })}
+                          .map((un, i) => (
+                            <UniqueItem key={`${un.name}|${un.disambiguation}|${i}`} u={un} locale={locale} />
+                          ))}
                       </ul>
                     </details>
                   </li>
                 ))}
               </ul>
             </div>
+          </section>
+
+          <section>
+            <h2>{t('ownedByCategory')}</h2>
+            {ownedByCat.length === 0 ? (
+              <p className="hint">{t('noOwned')}</p>
+            ) : (
+              ownedByCat.map(([cat, list]) => (
+                <details key={cat} className="curation" open>
+                  <summary>
+                    {localizeCategory(cat, locale)} <em>({list.length})</em>
+                  </summary>
+                  <div className="card-grid">
+                    {list.map((u, i) => (
+                      <UniqueCard key={`${u.name}|${u.disambiguation}|${i}`} u={u} locale={locale} />
+                    ))}
+                  </div>
+                </details>
+              ))
+            )}
           </section>
 
           <section>
