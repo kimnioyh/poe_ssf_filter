@@ -1,7 +1,7 @@
 import assert from 'node:assert'
 import type { Unique } from './types'
 import { computeBases, completedBases, incompleteBases } from './completion'
-import { buildBlocks } from './buildFilter'
+import { buildBlocks, buildFilter } from './buildFilter'
 
 const u = (name: string, baseItem: string, grouping: string, owned: boolean, category = 'Amulet'): Unique => ({
   name, baseItem, category, grouping, owned,
@@ -49,5 +49,13 @@ assert.match(blocks, /Rarity Unique/)
 // category exclusion drops the base entirely.
 const optsExcl = { includeGroupings: opts.includeGroupings, excludeCategories: new Set(['Amulet']) }
 assert.equal(computeBases(data, optsExcl).length, 0, 'excluded category -> no bases')
+
+// Idempotency: re-applying to an already-modified filter must not stack blocks.
+const nsFilter = 'Show # existing rule\n    Rarity Rare\n'
+const once = buildFilter(bases, nsFilter)
+const twice = buildFilter(bases, once)
+assert.equal(once, twice, 're-applying buildFilter must be idempotent')
+assert.equal(once.match(/POE-SSF-FILTER GENERATED \(do not edit/g)?.length, 1, 'exactly one generated region')
+assert.ok(once.endsWith(nsFilter), 'original filter text preserved at the end')
 
 console.log('completion.test.ts: all assertions passed')
