@@ -3,7 +3,7 @@ import { useI18n } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import { computeBases, completedBases, incompleteBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
-import { localizeBase, localizeUnique } from './lib/nameMap'
+import { localizeBase, localizeUnique, uniqueImage } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
 import { PRESETS, fetchPreset, type PresetId } from './lib/neversink'
 
@@ -153,9 +153,21 @@ export function App() {
                       <ul className="need-detail">
                         {b.uniques
                           .filter((un) => !un.owned)
-                          .map((un) => (
-                            <li key={un.name}>{localizeUnique(un.name, locale)}</li>
-                          ))}
+                          .map((un) => {
+                            const img = uniqueImage(un.name)
+                            return (
+                              <li key={un.name}>
+                                {img && (
+                                  <img
+                                    src={`${import.meta.env.BASE_URL}${img}`}
+                                    alt=""
+                                    loading="lazy"
+                                  />
+                                )}
+                                {localizeUnique(un.name, locale)}
+                              </li>
+                            )
+                          })}
                       </ul>
                     </details>
                   </li>
