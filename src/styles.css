@@ -1,0 +1,44 @@
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font: 15px/1.5 system-ui, sans-serif;
+  background: #14151a;
+  color: #e6e6e6;
+}
+main { max-width: 900px; margin: 0 auto; padding: 24px; }
+header { position: relative; }
+h1 { margin: 0; font-size: 1.6rem; }
+.tagline { color: #9aa; margin: 4px 0 16px; }
+.locale { position: absolute; top: 0; right: 0; }
+.locale button { margin-left: 4px; }
+.locale button.on { background: #3a5; color: #fff; }
+
+section { border: 1px solid #2a2c34; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+h2 { margin: 0 0 12px; font-size: 1.1rem; }
+h3 { font-size: 1rem; }
+
+button, select, .filebtn {
+  background: #23252e; color: #e6e6e6; border: 1px solid #3a3d48;
+  border-radius: 6px; padding: 6px 12px; cursor: pointer;
+}
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+.filebtn { display: inline-block; }
+.or { margin: 0 8px; color: #9aa; }
+
+fieldset { border: 1px solid #2a2c34; border-radius: 6px; margin: 8px 0; }
+fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap; }
+
+.ok { color: #6c9; margin-left: 8px; }
+.err { color: #e77; margin-left: 8px; }
+.hint { color: #c93; margin-left: 8px; }
+
+.lists { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.lists ul { max-height: 260px; overflow: auto; margin: 0; padding-left: 18px; }
+.lists em { color: #89a; font-style: normal; font-size: 0.85em; }
+
+.preview {
+  background: #0e0f13; border: 1px solid #2a2c34; border-radius: 6px;
+  padding: 12px; max-height: 220px; overflow: auto; white-space: pre; font-size: 12px;
+}
+@media (max-width: 640px) { .lists { grid-template-columns: 1fr; } }

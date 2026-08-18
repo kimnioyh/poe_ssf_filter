@@ -1,0 +1,28 @@
+export const en = {
+  title: 'PoE SSF Filter Customizer',
+  tagline: 'Hide bases you fully collected, force-show ones you still need.',
+  step1: '1. Upload collection CSV',
+  step2: '2. Choose NeverSink filter',
+  step3: '3. Options',
+  step4: '4. Preview & download',
+  dropCsv: 'Drop or select your uniques CSV',
+  uploaded: 'Loaded {n} uniques',
+  ownedOf: '{owned} / {total} owned',
+  uploadFilter: 'Upload .filter',
+  orPreset: 'or fetch a NeverSink preset',
+  fetch: 'Fetch',
+  fetching: 'Fetching…',
+  filterLoaded: 'Filter loaded ({n} chars)',
+  droppableGroupings: 'Droppable groupings',
+  excludeCategories: 'Exclude categories',
+  completeBases: 'Completed bases (Hide)',
+  incompleteBases: 'Still-needed bases (Show)',
+  download: 'Download modified filter',
+  downloadBlocks: 'Download generated blocks only',
+  noFilter: 'Load a filter first (upload or preset).',
+  needCsv: 'Upload a CSV to begin.',
+  base: 'Base',
+  status: 'Status',
+} as const
+
+export type MessageKey = keyof typeof en

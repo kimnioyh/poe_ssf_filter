@@ -1,0 +1,28 @@
+import type { MessageKey } from './en'
+
+export const ko: Record<MessageKey, string> = {
+  title: 'PoE SSF 필터 커스터마이저',
+  tagline: '다 모은 베이스는 숨기고, 아직 필요한 베이스는 강제로 보이게.',
+  step1: '1. 수집 현황 CSV 업로드',
+  step2: '2. 네버싱크 필터 선택',
+  step3: '3. 옵션',
+  step4: '4. 미리보기 & 다운로드',
+  dropCsv: '유니크 CSV를 놓거나 선택',
+  uploaded: '유니크 {n}개 로드됨',
+  ownedOf: '{owned} / {total} 보유',
+  uploadFilter: '.filter 업로드',
+  orPreset: '또는 네버싱크 프리셋 받기',
+  fetch: '받기',
+  fetching: '받는 중…',
+  filterLoaded: '필터 로드됨 ({n}자)',
+  droppableGroupings: '드랍 가능 유형',
+  excludeCategories: '제외할 카테고리',
+  completeBases: '완료 베이스 (숨김)',
+  incompleteBases: '필요한 베이스 (표시)',
+  download: '수정된 필터 다운로드',
+  downloadBlocks: '생성된 블록만 다운로드',
+  noFilter: '먼저 필터를 불러오세요 (업로드 또는 프리셋).',
+  needCsv: 'CSV를 업로드하면 시작합니다.',
+  base: '베이스',
+  status: '상태',
+}
