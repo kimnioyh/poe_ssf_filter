@@ -25,7 +25,7 @@ function UniqueItem({ u, locale }: { u: Unique; locale: Locale }) {
 function UniqueCard({ u, locale }: { u: Unique; locale: Locale }) {
   const img = uniqueImage(u.name)
   return (
-    <div className="card">
+    <div className={u.owned ? 'card' : 'card unowned'}>
       <div className="card-art">
         {img && <img src={`${import.meta.env.BASE_URL}${img}`} alt="" loading="lazy" />}
       </div>
@@ -54,6 +54,7 @@ export function App() {
   const [fetching, setFetching] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isSample, setIsSample] = useState(false)
+  const [view, setView] = useState<'filter' | 'collection'>('filter')
 
   const { groupings, categories } = useMemo(
     () => (uniques ? facets(uniques) : { groupings: [], categories: [] }),
@@ -113,17 +114,18 @@ export function App() {
   }
   const removeBase = (en: string) => setHighlightBases((p) => p.filter((b) => b !== en))
 
-  // Owned uniques grouped by category (curation view; independent of filter options).
-  const ownedByCat = useMemo(() => {
+  // Curation view: uniques grouped by category. 'owned' = only owned, 'all' = all.
+  const [collFilter, setCollFilter] = useState<'owned' | 'all'>('owned')
+  const byCat = useMemo(() => {
     const m = new Map<string, Unique[]>()
     for (const u of uniques ?? []) {
-      if (!u.owned) continue
+      if (collFilter === 'owned' && !u.owned) continue
       const arr = m.get(u.category)
       if (arr) arr.push(u)
       else m.set(u.category, [u])
     }
     return [...m.entries()].sort((a, b) => a[0].localeCompare(b[0]))
-  }, [uniques])
+  }, [uniques, collFilter])
 
   function applyUniques(parsed: Unique[], sample: boolean) {
     setUniques(parsed)
@@ -175,6 +177,17 @@ export function App() {
 
       {isSample && <div className="notice">{t('sampleNotice')}</div>}
 
+      <nav className="tabs">
+        <button className={view === 'filter' ? 'on' : ''} onClick={() => setView('filter')}>
+          {t('tabFilter')}
+        </button>
+        <button className={view === 'collection' ? 'on' : ''} onClick={() => setView('collection')}>
+          {t('tabCollection')}
+        </button>
+      </nav>
+
+      {view === 'filter' && (
+      <>
       <section>
         <h2>{t('step1')}</h2>
         <p className="hint">{t('csvHint')}</p>
@@ -262,26 +275,6 @@ export function App() {
           </section>
 
           <section>
-            <h2>{t('ownedByCategory')}</h2>
-            {ownedByCat.length === 0 ? (
-              <p className="hint">{t('noOwned')}</p>
-            ) : (
-              ownedByCat.map(([cat, list]) => (
-                <details key={cat} className="curation" open>
-                  <summary>
-                    {localizeCategory(cat, locale)} <em>({list.length})</em>
-                  </summary>
-                  <div className="card-grid">
-                    {list.map((u, i) => (
-                      <UniqueCard key={`${u.name}|${u.disambiguation}|${i}`} u={u} locale={locale} />
-                    ))}
-                  </div>
-                </details>
-              ))
-            )}
-          </section>
-
-          <section>
             <h2>{t('baseHighlight')}</h2>
             <p className="hint">{t('baseHighlightHelp')}</p>
             <input
@@ -355,6 +348,36 @@ export function App() {
             <pre className="preview">{buildBlocks(showBases, hideBases, highlight)}</pre>
           </section>
         </>
+      )}
+      </>
+      )}
+
+      {view === 'collection' && uniques && (
+        <section>
+          <div className="coll-head">
+            <h2>{t('ownedByCategory')}</h2>
+            <select value={collFilter} onChange={(e) => setCollFilter(e.target.value as 'owned' | 'all')}>
+              <option value="owned">{t('collOwned')}</option>
+              <option value="all">{t('collAll')}</option>
+            </select>
+          </div>
+          {byCat.length === 0 ? (
+            <p className="hint">{t('noOwned')}</p>
+          ) : (
+            byCat.map(([cat, list]) => (
+              <details key={cat} className="curation" open>
+                <summary>
+                  {localizeCategory(cat, locale)} <em>({list.length})</em>
+                </summary>
+                <div className="card-grid">
+                  {list.map((u, i) => (
+                    <UniqueCard key={`${u.name}|${u.disambiguation}|${i}`} u={u} locale={locale} />
+                  ))}
+                </div>
+              </details>
+            ))
+          )}
+        </section>
       )}
     </main>
   )
