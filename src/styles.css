@@ -19,6 +19,17 @@ h1 { margin: 0; font-size: 1.6rem; }
   border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 0.92rem;
 }
 
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center; padding: 20px; z-index: 10; }
+.modal { background: #191b21; border: 1px solid #2f3038; border-radius: 10px;
+  padding: 18px 20px; max-width: 520px; width: 100%; max-height: 80vh; overflow: auto; }
+.modal-head { display: flex; align-items: center; justify-content: space-between; }
+.modal-head h2 { margin: 0; }
+.modal-head button { background: none; border: none; color: #9aa; font-size: 1.1rem; padding: 4px 8px; }
+.changelog { list-style: none; padding: 0; margin: 12px 0 0; }
+.changelog li { padding: 6px 0; border-bottom: 1px solid #23252e; font-size: 0.92rem; }
+.changelog strong { color: #6c9; }
+
 .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid #2a2c34; }
 .tabs button { background: none; border: none; border-bottom: 2px solid transparent;
   border-radius: 0; padding: 10px 16px; color: #9aa; font-size: 1rem; }
@@ -58,6 +69,14 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 .ilvl label { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9em; }
 .ilvl input { width: 70px; background: #23252e; color: #e6e6e6;
   border: 1px solid #3a3d48; border-radius: 6px; padding: 5px 8px; }
+
+.preset-btn { margin-bottom: 10px; }
+.cur-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 4px 16px; }
+.cur-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; }
+.cur-name { flex: 1; min-width: 0; }
+.cur-th { width: 64px; background: #23252e; color: #e6e6e6;
+  border: 1px solid #3a3d48; border-radius: 6px; padding: 4px 6px; }
+.cur-th:disabled { opacity: 0.35; }
 
 .ok { color: #6c9; margin-left: 8px; }
 .err { color: #e77; margin-left: 8px; }

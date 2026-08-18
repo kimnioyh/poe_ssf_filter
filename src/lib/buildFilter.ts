@@ -3,6 +3,35 @@ const END = '# <<< POE-SSF-FILTER GENERATED <<<'
 
 const quote = (bases: string[]) => bases.map((b) => `"${b}"`).join(' ')
 
+export interface CurrencyHide {
+  base: string
+  /** hide when StackSize <= maxStack; undefined = hide entirely. */
+  maxStack?: number
+}
+
+/** One Hide block per distinct stack threshold (entire-hide grouped together). */
+function currencyBlocks(hides: CurrencyHide[]): string {
+  if (hides.length === 0) return ''
+  const byThreshold = new Map<number | undefined, string[]>()
+  for (const h of hides) {
+    const arr = byThreshold.get(h.maxStack)
+    if (arr) arr.push(h.base)
+    else byThreshold.set(h.maxStack, [h.base])
+  }
+  let out = ''
+  for (const [th, bases] of byThreshold) {
+    const lines = [
+      `# SSF currency hide (generated)${th != null ? ` — StackSize <= ${th}` : ''}`,
+      'Hide',
+      '    Class == "Stackable Currency"',
+      `    BaseType == ${quote(bases)}`,
+    ]
+    if (th != null) lines.push(`    StackSize <= ${th}`)
+    out += lines.join('\n') + '\n\n'
+  }
+  return out
+}
+
 /** BaseType is ALWAYS English (game filter matches internal English names). */
 function block(comment: string, verb: 'Show' | 'Hide', bases: string[], extra = ''): string {
   if (bases.length === 0) return ''
@@ -53,6 +82,7 @@ export function buildBlocks(
   showBases: string[],
   hideBases: string[],
   highlight: HighlightOpts = { bases: [] },
+  currencyHides: CurrencyHide[] = [],
 ): string {
   const show = block(
     'SSF still-needed uniques (generated)',
@@ -61,7 +91,7 @@ export function buildBlocks(
     'SetBorderColor 255 200 0',
   )
   const hide = block('SSF collected-base hide (generated)', 'Hide', hideBases)
-  return `${BEGIN}\n\n${highlightBlock(highlight)}${show}${hide}${END}\n\n`
+  return `${BEGIN}\n\n${currencyBlocks(currencyHides)}${highlightBlock(highlight)}${show}${hide}${END}\n\n`
 }
 
 /** Remove a previously generated region so re-applying stays idempotent. */
@@ -78,6 +108,7 @@ export function buildFilter(
   hideBases: string[],
   baseFilterText: string,
   highlight: HighlightOpts = { bases: [] },
+  currencyHides: CurrencyHide[] = [],
 ): string {
-  return buildBlocks(showBases, hideBases, highlight) + stripGenerated(baseFilterText)
+  return buildBlocks(showBases, hideBases, highlight, currencyHides) + stripGenerated(baseFilterText)
 }

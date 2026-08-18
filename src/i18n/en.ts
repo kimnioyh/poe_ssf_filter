@@ -37,10 +37,15 @@ export const en = {
   searchPlaceholder: 'Search base type…',
   minIlvl: 'Min item level',
   maxIlvl: 'Max item level',
+  changelog: "What's new",
   tabFilter: 'Filter',
   tabCollection: 'Collection',
   protectTop: 'Never hide T0–T2 bases',
   protectTopHelp: 'Keep bases that can drop a top-tier (T0–T2) unique visible even when fully collected.',
+  currencyHide: 'Hide currency',
+  currencyHideHelp: 'Pick currencies to hide. Set a number to hide only stacks of that size or fewer (StackSize ≤ N); leave blank to hide all.',
+  selectJunk: 'Select junk currency',
+  stackAll: 'all',
 } as const
 
 export type MessageKey = keyof typeof en

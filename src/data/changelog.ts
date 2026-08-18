@@ -1,0 +1,63 @@
+// Shown in the in-app changelog modal. Newest first.
+export const CHANGELOG: { version: string; ko: string; en: string }[] = [
+  {
+    version: 'v0.12.0',
+    ko: '화폐별 숨기기(스택 N개 이하/통으로)와 잡화폐 일괄 선택, 상단 업데이트 내역 버튼.',
+    en: 'Per-currency hiding (StackSize ≤ N / all) with junk preset; in-app changelog button.',
+  },
+  {
+    version: 'v0.11.0',
+    ko: '필터/컬렉션 탭 분리, 컬렉션 모두/보유만 드롭다운(미보유 회색).',
+    en: 'Filter/Collection tabs; owned/all dropdown (unowned grayed).',
+  },
+  {
+    version: 'v0.10.0',
+    ko: '베이스 강조 아이템 레벨 조건, T0~T2 베이스 항상 표시 토글.',
+    en: 'Item-level bounds for base highlight; never-hide T0–T2 toggle.',
+  },
+  {
+    version: 'v0.9.0',
+    ko: '베이스 아이템 검색 강조 (노말/매직/레어, 타락 제외).',
+    en: 'Search-and-highlight base items (Normal/Magic/Rare, non-corrupted).',
+  },
+  {
+    version: 'v0.8.0',
+    ko: '네버싱크가 숨기는 유니크만 강조 옵션.',
+    en: 'Emphasize only uniques NeverSink hides.',
+  },
+  {
+    version: 'v0.7.0',
+    ko: '기본 한국어, 보유 유니크 카테고리별 카드 큐레이션.',
+    en: 'Korean default; owned uniques as category card grid.',
+  },
+  {
+    version: 'v0.6.0',
+    ko: '기본 샘플 자동 로드+가이드 배너, 동명 유니크 변종 표시.',
+    en: 'Auto-load sample + guide banner; same-name variant display.',
+  },
+  {
+    version: 'v0.5.0',
+    ko: '드릴다운에 유니크 아이콘·한글명.',
+    en: 'Unique icons + KO names in drilldown.',
+  },
+  {
+    version: 'v0.4.0',
+    ko: '유니크 한글 이름·아이템 이미지 수집.',
+    en: 'Scraped KO unique names + item images.',
+  },
+  {
+    version: 'v0.3.0',
+    ko: '베이스타입 한글 표시.',
+    en: 'Korean base type names.',
+  },
+  {
+    version: 'v0.2.0',
+    ko: '재적용 멱등성, 미완료 베이스 드릴다운.',
+    en: 'Idempotent re-apply; incomplete-base drilldown.',
+  },
+  {
+    version: 'v0.1.0',
+    ko: '초기 구현: CSV → 완료 베이스 → 네버싱크 필터 Show/Hide.',
+    en: 'Initial: CSV → completed bases → NeverSink Show/Hide blocks.',
+  },
+]

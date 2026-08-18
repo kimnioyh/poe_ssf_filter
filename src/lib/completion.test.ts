@@ -65,6 +65,16 @@ assert.match(withHl, /Rarity Normal Magic Rare/, 'highlight targets non-unique r
 assert.match(withHl, /Corrupted False/, 'highlight excludes corrupted')
 assert.doesNotMatch(buildBlocks(need, done), /Corrupted False/, 'no highlight block when none selected')
 
+// currency hide: grouped by stack threshold; StackSize only when set.
+const cur = buildBlocks(need, done, { bases: [] }, [
+  { base: 'Scroll of Wisdom' },
+  { base: 'Portal Scroll' },
+  { base: 'Orb of Alteration', maxStack: 5 },
+])
+assert.match(cur, /Class == "Stackable Currency"[\s\S]*BaseType == "Scroll of Wisdom" "Portal Scroll"/, 'hide-all group')
+assert.match(cur, /BaseType == "Orb of Alteration"\n\s*StackSize <= 5/, 'threshold group has StackSize')
+assert.doesNotMatch(buildBlocks(need, done), /Stackable Currency/, 'no currency block when none selected')
+
 // ilvl bounds only appear when set.
 const withIlvl = buildBlocks(need, done, { bases: ['Vaal Regalia'], minIlvl: 84 })
 assert.match(withIlvl, /ItemLevel >= 84/, 'min ilvl added')

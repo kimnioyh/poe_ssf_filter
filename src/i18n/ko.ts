@@ -39,8 +39,13 @@ export const ko: Record<MessageKey, string> = {
   searchPlaceholder: '베이스 검색…',
   minIlvl: '최소 아이템 레벨',
   maxIlvl: '최대 아이템 레벨',
+  changelog: '업데이트 내역',
   tabFilter: '필터 생성',
   tabCollection: '보유 유니크',
   protectTop: 'T0~T2 베이스는 항상 표시',
   protectTopHelp: 'T0~T2 유니크가 나올 수 있는 베이스는 다 모았어도 숨기지 않아요.',
+  currencyHide: '화폐 숨기기',
+  currencyHideHelp: '숨길 화폐를 고르세요. 숫자를 넣으면 그 개수 이하 스택만 숨김(StackSize ≤ N), 비우면 통으로 숨김.',
+  selectJunk: '잡화폐 일괄 선택',
+  stackAll: '전체',
 }

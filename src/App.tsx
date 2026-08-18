@@ -3,6 +3,8 @@ import { useI18n, type Locale } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import sampleCsv from '../sample-uniques.csv?raw'
 import baseTranslations from './data/base_translations.json'
+import { CHANGELOG } from './data/changelog'
+import { CURRENCIES, JUNK_CURRENCY } from './data/currencies'
 import { computeBases, completedBases, incompleteBases, hideableBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
@@ -55,6 +57,7 @@ export function App() {
   const [error, setError] = useState<string | null>(null)
   const [isSample, setIsSample] = useState(false)
   const [view, setView] = useState<'filter' | 'collection'>('filter')
+  const [showChangelog, setShowChangelog] = useState(false)
 
   const { groupings, categories } = useMemo(
     () => (uniques ? facets(uniques) : { groupings: [], categories: [] }),
@@ -83,8 +86,30 @@ export function App() {
   const [protectTop, setProtectTop] = useState(true)
   const hideBases = useMemo(() => hideableBases(bases, protectTop), [bases, protectTop])
 
+  // Per-currency hiding. Record key present = hide; value = stack threshold ('' = hide all).
+  const [currencyHide, setCurrencyHide] = useState<Record<string, string>>({})
+  const currencyHides = useMemo(
+    () =>
+      Object.entries(currencyHide).map(([base, th]) => ({
+        base,
+        maxStack: th.trim() === '' ? undefined : Number(th),
+      })),
+    [currencyHide],
+  )
+  const toggleCurrency = (en: string) =>
+    setCurrencyHide((p) => {
+      const n = { ...p }
+      if (en in n) delete n[en]
+      else n[en] = ''
+      return n
+    })
+  const setCurrencyThreshold = (en: string, v: string) => setCurrencyHide((p) => ({ ...p, [en]: v }))
+  const selectJunkCurrency = () =>
+    setCurrencyHide((p) => ({ ...p, ...Object.fromEntries(JUNK_CURRENCY.map((c) => [c, ''])) }))
+
   // Base-item highlight (non-unique). Searchable over EN/KO names.
   const [query, setQuery] = useState('')
+  const [searchOpen, setSearchOpen] = useState(false)
   const [highlightBases, setHighlightBases] = useState<string[]>([])
   const [minIlvl, setMinIlvl] = useState('')
   const [maxIlvl, setMaxIlvl] = useState('')
@@ -111,6 +136,7 @@ export function App() {
   const addBase = (en: string) => {
     setHighlightBases((p) => (p.includes(en) ? p : [...p, en]))
     setQuery('')
+    setSearchOpen(false)
   }
   const removeBase = (en: string) => setHighlightBases((p) => p.filter((b) => b !== en))
 
@@ -170,10 +196,29 @@ export function App() {
         <h1>{t('title')}</h1>
         <p className="tagline">{t('tagline')}</p>
         <div className="locale">
+          <button onClick={() => setShowChangelog(true)}>{t('changelog')}</button>
           <button className={locale === 'en' ? 'on' : ''} onClick={() => setLocale('en')}>EN</button>
           <button className={locale === 'ko' ? 'on' : ''} onClick={() => setLocale('ko')}>한국어</button>
         </div>
       </header>
+
+      {showChangelog && (
+        <div className="modal-backdrop" onClick={() => setShowChangelog(false)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-head">
+              <h2>{t('changelog')}</h2>
+              <button onClick={() => setShowChangelog(false)}>✕</button>
+            </div>
+            <ul className="changelog">
+              {CHANGELOG.map((c) => (
+                <li key={c.version}>
+                  <strong>{c.version}</strong> — {locale === 'ko' ? c.ko : c.en}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
 
       {isSample && <div className="notice">{t('sampleNotice')}</div>}
 
@@ -280,10 +325,15 @@ export function App() {
             <input
               className="search"
               value={query}
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => {
+                setQuery(e.target.value)
+                setSearchOpen(true)
+              }}
+              onFocus={() => setSearchOpen(true)}
+              onBlur={() => setTimeout(() => setSearchOpen(false), 150)}
               placeholder={t('searchPlaceholder')}
             />
-            {matches.length > 0 && (
+            {searchOpen && matches.length > 0 && (
               <ul className="search-results">
                 {matches.map(([en, ko]) => (
                   <li key={en}>
@@ -316,6 +366,32 @@ export function App() {
           </section>
 
           <section>
+            <h2>{t('currencyHide')}</h2>
+            <p className="hint">{t('currencyHideHelp')}</p>
+            <button className="preset-btn" onClick={selectJunkCurrency}>{t('selectJunk')}</button>
+            <div className="cur-list">
+              {CURRENCIES.map((c) => {
+                const on = c.en in currencyHide
+                return (
+                  <label key={c.en} className="cur-row">
+                    <input type="checkbox" checked={on} onChange={() => toggleCurrency(c.en)} />
+                    <span className="cur-name">{locale === 'ko' ? c.ko : c.en}</span>
+                    <input
+                      type="number"
+                      className="cur-th"
+                      min={1}
+                      placeholder={t('stackAll')}
+                      value={currencyHide[c.en] ?? ''}
+                      disabled={!on}
+                      onChange={(e) => setCurrencyThreshold(c.en, e.target.value)}
+                    />
+                  </label>
+                )
+              })}
+            </div>
+          </section>
+
+          <section>
             <h2>{t('step4')}</h2>
             <label className="scope">
               <input type="checkbox" checked={scopeHidden} onChange={() => setScopeHidden((v) => !v)} />
@@ -336,16 +412,16 @@ export function App() {
               disabled={!filterText}
               onClick={() =>
                 filterText &&
-                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight))
+                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
-            <pre className="preview">{buildBlocks(showBases, hideBases, highlight)}</pre>
+            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides)}</pre>
           </section>
         </>
       )}
