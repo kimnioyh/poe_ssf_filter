@@ -39,6 +39,7 @@ export const ko: Record<MessageKey, string> = {
   searchPlaceholder: '베이스 검색…',
   minIlvl: '최소 아이템 레벨',
   maxIlvl: '최대 아이템 레벨',
+  feedback: '건의하기',
   changelog: '업데이트 내역',
   tabFilter: '필터 생성',
   tabCollection: '보유 유니크',

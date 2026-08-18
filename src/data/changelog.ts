@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.13.0',
+    ko: '헤더에 건의하기 버튼(구글폼 링크) 추가.',
+    en: 'Feedback button (Google Form link) in the header.',
+  },
+  {
     version: 'v0.12.0',
     ko: '화폐별 숨기기(스택 N개 이하/통으로)와 잡화폐 일괄 선택, 상단 업데이트 내역 버튼.',
     en: 'Per-currency hiding (StackSize ≤ N / all) with junk preset; in-app changelog button.',

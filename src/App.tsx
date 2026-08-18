@@ -5,6 +5,7 @@ import sampleCsv from '../sample-uniques.csv?raw'
 import baseTranslations from './data/base_translations.json'
 import { CHANGELOG } from './data/changelog'
 import { CURRENCIES, JUNK_CURRENCY } from './data/currencies'
+import { FEEDBACK_URL } from './data/config'
 import { computeBases, completedBases, incompleteBases, hideableBases, facets } from './lib/completion'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
@@ -196,6 +197,11 @@ export function App() {
         <h1>{t('title')}</h1>
         <p className="tagline">{t('tagline')}</p>
         <div className="locale">
+          {FEEDBACK_URL && (
+            <a className="feedback-link" href={FEEDBACK_URL} target="_blank" rel="noopener noreferrer">
+              {t('feedback')}
+            </a>
+          )}
           <button onClick={() => setShowChangelog(true)}>{t('changelog')}</button>
           <button className={locale === 'en' ? 'on' : ''} onClick={() => setLocale('en')}>EN</button>
           <button className={locale === 'ko' ? 'on' : ''} onClick={() => setLocale('ko')}>한국어</button>

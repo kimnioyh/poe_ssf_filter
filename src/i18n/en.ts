@@ -37,6 +37,7 @@ export const en = {
   searchPlaceholder: 'Search base type…',
   minIlvl: 'Min item level',
   maxIlvl: 'Max item level',
+  feedback: 'Feedback',
   changelog: "What's new",
   tabFilter: 'Filter',
   tabCollection: 'Collection',
