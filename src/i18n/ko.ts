@@ -19,6 +19,7 @@ export const ko: Record<MessageKey, string> = {
   filterLoaded: '필터 로드됨 ({n}자)',
   droppableGroupings: '드랍 가능 유형',
   excludeCategories: '제외할 카테고리',
+  excludeLeagues: '제외할 리그 (해당 유니크 무시)',
   completeBases: '완료 베이스 (숨김)',
   incompleteBases: '필요한 베이스 (표시)',
   download: '수정된 필터 다운로드',
@@ -52,4 +53,9 @@ export const ko: Record<MessageKey, string> = {
   currencyHideHelp: '숨길 화폐를 고르세요. 숫자를 넣으면 그 개수 이하 스택만 숨김(StackSize ≤ N), 비우면 통으로 숨김.',
   selectJunk: '잡화폐 일괄 선택',
   stackAll: '전체',
+  share: '공유',
+  shareCopied: '복사됨!',
+  finalLines: '최종 필터: 총 {n}줄',
+  collProgress: '{total}개 중 {owned}개 수집 ({pct}%)',
+  collSearchPlaceholder: '유니크 검색…',
 }

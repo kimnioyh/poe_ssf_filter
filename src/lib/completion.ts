@@ -18,6 +18,7 @@ export function computeBases(uniques: Unique[], opts: CompletionOptions): BaseSt
   const byBase = new Map<string, Unique[]>()
   for (const u of uniques) {
     if (opts.excludeCategories.has(u.category)) continue
+    if (u.league && opts.excludeLeagues.has(u.league)) continue
     if (!opts.includeGroupings.has(u.grouping)) continue
     const arr = byBase.get(u.baseItem)
     if (arr) arr.push(u)
@@ -55,16 +56,19 @@ export const hideableBases = (bases: BaseStatus[], protectTop: boolean) =>
     .filter((b) => b.complete && (!protectTop || !b.uniques.some((u) => TOP_TIERS.has(u.tier))))
     .map((b) => b.baseItem)
 
-/** Distinct grouping / category values present, for building UI toggles. */
+/** Distinct grouping / category / league values present, for building UI toggles. */
 export function facets(uniques: Unique[]) {
   const groupings = new Set<string>()
   const categories = new Set<string>()
+  const leagues = new Set<string>()
   for (const u of uniques) {
     if (u.grouping) groupings.add(u.grouping)
     if (u.category) categories.add(u.category)
+    if (u.league) leagues.add(u.league)
   }
   return {
     groupings: [...groupings].sort(),
     categories: [...categories].sort(),
+    leagues: [...leagues].sort(),
   }
 }

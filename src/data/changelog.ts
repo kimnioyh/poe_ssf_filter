@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.16.0',
+    ko: '설정 자동 저장(localStorage)·공유 링크, 수집 진행도·검색, 리그 제외, 최종 필터 줄 수 표시.',
+    en: 'Settings persistence + share link, collection progress & search, league exclude, final-filter line count.',
+  },
+  {
     version: 'v0.15.0',
     ko: '고유템 검색 강조 추가 — 그 베이스의 고유템만 표시(노말/매직/레어 제외), 베이스 강조와 별도 블록.',
     en: 'Highlight-uniques-by-base search — shows only uniques on that base, separate from base highlight.',

@@ -11,6 +11,10 @@ import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
 import { PRESETS, fetchPreset, parseHiddenUniqueBases, type PresetId } from './lib/neversink'
+import { loadSettings, saveSettings, shareUrl, type Settings } from './lib/settings'
+
+// Saved prefs (localStorage) or a shared #s= link. filterText/uniques excluded.
+const STORED = loadSettings()
 
 /** One unique row: icon + localized name + disambiguation label. */
 function UniqueItem({ u, locale }: { u: Unique; locale: Locale }) {
@@ -52,28 +56,32 @@ export function App() {
   const [uniques, setUniques] = useState<Unique[] | null>(null)
   const [include, setInclude] = useState<Set<string>>(new Set())
   const [exclude, setExclude] = useState<Set<string>>(new Set())
+  const [excludeLeagues, setExcludeLeagues] = useState<Set<string>>(new Set())
   const [filterText, setFilterText] = useState<string | null>(null)
-  const [preset, setPreset] = useState<PresetId>('1-REGULAR')
+  const [preset, setPreset] = useState<PresetId>((STORED?.preset as PresetId) ?? '1-REGULAR')
   const [fetching, setFetching] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isSample, setIsSample] = useState(false)
   const [view, setView] = useState<'filter' | 'collection'>('filter')
   const [showChangelog, setShowChangelog] = useState(false)
 
-  const { groupings, categories } = useMemo(
-    () => (uniques ? facets(uniques) : { groupings: [], categories: [] }),
+  const { groupings, categories, leagues } = useMemo(
+    () => (uniques ? facets(uniques) : { groupings: [], categories: [], leagues: [] }),
     [uniques],
   )
 
   const bases = useMemo(
-    () => (uniques ? computeBases(uniques, { includeGroupings: include, excludeCategories: exclude }) : []),
-    [uniques, include, exclude],
+    () =>
+      uniques
+        ? computeBases(uniques, { includeGroupings: include, excludeCategories: exclude, excludeLeagues })
+        : [],
+    [uniques, include, exclude, excludeLeagues],
   )
   const done = completedBases(bases)
   const need = incompleteBases(bases)
 
   // Scope emphasis to uniques NeverSink actually hides (reads filter, never edits it).
-  const [scopeHidden, setScopeHidden] = useState(true)
+  const [scopeHidden, setScopeHidden] = useState(STORED?.scopeHidden ?? true)
   const hidden = useMemo(
     () => (filterText ? parseHiddenUniqueBases(filterText) : null),
     [filterText],
@@ -84,11 +92,11 @@ export function App() {
   }, [need, scopeHidden, hidden])
 
   // Never hide bases that can drop a top-tier (T0–T2) unique.
-  const [protectTop, setProtectTop] = useState(true)
+  const [protectTop, setProtectTop] = useState(STORED?.protectTop ?? true)
   const hideBases = useMemo(() => hideableBases(bases, protectTop), [bases, protectTop])
 
   // Per-currency hiding. Record key present = hide; value = stack threshold ('' = hide all).
-  const [currencyHide, setCurrencyHide] = useState<Record<string, string>>({})
+  const [currencyHide, setCurrencyHide] = useState<Record<string, string>>(STORED?.currencyHide ?? {})
   const currencyHides = useMemo(
     () =>
       Object.entries(currencyHide).map(([base, th]) => ({
@@ -111,9 +119,9 @@ export function App() {
   // Base-item highlight (non-unique). Searchable over EN/KO names.
   const [query, setQuery] = useState('')
   const [searchOpen, setSearchOpen] = useState(false)
-  const [highlightBases, setHighlightBases] = useState<string[]>([])
-  const [minIlvl, setMinIlvl] = useState('')
-  const [maxIlvl, setMaxIlvl] = useState('')
+  const [highlightBases, setHighlightBases] = useState<string[]>(STORED?.highlightBases ?? [])
+  const [minIlvl, setMinIlvl] = useState(STORED?.minIlvl ?? '')
+  const [maxIlvl, setMaxIlvl] = useState(STORED?.maxIlvl ?? '')
   const highlight = useMemo(
     () => ({
       bases: highlightBases,
@@ -142,7 +150,7 @@ export function App() {
   const removeBase = (en: string) => setHighlightBases((p) => p.filter((b) => b !== en))
 
   // Highlight-by-unique (separate block, Rarity Unique only — no Normal/Magic/Rare).
-  const [uniqueBases, setUniqueBases] = useState<string[]>([])
+  const [uniqueBases, setUniqueBases] = useState<string[]>(STORED?.uniqueBases ?? [])
   const [uQuery, setUQuery] = useState('')
   const [uSearchOpen, setUSearchOpen] = useState(false)
   const uniqueMatches = useMemo(() => {
@@ -171,16 +179,24 @@ export function App() {
 
   // Curation view: uniques grouped by category. 'owned' = only owned, 'all' = all.
   const [collFilter, setCollFilter] = useState<'owned' | 'all'>('owned')
+  const [collQuery, setCollQuery] = useState('')
   const byCat = useMemo(() => {
+    const q = collQuery.trim().toLowerCase()
     const m = new Map<string, Unique[]>()
     for (const u of uniques ?? []) {
       if (collFilter === 'owned' && !u.owned) continue
+      if (q && !u.name.toLowerCase().includes(q) && !localizeUnique(u.name, 'ko').toLowerCase().includes(q)) continue
       const arr = m.get(u.category)
       if (arr) arr.push(u)
       else m.set(u.category, [u])
     }
     return [...m.entries()].sort((a, b) => a[0].localeCompare(b[0]))
-  }, [uniques, collFilter])
+  }, [uniques, collFilter, collQuery])
+  const collStats = useMemo(() => {
+    const total = uniques?.length ?? 0
+    const owned = uniques?.filter((u) => u.owned).length ?? 0
+    return { total, owned, pct: total ? Math.round((owned / total) * 100) : 0 }
+  }, [uniques])
 
   function applyUniques(parsed: Unique[], sample: boolean) {
     setUniques(parsed)
@@ -188,6 +204,7 @@ export function App() {
     const g = facets(parsed).groupings.filter((x) => !NON_DROPPABLE_GROUPINGS.includes(x as never))
     setInclude(new Set(g))
     setExclude(new Set())
+    setExcludeLeagues(new Set())
     setIsSample(sample)
   }
 
@@ -195,11 +212,41 @@ export function App() {
     file.text().then((text) => applyUniques(parseCsv(text), false))
   }
 
-  // Load the bundled all-unowned sample by default so the app isn't empty.
+  // Load the bundled all-unowned sample by default, then overlay stored set-prefs
+  // (applyUniques resets include/exclude/leagues to defaults; restore saved ones).
   useEffect(() => {
     applyUniques(parseCsv(sampleCsv), true)
+    if (STORED?.include) setInclude(new Set(STORED.include))
+    if (STORED?.exclude) setExclude(new Set(STORED.exclude))
+    if (STORED?.excludeLeagues) setExcludeLeagues(new Set(STORED.excludeLeagues))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  // Persist current knobs to localStorage on any change.
+  const settings: Settings = useMemo(
+    () => ({
+      preset,
+      include: [...include],
+      exclude: [...exclude],
+      excludeLeagues: [...excludeLeagues],
+      scopeHidden,
+      protectTop,
+      currencyHide,
+      highlightBases,
+      uniqueBases,
+      minIlvl,
+      maxIlvl,
+    }),
+    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, currencyHide, highlightBases, uniqueBases, minIlvl, maxIlvl],
+  )
+  useEffect(() => saveSettings(settings), [settings])
+
+  const [shared, setShared] = useState(false)
+  const onShare = () =>
+    navigator.clipboard.writeText(shareUrl(settings)).then(() => {
+      setShared(true)
+      setTimeout(() => setShared(false), 2000)
+    })
 
   const toggle = (set: Set<string>, key: string, apply: (s: Set<string>) => void) => {
     const next = new Set(set)
@@ -230,6 +277,7 @@ export function App() {
               {t('feedback')}
             </a>
           )}
+          <button onClick={onShare}>{shared ? t('shareCopied') : t('share')}</button>
           <button onClick={() => setShowChangelog(true)}>{t('changelog')}</button>
           <button className={locale === 'en' ? 'on' : ''} onClick={() => setLocale('en')}>EN</button>
           <button className={locale === 'ko' ? 'on' : ''} onClick={() => setLocale('ko')}>한국어</button>
@@ -322,6 +370,17 @@ export function App() {
                 </label>
               ))}
             </fieldset>
+            {leagues.length > 0 && (
+              <fieldset>
+                <legend>{t('excludeLeagues')}</legend>
+                {leagues.map((l) => (
+                  <label key={l}>
+                    <input type="checkbox" checked={excludeLeagues.has(l)} onChange={() => toggle(excludeLeagues, l, setExcludeLeagues)} />
+                    {l}
+                  </label>
+                ))}
+              </fieldset>
+            )}
           </section>
 
           <section className="lists">
@@ -492,6 +551,13 @@ export function App() {
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
+            {filterText && (
+              <p className="hint">
+                {t('finalLines', {
+                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases).split('\n').length,
+                })}
+              </p>
+            )}
             <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases)}</pre>
           </section>
         </>
@@ -508,6 +574,18 @@ export function App() {
               <option value="all">{t('collAll')}</option>
             </select>
           </div>
+          <div className="progress">
+            <div className="progress-bar"><span style={{ width: `${collStats.pct}%` }} /></div>
+            <span className="progress-label">
+              {t('collProgress', { owned: collStats.owned, total: collStats.total, pct: collStats.pct })}
+            </span>
+          </div>
+          <input
+            className="search"
+            value={collQuery}
+            onChange={(e) => setCollQuery(e.target.value)}
+            placeholder={t('collSearchPlaceholder')}
+          />
           {byCat.length === 0 ? (
             <p className="hint">{t('noOwned')}</p>
           ) : (

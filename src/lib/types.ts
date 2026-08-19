@@ -8,6 +8,8 @@ export interface Unique {
   disambiguation: string
   /** FilterBlade unique tier "0".."5" (0 = top). may be empty. */
   tier: string
+  /** league mechanic the unique drops from (Heist, Breach…). empty = core. */
+  league: string
 }
 
 /** Top unique tiers protected from hiding by the "never hide" toggle. */
@@ -21,4 +23,6 @@ export interface CompletionOptions {
   includeGroupings: Set<string>
   /** categories excluded from hide/show entirely (e.g. Jewel/Map/Flask). */
   excludeCategories: Set<string>
+  /** league mechanics excluded (uniques from these ignored in completion). */
+  excludeLeagues: Set<string>
 }

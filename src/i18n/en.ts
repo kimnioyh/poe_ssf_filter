@@ -17,6 +17,7 @@ export const en = {
   filterLoaded: 'Filter loaded ({n} chars)',
   droppableGroupings: 'Droppable groupings',
   excludeCategories: 'Exclude categories',
+  excludeLeagues: 'Exclude leagues (ignore these uniques)',
   completeBases: 'Completed bases (Hide)',
   incompleteBases: 'Still-needed bases (Show)',
   download: 'Download modified filter',
@@ -50,6 +51,11 @@ export const en = {
   currencyHideHelp: 'Pick currencies to hide. Set a number to hide only stacks of that size or fewer (StackSize ≤ N); leave blank to hide all.',
   selectJunk: 'Select junk currency',
   stackAll: 'all',
+  share: 'Share',
+  shareCopied: 'Copied!',
+  finalLines: 'Final filter: {n} lines total',
+  collProgress: '{owned} / {total} collected ({pct}%)',
+  collSearchPlaceholder: 'Search unique…',
 } as const
 
 export type MessageKey = keyof typeof en

@@ -4,8 +4,8 @@ import { computeBases, completedBases, incompleteBases, hideableBases } from './
 import { buildBlocks, buildFilter } from './buildFilter'
 import { parseHiddenUniqueBases } from './neversink'
 
-const u = (name: string, baseItem: string, grouping: string, owned: boolean, category = 'Amulet', tier = '3'): Unique => ({
-  name, baseItem, category, grouping, owned, disambiguation: '', tier,
+const u = (name: string, baseItem: string, grouping: string, owned: boolean, category = 'Amulet', tier = '3', league = ''): Unique => ({
+  name, baseItem, category, grouping, owned, disambiguation: '', tier, league,
 })
 
 const data: Unique[] = [
@@ -22,6 +22,7 @@ const data: Unique[] = [
 const opts = {
   includeGroupings: new Set(['T2', 'T3', 'T4', 'Uber']),
   excludeCategories: new Set<string>(),
+  excludeLeagues: new Set<string>(),
 }
 
 const bases = computeBases(data, opts)
@@ -45,7 +46,7 @@ assert.deepEqual(hideableBases(tierBases, false).sort(), ['Gold Amulet', 'Jade A
 assert.deepEqual(hideableBases(tierBases, true), ['Jade Amulet'], 'protection keeps T0–T2 base visible')
 
 // If Uber toggled OFF and its unique were unowned, base must stay incomplete.
-const optsNoUber = { includeGroupings: new Set(['T2', 'T3', 'T4']), excludeCategories: new Set<string>() }
+const optsNoUber = { includeGroupings: new Set(['T2', 'T3', 'T4']), excludeCategories: new Set<string>(), excludeLeagues: new Set<string>() }
 const onyx2 = computeBases(data, optsNoUber).find((b) => b.baseItem === 'Onyx Amulet')!
 assert.equal(onyx2.total, 2, 'Uber excluded when toggled off')
 assert.equal(onyx2.complete, true)
@@ -86,8 +87,18 @@ assert.match(
 )
 
 // category exclusion drops the base entirely.
-const optsExcl = { includeGroupings: opts.includeGroupings, excludeCategories: new Set(['Amulet']) }
+const optsExcl = { includeGroupings: opts.includeGroupings, excludeCategories: new Set(['Amulet']), excludeLeagues: new Set<string>() }
 assert.equal(computeBases(data, optsExcl).length, 0, 'excluded category -> no bases')
+
+// league exclusion: a Heist-league unique is ignored in completion.
+const leagueData: Unique[] = [
+  u('Core', 'Coral Ring', 'T3', true, 'Ring', '3', ''),
+  u('HeistOnly', 'Coral Ring', 'T3', false, 'Ring', '3', 'Heist'),
+]
+const optsExclLeague = { includeGroupings: new Set(['T3']), excludeCategories: new Set<string>(), excludeLeagues: new Set(['Heist']) }
+const coral = computeBases(leagueData, optsExclLeague).find((b) => b.baseItem === 'Coral Ring')!
+assert.equal(coral.total, 1, 'Heist-league unique excluded from droppable set')
+assert.equal(coral.complete, true, 'remaining core unique owned -> complete')
 
 // Idempotency: re-applying to an already-modified filter must not stack blocks.
 const nsFilter = 'Show # existing rule\n    Rarity Rare\n'
