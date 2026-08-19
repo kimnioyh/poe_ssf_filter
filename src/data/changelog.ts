@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.18.0',
+    ko: '점술카드 보상·스택·등급 표시(카드 그리드), 등급색 힌트, 카드 클릭으로 숨김 토글.',
+    en: 'Divination card rewards/stack/rarity grid; rarity-color hint; click to toggle hide.',
+  },
+  {
     version: 'v0.17.0',
     ko: '점술카드 숨기기 — 카드 검색(EN/KO 464종)해서 개별 숨김(Class "Divination Card").',
     en: 'Hide divination cards — search (464 EN/KO) to hide individually.',

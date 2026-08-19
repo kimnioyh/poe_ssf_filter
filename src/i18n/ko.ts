@@ -56,6 +56,8 @@ export const ko: Record<MessageKey, string> = {
   divCardHide: '점술카드 숨기기',
   divCardHideHelp: '숨길 점술카드를 검색 (Class "Divination Card"). SSF 참고: 카드는 모으면 아이템으로 교환되니 정말 필요 없는 것만 숨기세요.',
   divCardSearchPlaceholder: '점술카드 검색…',
+  divCardBrowse: '전체 카드·보상 보기',
+  divCardValueNote: '보상 색 = 아이템 등급(대략적 가치 힌트일 뿐, 시세 아님). SSF는 거래 시세가 없으니 "보상이 나한테 쓸모 있나"로 판단하세요. 카드를 누르면 숨김 토글.',
   share: '공유',
   shareCopied: '복사됨!',
   finalLines: '최종 필터: 총 {n}줄',

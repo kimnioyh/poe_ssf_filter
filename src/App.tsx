@@ -3,7 +3,7 @@ import { useI18n, type Locale } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import sampleCsv from '../sample-uniques.csv?raw'
 import baseTranslations from './data/base_translations.json'
-import divCardNames from './data/div-cards.json'
+import divCardData from './data/div-cards.json'
 import { CHANGELOG } from './data/changelog'
 import { CURRENCIES, JUNK_CURRENCY } from './data/currencies'
 import { FEEDBACK_URL } from './data/config'
@@ -16,6 +16,21 @@ import { loadSettings, saveSettings, shareUrl, type Settings } from './lib/setti
 
 // Saved prefs (localStorage) or a shared #s= link. filterText/uniques excluded.
 const STORED = loadSettings()
+
+interface DivCard { en: string; ko: string; stack: number | null; cls: string; reward: string; rewardKo: string }
+
+// In-game-ish colors by reward rarity/type — a *hint* of value, not a price.
+const RARITY: Record<string, string> = {
+  uniqueitem: '#af6025',
+  currencyitem: '#aa9e82',
+  rareitem: '#ffff77',
+  magicitem: '#8888ff',
+  gemitem: '#1ba29b',
+  whiteitem: '#c8c8c8',
+  normal: '#c8c8c8',
+  divination: '#0ebfff',
+}
+const rarityColor = (cls: string) => RARITY[cls] ?? '#9aa'
 
 /** One unique row: icon + localized name + disambiguation label. */
 function UniqueItem({ u, locale }: { u: Unique; locale: Locale }) {
@@ -179,19 +194,25 @@ export function App() {
   const removeUniqueBase = (base: string) => setUniqueBases((p) => p.filter((b) => b !== base))
 
   // Divination card hide. Search over EN/KO card names; selected cards are hidden.
+  const CARDS = divCardData as DivCard[]
   const [divCards, setDivCards] = useState<string[]>(STORED?.divCards ?? [])
   const [dQuery, setDQuery] = useState('')
   const [dSearchOpen, setDSearchOpen] = useState(false)
-  const cardEntries = useMemo(() => Object.entries(divCardNames as Record<string, string>), [])
-  const localizeCard = (en: string) => (locale === 'ko' ? (divCardNames as Record<string, string>)[en] ?? en : en)
-  const cardMatches = useMemo(() => {
+  const cardByEn = useMemo(() => new Map(CARDS.map((c) => [c.en, c])), [CARDS])
+  const localizeCard = (en: string) => (locale === 'ko' ? cardByEn.get(en)?.ko ?? en : en)
+  const cardReward = (c: DivCard) => (locale === 'ko' ? c.rewardKo || c.reward : c.reward)
+  const dFiltered = useMemo(() => {
     const q = dQuery.trim()
-    if (!q) return []
+    if (!q) return CARDS
     const ql = q.toLowerCase()
-    return cardEntries
-      .filter(([en, ko]) => !divCards.includes(en) && (en.toLowerCase().includes(ql) || ko.includes(q)))
-      .slice(0, 20)
-  }, [dQuery, cardEntries, divCards])
+    return CARDS.filter((c) => c.en.toLowerCase().includes(ql) || c.ko.includes(q))
+  }, [dQuery, CARDS])
+  const cardMatches = useMemo(
+    () => dFiltered.filter((c) => !divCards.includes(c.en)).slice(0, 20),
+    [dFiltered, divCards],
+  )
+  const toggleDivCard = (en: string) =>
+    setDivCards((p) => (p.includes(en) ? p.filter((c) => c !== en) : [...p, en]))
   const addDivCard = (en: string) => {
     setDivCards((p) => (p.includes(en) ? p : [...p, en]))
     setDQuery('')
@@ -560,10 +581,11 @@ export function App() {
             />
             {dSearchOpen && cardMatches.length > 0 && (
               <ul className="search-results">
-                {cardMatches.map(([en, ko]) => (
-                  <li key={en}>
-                    <button onClick={() => addDivCard(en)}>
-                      {localizeCard(en)} <span className="en">{locale === 'ko' ? en : ko}</span>
+                {cardMatches.map((c) => (
+                  <li key={c.en}>
+                    <button onClick={() => addDivCard(c.en)}>
+                      {localizeCard(c.en)}{' '}
+                      <span className="en" style={{ color: rarityColor(c.cls) }}>{cardReward(c) || '—'}</span>
                     </button>
                   </li>
                 ))}
@@ -578,6 +600,24 @@ export function App() {
                 ))}
               </div>
             )}
+            <details className="curation">
+              <summary>{t('divCardBrowse')} <em>({dFiltered.length})</em></summary>
+              <p className="hint">{t('divCardValueNote')}</p>
+              <div className="card-grid divcard-grid">
+                {dFiltered.map((c) => (
+                  <button
+                    key={c.en}
+                    className={divCards.includes(c.en) ? 'dc on' : 'dc'}
+                    onClick={() => toggleDivCard(c.en)}
+                    title={c.en}
+                  >
+                    <span className="dc-name">{localizeCard(c.en)}</span>
+                    <span className="dc-reward" style={{ color: rarityColor(c.cls) }}>{cardReward(c) || '—'}</span>
+                    {c.stack != null && <span className="dc-stack">×{c.stack}</span>}
+                  </button>
+                ))}
+              </div>
+            </details>
           </section>
 
           <section>

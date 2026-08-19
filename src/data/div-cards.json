@@ -1,466 +1,3714 @@
-{
-  "A Chilling Wind": "싸늘한 바람",
-  "A Dab of Ink": "약간의 잉크",
-  "A Dusty Memory": "먼지 쌓인 기억",
-  "A Familiar Call": "귀에 익은 외침",
-  "A Fate Worse Than Death": "죽음보다 더한 운명",
-  "A Modest Request": "소박한 부탁",
-  "A Mother's Parting Gift": "어머니의 이별 선물",
-  "A Note in the Wind": "바람 속의 기록",
-  "A Sea of Blue": "푸른색의 바다",
-  "A Stone Perfected": "완벽해진 돌",
-  "Abandoned Wealth": "버려진 재산",
-  "Acclimatisation": "순응",
-  "Akil's Prophecy": "아킬의 예언",
-  "Alivia's Grace": "알리비아의 은총",
-  "Alluring Bounty": "유혹의 하사품",
-  "Alone in the Darkness": "어둠 속에서 홀로",
-  "Altered Perception": "변질된 감각",
-  "Ambitious Obsession": "야심찬 집착",
-  "Anarchy's Price": "혼란의 가치",
-  "Apocalypse": "종말",
-  "Arrogance of the Vaal": "바알의 오만",
-  "Assassin's Favour": "암살자의 호의",
-  "Assassin's Gift": "암살자의 선물",
-  "Astral Protection": "우주의 보호",
-  "Atziri's Arsenal": "앗지리의 병기창",
-  "Audacity": "대담성",
-  "Auspicious Ambitions": "상서로운 야망",
-  "Avian Pursuit": "새의 추적",
-  "Azure Rage": "담청색 격노",
-  "Azyran's Reward": "아지란의 보상",
-  "Baited Expectations": "현혹된 기대",
-  "Beauty Through Death": "죽음을 지나온 아름다움",
-  "Bijoux": "보석",
-  "Blind Venture": "무모한 모험",
-  "Boon of Justice": "정의의 은혜",
-  "Boon of the First Ones": "최초의 존재들의 은혜",
-  "Bound by Flame": "불길의 속박",
-  "Boundless Realms": "무한한 영역",
-  "Bowyer's Dream": "활장이의 꿈",
-  "Broken Promises": "깨진 약속",
-  "Broken Truce": "깨진 휴전",
-  "Brother's Gift": "형제의 선물",
-  "Brother's Stash": "형제의 보관함",
-  "Brotherhood in Exile": "유배의 형제",
-  "Brush, Paint and Palette": "붓, 물감과 팔레트",
-  "Buried Treasure": "파묻힌 보물",
-  "Burning Blood": "불타는 피",
-  "Call to the First Ones": "최초의 존재들에게 외치다",
-  "Cameria's Cut": "카메리아의 상처",
-  "Cartographer's Delight": "지도제작자의 기쁨",
-  "Chaotic Disposition": "혼돈의 결정",
-  "Chasing Risk": "위험을 좇아서",
-  "Checkmate": "체크메이트",
-  "Choking Guilt": "숨막히는 죄책감",
-  "Costly Curio": "값비싼 예술품",
-  "Council of Cats": "고양이 의회",
-  "Coveted Possession": "갈망하던 소유",
-  "Cursed Words": "저주의 말",
-  "Damnation": "천벌",
-  "Dark Dreams": "암흑의 꿈",
-  "Dark Temptation": "어둠의 유혹",
-  "Darker Half": "어두운 이면",
-  "Deadly Joy": "치명적인 기쁨",
-  "Death": "죽음",
-  "Deathly Designs": "치명적인 설계",
-  "Dementophobia": "실성 공포증",
-  "Demigod's Wager": "반신의 내기",
-  "Desecrated Virtue": "훼손된 미덕",
-  "Desperate Crusade": "필사적인 성전",
-  "Destined to Crumble": "무너질 운명",
-  "Dialla's Subjugation": "디알라의 예속",
-  "Disdain": "경멸",
-  "Divination Scarab of Pilfering": "훔쳐냄의 점술 갑충석",
-  "Divination Scarab of Plenty": "풍부함의 점술 갑충석",
-  "Divine Beauty": "신성한 아름다움",
-  "Divine Justice": "신성한 정의",
-  "Divine Shard": "신성한 파편",
-  "Doedre's Madness": "도이드리의 광기",
-  "Doryani's Epiphany": "도리아니의 통찰",
-  "Draped in Dreams": "드리운 꿈",
-  "Duality": "이중성",
-  "Dying Anguish": "죽음의 비통함",
-  "Dying Light": "죽어가는 빛",
-  "Earth Drinker": "대지 흡수자",
-  "Echoes of Love": "사랑의 메아리",
-  "Eldritch Perfection": "섬뜩한 완벽",
-  "Emperor of Purity": "정화의 황제",
-  "Emperor's Luck": "황제의 행운",
-  "Endless Night": "끝없는 밤",
-  "Energy Sword": "에너지 검",
-  "Etched in Blood": "아로새겨진 피",
-  "Eternal Bonds": "영원한 유대",
-  "Fateful Meeting": "운명적인 만남",
-  "Father's Love": "아버지의 사랑",
-  "Fire Of Unknown Origin": "근원을 알 수 없는 화염",
-  "Forbidden Power": "금지된 힘",
-  "Friendship": "우정",
-  "From Bone to Ashes": "뼈에서 재로",
-  "Further Invention": "추가 발명",
-  "Gemcutter's Mercy": "세공사의 자비",
-  "Gemcutter's Promise": "세공사의 약속",
-  "Gift of Asenath": "아세나스의 선물",
-  "Gift of the Gemling Queen": "마석 여왕의 선물",
-  "Glimmer of Hope": "희망의 빛",
-  "Grave Knowledge": "무덤의 지식",
-  "Guardian's Challenge": "수호자의 시련",
-  "Harmony of Souls": "영혼의 조화",
-  "Haunting Shadows": "출몰하는 그림자",
-  "Her Mask": "그녀의 가면",
-  "Heterochromia": "이색증",
-  "History": "역사",
-  "Home": "고향",
-  "Hope": "희망",
-  "House of Mirrors": "거울의 집",
-  "Hubris": "오만",
-  "Humility": "겸손",
-  "Hunter's Resolve": "사냥꾼의 결의",
-  "Hunter's Reward": "사냥꾼의 보상",
-  "I See Brothers": "형제가 보인다",
-  "Immortal Resolve": "불멸의 결의",
-  "Imperfect Memories": "불완전한 기억",
-  "Imperial Legacy": "제국의 유산",
-  "Jack in the Box": "깜짝 상자",
-  "Judging Voices": "판단하는 목소리",
-  "Justified Ambition": "정당한 야망",
-  "Keeper's Corruption": "보관자의 타락",
-  "Lachrymal Necrosis": "눈물샘의 괴사",
-  "Lantador's Lost Love": "란타도어의 죽은 연인",
-  "Last Hope": "최후의 희망",
-  "Last Stand": "마지막 저항",
-  "Left to Fate": "운명에 맡기다",
-  "Lethean Temptation": "레테의 유혹",
-  "Light and Truth": "빛과 진실",
-  "Lingering Remnants": "지속되는 유물",
-  "Lonely Warrior": "외로운 전사",
-  "Lost Worlds": "잃어버린 세계",
-  "Love Through Ice": "얼음을 가르는 사랑",
-  "Loyalty": "충성심",
-  "Luck of the Vaal": "바알의 행운",
-  "Lucky Bastion": "행운의 보루",
-  "Lucky Connections": "행운의 연결",
-  "Lucky Deck": "행운의 카드 묶음",
-  "Luminous Trove": "빛나는 발견물",
-  "Lysah's Respite": "라이사의 휴식",
-  "Magnum Opus": "필생의 걸작",
-  "Man With Bear": "사람과 곰",
-  "Matryoshka": "마트료시카",
-  "Mawr Blaidd": "모어 블레이드",
-  "Merciless Armament": "무자비한 병기",
-  "Might is Right": "힘이 정의다",
-  "Misery in Darkness": "어둠 속 비참함",
-  "Mitts": "미트",
-  "Monochrome": "단색화",
-  "More is Never Enough": "끝없는 욕심",
-  "No Traces": "흔적 없음",
-  "Nook's Crown": "누크의 왕관",
-  "One Last Score": "마지막 한 번의 기회",
-  "Outfoxed": "한 수 밀림",
-  "Parasitic Passengers": "기생충 밥벌레",
-  "Peaceful Moments": "평화로운 순간들",
-  "Pearls Before Swine": "돼지 목에 진주 목걸이",
-  "Perfection": "완벽",
-  "Poisoned Faith": "독을 품은 믿음",
-  "Prejudice": "편견",
-  "Pride Before the Fall": "몰락 직전의 긍지",
-  "Pride of the First Ones": "최초의 존재들의 자부심",
-  "Prometheus' Armoury": "프로메테우스의 무기고",
-  "Prosperity": "번영",
-  "Rain Tempter": "비 유혹자",
-  "Rain of Chaos": "카오스의 비",
-  "Rats": "쥐",
-  "Rebirth": "부활",
-  "Rebirth and Renewal": "부활과 새로운 시작",
-  "Reckless Ambition": "무모한 야망",
-  "Reflection of the Heart": "심장의 투영",
-  "Remembrance": "추모",
-  "Runic Luck": "룬 행운",
-  "Sambodhi's Vow": "삼보디의 맹세",
-  "Sambodhi's Wisdom": "삼보디의 지혜",
-  "Scholar of the Seas": "바다의 학자",
-  "Seven Years Bad Luck": "7년 간의 불운",
-  "Shard of Fate": "운명의 파편",
-  "Silence and Frost": "침묵과 서리",
-  "Society's Remorse": "사회의 회한",
-  "Something Dark": "어두운 것",
-  "Squandered Prosperity": "허비된 번영",
-  "Struck by Lightning": "번개에 맞다",
-  "Succor of the Sinless": "결백한 자의 원조",
-  "Temperance": "자제",
-  "Terrible Secret of Space": "우주의 끔찍한 비밀",
-  "The Academic": "학구열",
-  "The Admirer": "숭배자",
-  "The Adventuring Spirit": "모험 정신",
-  "The Aesthete": "탐미주의자",
-  "The Apothecary": "약제사",
-  "The Archmage's Right Hand": "대마법사의 심복",
-  "The Arena Champion": "투기장의 용사",
-  "The Army of Blood": "피의 군대",
-  "The Artist": "예술가",
-  "The Aspirant": "지망자",
-  "The Astromancer": "점성술사",
-  "The Avenger": "복수자",
-  "The Awakened": "깨어난 자",
-  "The Bargain": "협상",
-  "The Battle Born": "타고난 전투원",
-  "The Bear Woman": "웅녀",
-  "The Beast": "짐승",
-  "The Betrayal": "배신",
-  "The Bitter Blossom": "쓰라린 만개",
-  "The Blazing Fire": "맹렬한 화염",
-  "The Blessing of Moosh": "무쉬의 축복",
-  "The Body": "몸통",
-  "The Bones": "뼈",
-  "The Brawny Battle Mage": "건장한 전투 마법사",
-  "The Breach": "균열",
-  "The Brittle Emperor": "말라붙은 황제",
-  "The Cache": "은닉처",
-  "The Cacophony": "불협화음",
-  "The Calling": "소명",
-  "The Card Sharp": "카드 사기꾼",
-  "The Carrion Crow": "까마귀",
-  "The Cartographer": "지도제작자",
-  "The Cataclysm": "대재앙",
-  "The Catalyst": "기폭제",
-  "The Catch": "월척",
-  "The Celestial Justicar": "천공의 심판관",
-  "The Celestial Stone": "천공의 돌",
-  "The Chains that Bind": "속박의 사슬",
-  "The Cheater": "사기꾼",
-  "The Chosen": "선택받은 자",
-  "The Coming Storm": "다가오는 태풍",
-  "The Conduit": "도관",
-  "The Craving": "갈망",
-  "The Cursed King": "저주받은 왕",
-  "The Damned": "저주받은 자",
-  "The Dapper Prodigy": "말쑥한 영재",
-  "The Dark Mage": "어둠 마법사",
-  "The Darkest Dream": "암울한 꿈",
-  "The Deal": "거래",
-  "The Deceiver": "기만자",
-  "The Deep Ones": "심해의 존재",
-  "The Demon": "악마",
-  "The Demoness": "여악마",
-  "The Destination": "목적지",
-  "The Devastator": "파괴자",
-  "The Doctor": "의사",
-  "The Doppelganger": "분신",
-  "The Dragon": "용",
-  "The Dragon's Heart": "용의 심장",
-  "The Dreamer": "몽상가",
-  "The Dreamland": "꿈의 세계",
-  "The Drunken Aristocrat": "만취한 귀족",
-  "The Dungeon Master": "던전의 주인",
-  "The Easy Stroll": "편안한 산책",
-  "The Eldritch Decay": "섬뜩한 부패",
-  "The Emptiness": "허무",
-  "The Encroaching Darkness": "잠식해오는 어둠",
-  "The Endless Darkness": "끝없는 어둠",
-  "The Endurance": "인내",
-  "The Enforcer": "집행자",
-  "The Enlightened": "계몽된 자",
-  "The Enthusiasts": "열광자들",
-  "The Escape": "탈주",
-  "The Eternal War": "영원한 전쟁",
-  "The Ethereal": "천상에 속한 자",
-  "The Everlasting": "영속하는 자",
-  "The Explorer": "탐험가",
-  "The Eye of Terror": "공포의 눈",
-  "The Eye of the Dragon": "용의 눈",
-  "The Fathomless Depths": "깊이 모를 심연",
-  "The Feast": "연회",
-  "The Fiend": "마귀",
-  "The Finishing Touch": "화룡점정",
-  "The Fishmonger": "생선 장수",
-  "The Fletcher": "화살 제조자",
-  "The Flora's Gift": "식물의 선물",
-  "The Fool": "어리석은 자",
-  "The Forbidden Fruit": "금단의 열매",
-  "The Forgotten Treasure": "잊혀진 보물",
-  "The Formless Sea": "무형의 바다",
-  "The Forsaken": "버림받은 자",
-  "The Fortunate": "행운아",
-  "The Forward Gaze": "전면 응시",
-  "The Fox": "여우",
-  "The Fox in the Brambles": "가시나무에 얽힌 여우",
-  "The Gambler": "도박꾼",
-  "The Garish Power": "화려한 힘",
-  "The Gemcutter": "세공사",
-  "The Gentleman": "신사",
-  "The Gladiator": "검투사",
-  "The Golden Era": "황금시대",
-  "The Greatest Intentions": "위대한 뜻",
-  "The Gulf": "만",
-  "The Hale Heart": "건강한 심장",
-  "The Harvester": "수확자",
-  "The Hermit": "은둔자",
-  "The Heroic Shot": "영웅적인 시도",
-  "The Hive of Knowledge": "지식의 산실",
-  "The Hoarder": "비축가",
-  "The Hook": "갈고리",
-  "The Hunger": "굶주림",
-  "The Immortal": "불멸자",
-  "The Incantation": "주문",
-  "The Innocent": "결백한 자",
-  "The Inoculated": "접종자",
-  "The Insane Cat": "실성한 고양이",
-  "The Insatiable": "만족을 모르는 자",
-  "The Inventor": "발명가",
-  "The Jester": "어릿광대",
-  "The Jeweller's Boon": "보석 상인의 은혜",
-  "The Journalist": "집필가",
-  "The Journey": "여행",
-  "The King's Blade": "왕의 검",
-  "The King's Heart": "왕의 심장",
-  "The Lake": "호수",
-  "The Landing": "상륙",
-  "The Last Laugh": "최후의 웃음",
-  "The Last One Standing": "최후의 승자",
-  "The Last Supper": "최후의 만찬",
-  "The Leviathan": "레비아탄",
-  "The Lich": "리치",
-  "The Life Thief": "생명력 도둑",
-  "The Lion": "사자",
-  "The Long Con": "기나긴 속임수",
-  "The Long Watch": "오랜 감시",
-  "The Lord in Black": "어둠 속의 군주",
-  "The Lord of Celebration": "축제의 군주",
-  "The Lover": "연인",
-  "The Lunaris Priestess": "루나리스 여사제",
-  "The Mad King": "미치광이 왕",
-  "The Magma Crab": "마그마 게",
-  "The Master Artisan": "장인",
-  "The Mayor": "시장",
-  "The Mercenary": "용병",
-  "The Messenger": "전달자",
-  "The Metalsmith's Gift": "금속 세공사의 선물",
-  "The Mind's Eyes": "마음의 눈",
-  "The Miracle": "기적",
-  "The Mountain": "산",
-  "The Nurse": "간호사",
-  "The Oath": "서약",
-  "The Obscured": "가려진 자",
-  "The Offering": "공물",
-  "The Offspring": "자손",
-  "The Old Man": "노인",
-  "The One That Got Away": "도망친 자",
-  "The One With All": "만인과 함께하는 자",
-  "The Opulent": "호화로움",
-  "The Pack Leader": "무리의 우두머리",
-  "The Pact": "계약",
-  "The Patient": "환자",
-  "The Penitent": "참회자",
-  "The Poet": "시인",
-  "The Polymath": "박식가",
-  "The Porcupine": "호저",
-  "The Price of Devotion": "헌신의 대가",
-  "The Price of Loyalty": "충성의 대가",
-  "The Price of Prescience": "선지의 대가",
-  "The Price of Protection": "보호의 대가",
-  "The Primordial": "태고",
-  "The Prince of Darkness": "어둠의 대공",
-  "The Professor": "교수",
-  "The Progeny of Lunaris": "루나리스의 자손",
-  "The Puzzle": "수수께끼",
-  "The Queen": "여왕",
-  "The Rabbit's Foot": "토끼 발",
-  "The Rabid Rhoa": "광포한 로아",
-  "The Realm": "영역",
-  "The Return of the Rat": "쥐의 귀환",
-  "The Risk": "위험",
-  "The Rite of Elements": "원소의 의식",
-  "The Road to Power": "힘에 이르는 길",
-  "The Rusted Bard": "녹슨 음유시인",
-  "The Ruthless Ceinture": "무정한 허리띠",
-  "The Sacrifice": "희생",
-  "The Saint's Treasure": "성자의 보물",
-  "The Samurai's Eye": "사무라이의 눈",
-  "The Scarred Meadow": "상처 입은 초원",
-  "The Scavenger": "시체 청소부",
-  "The Scholar": "학자",
-  "The Scout": "정찰병",
-  "The Seeker": "탐색자",
-  "The Sephirot": "세피로트",
-  "The Shepherd's Sandals": "양치기의 샌들",
-  "The Shieldbearer": "방패 운반자",
-  "The Shortcut": "지름길",
-  "The Side Quest": "부가 임무",
-  "The Sigil": "부적",
-  "The Silly Boy": "어리석은 남자아이",
-  "The Siren": "사이렌",
-  "The Skeleton": "해골",
-  "The Slumbering Beast": "잠든 야수",
-  "The Soul": "영혼",
-  "The Spark and the Flame": "불꽃과 화염",
-  "The Spoiled Prince": "버릇 없이 자란 왕자",
-  "The Standoff": "교착 상태",
-  "The Stormcaller": "폭풍 소환사",
-  "The Strategist": "전략가",
-  "The Summoner": "소환자",
-  "The Sun": "태양",
-  "The Surgeon": "외과의사",
-  "The Surveyor": "측량사",
-  "The Survivalist": "생존주의자",
-  "The Sword King's Salute": "검의 제왕의 경례",
-  "The Thaumaturgist": "마석학자",
-  "The Throne": "왕좌",
-  "The Tinkerer's Table": "땜장이의 작업대",
-  "The Tireless Extractor": "끈기 있는 추출자",
-  "The Tower": "탑",
-  "The Traitor": "배반자",
-  "The Transformation": "변화",
-  "The Trial": "시험",
-  "The Tumbleweed": "회전초",
-  "The Twilight Moon": "황혼의 달",
-  "The Twins": "쌍둥이",
-  "The Tyrant": "폭군",
-  "The Undaunted": "의연한 자",
-  "The Undisputed": "모두가 인정하는 자",
-  "The Unexpected Prize": "뜻밖의 포상",
-  "The Union": "결합",
-  "The Valkyrie": "발키리",
-  "The Vast": "광대함",
-  "The Visionary": "공상가",
-  "The Void": "공허",
-  "The Warden": "간수",
-  "The Warlord": "전쟁군주",
-  "The Watcher": "감시자",
-  "The Web": "거미줄",
-  "The Wedding Gift": "결혼 선물",
-  "The White Knight": "백기사",
-  "The Whiteout": "백시",
-  "The Wilted Rose": "시들은 장미",
-  "The Wind": "바람",
-  "The Witch": "마녀",
-  "The Wolf": "늑대",
-  "The Wolf's Legacy": "늑대의 유산",
-  "The Wolf's Shadow": "늑대의 그림자",
-  "The Wolven King's Bite": "늑대왕의 이빨",
-  "The Wolverine": "오소리",
-  "The World Eater": "세계를 먹는 자",
-  "The Wrath": "진노",
-  "The Wretched": "불운아",
-  "Thirst for Knowledge": "불타는 지식욕",
-  "Three Faces in the Dark": "어둠 속의 세 얼굴",
-  "Three Voices": "3개의 목소리",
-  "Thunderous Skies": "천둥 치는 하늘",
-  "Toxic Tidings": "유독한 소식",
-  "Tranquillity": "평온",
-  "Treasure Hunter": "보물 사냥꾼",
-  "Treasures of the Vaal": "바알의 보물",
-  "Triskaidekaphobia": "13 공포증",
-  "Turn the Other Cheek": "다른 뺨을 내밀라",
-  "Unchained": "해방",
-  "Underground Forest": "지하 숲",
-  "Unrequited Love": "짝사랑",
-  "Vanity": "자만심",
-  "Vile Power": "사악한 힘",
-  "Vinia's Token": "비니아의 증표",
-  "Void of the Elements": "원소의 공허",
-  "Volatile Power": "불안한 권력",
-  "Wealth and Power": "부와 권력",
-  "When Currents Blaze": "흐름이 타오를 때",
-  "Who Asked": "누가 물었느냐",
-  "Winter's Embrace": "겨울의 포옹"
-}
+[
+ {
+  "en": "A Chilling Wind",
+  "ko": "싸늘한 바람",
+  "stack": 4,
+  "cls": "gemitem",
+  "reward": "Level 21 Vaal Cold Snap",
+  "rewardKo": "21레벨 바알 한파"
+ },
+ {
+  "en": "A Dab of Ink",
+  "ko": "약간의 잉크",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "The Poet's Pen",
+  "rewardKo": "시인의 펜(The Poet's Pen)"
+ },
+ {
+  "en": "A Dusty Memory",
+  "ko": "먼지 쌓인 기억",
+  "stack": 5,
+  "cls": "rareitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "A Familiar Call",
+  "ko": "귀에 익은 외침",
+  "stack": 3,
+  "cls": "magicitem",
+  "reward": "Jewellery of Farrul",
+  "rewardKo": "장신구 - 페룰"
+ },
+ {
+  "en": "A Fate Worse Than Death",
+  "ko": "죽음보다 더한 운명",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Cortex",
+  "rewardKo": "코텍스"
+ },
+ {
+  "en": "A Modest Request",
+  "ko": "소박한 부탁",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Megalomaniac",
+  "rewardKo": "과대망상(Megalomaniac)"
+ },
+ {
+  "en": "A Mother's Parting Gift",
+  "ko": "어머니의 이별 선물",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Fertile Mind",
+  "rewardKo": "풍요로운 마음"
+ },
+ {
+  "en": "A Note in the Wind",
+  "ko": "바람 속의 기록",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Asenath's Mark",
+  "rewardKo": "아세나스의 징표"
+ },
+ {
+  "en": "A Sea of Blue",
+  "ko": "푸른색의 바다",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "13x Orb of Alteration",
+  "rewardKo": "변화의 오브 x13"
+ },
+ {
+  "en": "A Stone Perfected",
+  "ko": "완벽해진 돌",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Jewel",
+  "rewardKo": "주얼"
+ },
+ {
+  "en": "Abandoned Wealth",
+  "ko": "버려진 재산",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "3x Exalted Orb",
+  "rewardKo": "엑잘티드 오브 x3"
+ },
+ {
+  "en": "Acclimatisation",
+  "ko": "순응",
+  "stack": 2,
+  "cls": "currencyitem",
+  "reward": "20x Orb of Alteration",
+  "rewardKo": "변화의 오브 x20"
+ },
+ {
+  "en": "Akil's Prophecy",
+  "ko": "아킬의 예언",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Elegant Round Shield",
+  "rewardKo": "고상한 원형 방패"
+ },
+ {
+  "en": "Alivia's Grace",
+  "ko": "알리비아의 은총",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Queen of the Forest",
+  "rewardKo": "숲의 여왕"
+ },
+ {
+  "en": "Alluring Bounty",
+  "ko": "유혹의 하사품",
+  "stack": 7,
+  "cls": "currencyitem",
+  "reward": "10x Exalted Orb",
+  "rewardKo": "엑잘티드 오브 x10"
+ },
+ {
+  "en": "Alone in the Darkness",
+  "ko": "어둠 속에서 홀로",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Delve Item",
+  "rewardKo": "탐광 아이템"
+ },
+ {
+  "en": "Altered Perception",
+  "ko": "변질된 감각",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "Simulacrum",
+  "rewardKo": "복제된 영토"
+ },
+ {
+  "en": "Ambitious Obsession",
+  "ko": "야심찬 집착",
+  "stack": 4,
+  "cls": "currencyitem",
+  "reward": "Skittering Delirium Orb",
+  "rewardKo": "달리는 환영의 오브"
+ },
+ {
+  "en": "Anarchy's Price",
+  "ko": "혼란의 가치",
+  "stack": 13,
+  "cls": "uniqueitem",
+  "reward": "Voltaxic Rift",
+  "rewardKo": "전도성 균열(Voltaxic Rift)"
+ },
+ {
+  "en": "Apocalypse",
+  "ko": "종말",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Eyes of the Greatwolf",
+  "rewardKo": "위대한 늑대의 눈"
+ },
+ {
+  "en": "Arrogance of the Vaal",
+  "ko": "바알의 오만",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "Assassin's Favour",
+  "ko": "암살자의 호의",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Dagger",
+  "rewardKo": "단검"
+ },
+ {
+  "en": "Assassin's Gift",
+  "ko": "암살자의 선물",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Divinarius",
+  "rewardKo": "디비나리우스"
+ },
+ {
+  "en": "Astral Protection",
+  "ko": "우주의 보호",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Shield",
+  "rewardKo": "방패"
+ },
+ {
+  "en": "Atziri's Arsenal",
+  "ko": "앗지리의 병기창",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Weapon",
+  "rewardKo": "무기"
+ },
+ {
+  "en": "Audacity",
+  "ko": "대담성",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Doryani's Fist",
+  "rewardKo": "도리아니의 주먹(Doryani's Fist)"
+ },
+ {
+  "en": "Auspicious Ambitions",
+  "ko": "상서로운 야망",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Experimented Item",
+  "rewardKo": "실험적 아이템"
+ },
+ {
+  "en": "Avian Pursuit",
+  "ko": "새의 추적",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "1,500x Vivid Crystallised Lifeforce",
+  "rewardKo": "혈기 생기 결정 x1,500"
+ },
+ {
+  "en": "Azure Rage",
+  "ko": "담청색 격노",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Punishing Map",
+  "rewardKo": "응징하는 지도"
+ },
+ {
+  "en": "Azyran's Reward",
+  "ko": "아지란의 보상",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Prismatic Jewel",
+  "rewardKo": "분광 주얼"
+ },
+ {
+  "en": "Baited Expectations",
+  "ko": "현혹된 기대",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Fishing Item",
+  "rewardKo": "낚시 아이템"
+ },
+ {
+  "en": "Beauty Through Death",
+  "ko": "죽음을 지나온 아름다움",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Atziri's Reflection",
+  "rewardKo": "앗지리의 성찰(Atziri's Reflection)"
+ },
+ {
+  "en": "Bijoux",
+  "ko": "보석",
+  "stack": 3,
+  "cls": "rareitem",
+  "reward": "Cluster Jewel",
+  "rewardKo": "스킬 군 주얼"
+ },
+ {
+  "en": "Blind Venture",
+  "ko": "무모한 모험",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Ring",
+  "rewardKo": "반지"
+ },
+ {
+  "en": "Boon of Justice",
+  "ko": "정의의 은혜",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Offering to the Goddess",
+  "rewardKo": "여신에게 바치는 공물"
+ },
+ {
+  "en": "Boon of the First Ones",
+  "ko": "최초의 존재들의 은혜",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Bestiary Item",
+  "rewardKo": "야수 도감 아이템"
+ },
+ {
+  "en": "Bound by Flame",
+  "ko": "불길의 속박",
+  "stack": 2,
+  "cls": "gemitem",
+  "reward": "Level 21 Flame Link",
+  "rewardKo": "21레벨 화염의 연결"
+ },
+ {
+  "en": "Boundless Realms",
+  "ko": "무한한 영역",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "Bowyer's Dream",
+  "ko": "활장이의 꿈",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Six-Link Harbinger Bow",
+  "rewardKo": "6연결 선구자 활"
+ },
+ {
+  "en": "Broken Promises",
+  "ko": "깨진 약속",
+  "stack": 2,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Broken Truce",
+  "ko": "깨진 휴전",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Cold Iron Point",
+  "rewardKo": "날붙이 끝"
+ },
+ {
+  "en": "Brotherhood in Exile",
+  "ko": "유배의 형제",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "One With Nothing",
+  "rewardKo": "맨주먹(One With Nothing)"
+ },
+ {
+  "en": "Brother's Gift",
+  "ko": "형제의 선물",
+  "stack": null,
+  "cls": "currencyitem",
+  "reward": "5x Divine Orb",
+  "rewardKo": "신성한 오브 x5"
+ },
+ {
+  "en": "Brother's Stash",
+  "ko": "형제의 보관함",
+  "stack": null,
+  "cls": "currencyitem",
+  "reward": "5x Exalted Orb",
+  "rewardKo": "엑잘티드 오브 x5"
+ },
+ {
+  "en": "Brush, Paint and Palette",
+  "ko": "붓, 물감과 팔레트",
+  "stack": 5,
+  "cls": "divination",
+  "reward": "The Artist",
+  "rewardKo": "예술가"
+ },
+ {
+  "en": "Buried Treasure",
+  "ko": "파묻힌 보물",
+  "stack": 3,
+  "cls": "whiteitem",
+  "reward": "Sulphite Scarab",
+  "rewardKo": "아황산염 갑충석"
+ },
+ {
+  "en": "Burning Blood",
+  "ko": "불타는 피",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Xoph's Blood",
+  "rewardKo": "조프의 피(Xoph's Blood)"
+ },
+ {
+  "en": "Call to the First Ones",
+  "ko": "최초의 존재들에게 외치다",
+  "stack": 5,
+  "cls": "rareitem",
+  "reward": "Talisman",
+  "rewardKo": "부적"
+ },
+ {
+  "en": "Cameria's Cut",
+  "ko": "카메리아의 상처",
+  "stack": 2,
+  "cls": "whiteitem",
+  "reward": "Scarab",
+  "rewardKo": "갑충석"
+ },
+ {
+  "en": "Cartographer's Delight",
+  "ko": "지도제작자의 기쁨",
+  "stack": 3,
+  "cls": "normal",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "Chaotic Disposition",
+  "ko": "혼돈의 결정",
+  "stack": null,
+  "cls": "currencyitem",
+  "reward": "5x Chaos Orb",
+  "rewardKo": "카오스 오브 x5"
+ },
+ {
+  "en": "Chasing Risk",
+  "ko": "위험을 좇아서",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Synthesis Item",
+  "rewardKo": "결합 아이템"
+ },
+ {
+  "en": "Checkmate",
+  "ko": "체크메이트",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "76x Simulacrum Splinter",
+  "rewardKo": "복제된 영토 파편 x76"
+ },
+ {
+  "en": "Choking Guilt",
+  "ko": "숨막히는 죄책감",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Stranglegasp",
+  "rewardKo": "교살의 손아귀"
+ },
+ {
+  "en": "Costly Curio",
+  "ko": "값비싼 예술품",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "Council of Cats",
+  "ko": "고양이 의회",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Farrul Item",
+  "rewardKo": "페룰 아이템"
+ },
+ {
+  "en": "Coveted Possession",
+  "ko": "갈망하던 소유",
+  "stack": 9,
+  "cls": "currencyitem",
+  "reward": "5x Regal Orb",
+  "rewardKo": "제왕의 오브 x5"
+ },
+ {
+  "en": "Cursed Words",
+  "ko": "저주의 말",
+  "stack": 13,
+  "cls": "uniqueitem",
+  "reward": "Maw of Mischief",
+  "rewardKo": "말썽의 나락(Maw of Mischief)"
+ },
+ {
+  "en": "Damnation",
+  "ko": "천벌",
+  "stack": 16,
+  "cls": "uniqueitem",
+  "reward": "The Original Scripture",
+  "rewardKo": "원형의 성서"
+ },
+ {
+  "en": "Dark Dreams",
+  "ko": "암흑의 꿈",
+  "stack": 4,
+  "cls": "rareitem",
+  "reward": "Bone Helmet",
+  "rewardKo": "뼈 투구"
+ },
+ {
+  "en": "Dark Temptation",
+  "ko": "어둠의 유혹",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Obliteration",
+  "rewardKo": "말살(Obliteration)"
+ },
+ {
+  "en": "Darker Half",
+  "ko": "어두운 이면",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "5x Eldritch Chaos Orb",
+  "rewardKo": "섬뜩한 카오스 오브 x5"
+ },
+ {
+  "en": "Deadly Joy",
+  "ko": "치명적인 기쁨",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Torrent's Reclamation",
+  "rewardKo": "격류의 교화(The Torrent's Reclamation)"
+ },
+ {
+  "en": "Death",
+  "ko": "죽음",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Mon'tregul's Grasp",
+  "rewardKo": "몬트레굴의 장악(Mon'tregul's Grasp)"
+ },
+ {
+  "en": "Deathly Designs",
+  "ko": "치명적인 설계",
+  "stack": 7,
+  "cls": "gemitem",
+  "reward": "Level 21 Trap Gem",
+  "rewardKo": "21레벨 덫 젬"
+ },
+ {
+  "en": "Dementophobia",
+  "ko": "실성 공포증",
+  "stack": 11,
+  "cls": "currencyitem",
+  "reward": "10x Delirium Orb",
+  "rewardKo": "환영의 오브 x10"
+ },
+ {
+  "en": "Demigod's Wager",
+  "ko": "반신의 내기",
+  "stack": 7,
+  "cls": "currencyitem",
+  "reward": "Orb of Annulment",
+  "rewardKo": "소멸의 오브"
+ },
+ {
+  "en": "Desecrated Virtue",
+  "ko": "훼손된 미덕",
+  "stack": 9,
+  "cls": "gemitem",
+  "reward": "Level 4 Exceptional Support Gem",
+  "rewardKo": "4레벨 특출난 보조 젬"
+ },
+ {
+  "en": "Desperate Crusade",
+  "ko": "필사적인 성전",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Prism Guardian",
+  "rewardKo": "분광의 수호자(Prism Guardian)"
+ },
+ {
+  "en": "Destined to Crumble",
+  "ko": "무너질 운명",
+  "stack": 5,
+  "cls": "rareitem",
+  "reward": "Body Armour",
+  "rewardKo": "갑옷"
+ },
+ {
+  "en": "Dialla's Subjugation",
+  "ko": "디알라의 예속",
+  "stack": 7,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Disdain",
+  "ko": "경멸",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "Delirium Orb",
+  "rewardKo": "환영의 오브"
+ },
+ {
+  "en": "Divination Scarab of Pilfering",
+  "ko": "훔쳐냄의 점술 갑충석",
+  "stack": 20,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Divination Scarab of Plenty",
+  "ko": "풍부함의 점술 갑충석",
+  "stack": 20,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Divine Beauty",
+  "ko": "신성한 아름다움",
+  "stack": 12,
+  "cls": "currencyitem",
+  "reward": "7x Divine Orb",
+  "rewardKo": "신성한 오브 x7"
+ },
+ {
+  "en": "Divine Justice",
+  "ko": "신성한 정의",
+  "stack": null,
+  "cls": "uniqueitem",
+  "reward": "Grand Spectrum",
+  "rewardKo": "장대한 파장"
+ },
+ {
+  "en": "Divine Shard",
+  "ko": "신성한 파편",
+  "stack": 2,
+  "cls": "whiteitem",
+  "reward": "Divine Vessel",
+  "rewardKo": "성스러운 시험관"
+ },
+ {
+  "en": "Doedre's Madness",
+  "ko": "도이드리의 광기",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Doedre Item",
+  "rewardKo": "도이드리 아이템"
+ },
+ {
+  "en": "Doryani's Epiphany",
+  "ko": "도리아니의 통찰",
+  "stack": 3,
+  "cls": "gemitem",
+  "reward": "Level 21 Transfigured Gem",
+  "rewardKo": "21레벨 변성 젬"
+ },
+ {
+  "en": "Draped in Dreams",
+  "ko": "드리운 꿈",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Six-Link Astral Plate",
+  "rewardKo": "6연결 우주의 판금 갑옷"
+ },
+ {
+  "en": "Duality",
+  "ko": "이중성",
+  "stack": 2,
+  "cls": "whiteitem",
+  "reward": "Body Armour",
+  "rewardKo": "갑옷"
+ },
+ {
+  "en": "Dying Anguish",
+  "ko": "죽음의 비통함",
+  "stack": 8,
+  "cls": "gemitem",
+  "reward": "Level 19 Transfigured Gem",
+  "rewardKo": "19레벨 변성 젬"
+ },
+ {
+  "en": "Dying Light",
+  "ko": "죽어가는 빛",
+  "stack": 10,
+  "cls": "rareitem",
+  "reward": "Diamond Ring",
+  "rewardKo": "다이아몬드 반지"
+ },
+ {
+  "en": "Earth Drinker",
+  "ko": "대지 흡수자",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Granite Flask",
+  "rewardKo": "화강암 플라스크"
+ },
+ {
+  "en": "Echoes of Love",
+  "ko": "사랑의 메아리",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Fidelitas' Spike",
+  "rewardKo": "피델리타스의 가시(Fidelitas' Spike)"
+ },
+ {
+  "en": "Eldritch Perfection",
+  "ko": "섬뜩한 완벽",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "Emperor of Purity",
+  "ko": "정화의 황제",
+  "stack": 7,
+  "cls": "whiteitem",
+  "reward": "Six-Link Holy Chainmail",
+  "rewardKo": "6연결 신성한 사슬 갑옷"
+ },
+ {
+  "en": "Emperor's Luck",
+  "ko": "황제의 행운",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "5x Currency",
+  "rewardKo": "화폐 x5"
+ },
+ {
+  "en": "Endless Night",
+  "ko": "끝없는 밤",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Maloney's Mechanism",
+  "rewardKo": "말로니의 기계 장치"
+ },
+ {
+  "en": "Energy Sword",
+  "ko": "에너지 검",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Ephemeral Edge",
+  "rewardKo": "덧없는 칼날"
+ },
+ {
+  "en": "Etched in Blood",
+  "ko": "아로새겨진 피",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Rigwald's Quills",
+  "rewardKo": "리그월드의 화살(Rigwald's Quills)"
+ },
+ {
+  "en": "Eternal Bonds",
+  "ko": "영원한 유대",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Replica Cortex",
+  "rewardKo": "코텍스(Cortex) 모조품"
+ },
+ {
+  "en": "Fateful Meeting",
+  "ko": "운명적인 만남",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "League-Specific Item",
+  "rewardKo": "리그 전용 아이템"
+ },
+ {
+  "en": "Father's Love",
+  "ko": "아버지의 사랑",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Sublime Vision",
+  "rewardKo": "숭고한 환영"
+ },
+ {
+  "en": "Fire Of Unknown Origin",
+  "ko": "근원을 알 수 없는 화염",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Nimis",
+  "rewardKo": "니미스"
+ },
+ {
+  "en": "Forbidden Power",
+  "ko": "금지된 힘",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Balefire",
+  "rewardKo": "대화재(Balefire)"
+ },
+ {
+  "en": "Friendship",
+  "ko": "우정",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Aul's Uprising",
+  "rewardKo": "아울의 반란"
+ },
+ {
+  "en": "From Bone to Ashes",
+  "ko": "뼈에서 재로",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Ngamahu's Flame",
+  "rewardKo": "나마후의 불꽃"
+ },
+ {
+  "en": "Further Invention",
+  "ko": "추가 발명",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Helmet",
+  "rewardKo": "투구"
+ },
+ {
+  "en": "Gemcutter's Mercy",
+  "ko": "세공사의 자비",
+  "stack": 3,
+  "cls": "gemitem",
+  "reward": "Empower, Enhance or Enlighten",
+  "rewardKo": "강화, 향상 또는 계몽"
+ },
+ {
+  "en": "Gemcutter's Promise",
+  "ko": "세공사의 약속",
+  "stack": 3,
+  "cls": "gemitem",
+  "reward": "Gem",
+  "rewardKo": "젬"
+ },
+ {
+  "en": "Gift of Asenath",
+  "ko": "아세나스의 선물",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Asenath's Gentle Touch",
+  "rewardKo": "아세나스의 부드러운 손길(Asenath's Gentle Touch)"
+ },
+ {
+  "en": "Gift of the Gemling Queen",
+  "ko": "마석 여왕의 선물",
+  "stack": 9,
+  "cls": "gemitem",
+  "reward": "Level 20 Support Gem",
+  "rewardKo": "20레벨 보조 젬"
+ },
+ {
+  "en": "Glimmer of Hope",
+  "ko": "희망의 빛",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Gold Ring",
+  "rewardKo": "황금 반지"
+ },
+ {
+  "en": "Grave Knowledge",
+  "ko": "무덤의 지식",
+  "stack": 6,
+  "cls": "gemitem",
+  "reward": "Summon Raging Spirit",
+  "rewardKo": "격노의 유령 소환"
+ },
+ {
+  "en": "Guardian's Challenge",
+  "ko": "수호자의 시련",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Shaper Guardian Map",
+  "rewardKo": "쉐이퍼 수호자 지도"
+ },
+ {
+  "en": "Harmony of Souls",
+  "ko": "영혼의 조화",
+  "stack": 9,
+  "cls": "currencyitem",
+  "reward": "9x Shrieking Essence",
+  "rewardKo": "악을 쓰는 에센스 x9"
+ },
+ {
+  "en": "Haunting Shadows",
+  "ko": "출몰하는 그림자",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Metamorph Item",
+  "rewardKo": "변형 아이템"
+ },
+ {
+  "en": "Her Mask",
+  "ko": "그녀의 가면",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Sacrifice Fragment",
+  "rewardKo": "희생 조각"
+ },
+ {
+  "en": "Heterochromia",
+  "ko": "이색증",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Two-Stone Ring",
+  "rewardKo": "쌍보석 반지"
+ },
+ {
+  "en": "History",
+  "ko": "역사",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "2x Hinekora's Lock",
+  "rewardKo": "히네코라의 머리카락 x2"
+ },
+ {
+  "en": "Home",
+  "ko": "고향",
+  "stack": 3,
+  "cls": "gemitem",
+  "reward": "Exceptional Support Gem",
+  "rewardKo": "특출난 보조 젬"
+ },
+ {
+  "en": "Hope",
+  "ko": "희망",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Prismatic Ring",
+  "rewardKo": "분광 반지"
+ },
+ {
+  "en": "House of Mirrors",
+  "ko": "거울의 집",
+  "stack": 9,
+  "cls": "currencyitem",
+  "reward": "Mirror of Kalandra",
+  "rewardKo": "칼란드라의 거울"
+ },
+ {
+  "en": "Hubris",
+  "ko": "오만",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Ring",
+  "rewardKo": "반지"
+ },
+ {
+  "en": "Humility",
+  "ko": "겸손",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Tabula Rasa",
+  "rewardKo": "타뷸라 라사(Tabula Rasa)"
+ },
+ {
+  "en": "Hunter's Resolve",
+  "ko": "사냥꾼의 결의",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Bow",
+  "rewardKo": "활"
+ },
+ {
+  "en": "Hunter's Reward",
+  "ko": "사냥꾼의 보상",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "The Taming",
+  "rewardKo": "조련(The Taming)"
+ },
+ {
+  "en": "I See Brothers",
+  "ko": "형제가 보인다",
+  "stack": 2,
+  "cls": "currencyitem",
+  "reward": "2x Fracturing Orb",
+  "rewardKo": "분열의 오브 x2"
+ },
+ {
+  "en": "Immortal Resolve",
+  "ko": "불멸의 결의",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Six-Linked Body Armour",
+  "rewardKo": "6연결 갑옷"
+ },
+ {
+  "en": "Imperfect Memories",
+  "ko": "불완전한 기억",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "Astrolabe",
+  "rewardKo": "관측기"
+ },
+ {
+  "en": "Imperial Legacy",
+  "ko": "제국의 유산",
+  "stack": 22,
+  "cls": "whiteitem",
+  "reward": "Six-Link Imperial Bow",
+  "rewardKo": "6연결 제국 활"
+ },
+ {
+  "en": "Jack in the Box",
+  "ko": "깜짝 상자",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "Judging Voices",
+  "ko": "판단하는 목소리",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Forbidden Shako",
+  "rewardKo": "금단의 샤코(Forbidden Shako)"
+ },
+ {
+  "en": "Justified Ambition",
+  "ko": "정당한 야망",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Synthesis Map",
+  "rewardKo": "결합 지도"
+ },
+ {
+  "en": "Keeper's Corruption",
+  "ko": "보관자의 타락",
+  "stack": 7,
+  "cls": "magicitem",
+  "reward": "Eldritch Bone Helmet (Concentrated Effect)",
+  "rewardKo": "섬뜩한 뼈 투구(효과 집중)"
+ },
+ {
+  "en": "Lachrymal Necrosis",
+  "ko": "눈물샘의 괴사",
+  "stack": 3,
+  "cls": "rareitem",
+  "reward": "Jewel",
+  "rewardKo": "주얼"
+ },
+ {
+  "en": "Lantador's Lost Love",
+  "ko": "란타도어의 죽은 연인",
+  "stack": 7,
+  "cls": "rareitem",
+  "reward": "Two-Stone Ring",
+  "rewardKo": "쌍보석 반지"
+ },
+ {
+  "en": "Last Hope",
+  "ko": "최후의 희망",
+  "stack": 3,
+  "cls": "whiteitem",
+  "reward": "Mortal Hope",
+  "rewardKo": "필멸의 희망"
+ },
+ {
+  "en": "Last Stand",
+  "ko": "마지막 저항",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "The Surrender",
+  "rewardKo": "포기"
+ },
+ {
+  "en": "Left to Fate",
+  "ko": "운명에 맡기다",
+  "stack": 4,
+  "cls": "rareitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "Lethean Temptation",
+  "ko": "레테의 유혹",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Nebulis",
+  "rewardKo": "성운"
+ },
+ {
+  "en": "Light and Truth",
+  "ko": "빛과 진실",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Crystal Sceptre",
+  "rewardKo": "수정 셉터"
+ },
+ {
+  "en": "Lingering Remnants",
+  "ko": "지속되는 유물",
+  "stack": 16,
+  "cls": "rareitem",
+  "reward": "Vaal Temple Map",
+  "rewardKo": "바알 사원 지도"
+ },
+ {
+  "en": "Lonely Warrior",
+  "ko": "외로운 전사",
+  "stack": 10,
+  "cls": "uniqueitem",
+  "reward": "Defiance of Destiny",
+  "rewardKo": "운명의 저항"
+ },
+ {
+  "en": "Lost Worlds",
+  "ko": "잃어버린 세계",
+  "stack": 8,
+  "cls": "whiteitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "Love Through Ice",
+  "ko": "얼음을 가르는 사랑",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Unnatural Instinct",
+  "rewardKo": "기이한 본능(Unnatural Instinct)"
+ },
+ {
+  "en": "Loyalty",
+  "ko": "충성심",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "3x Orb of Fusing",
+  "rewardKo": "연결의 오브 x3"
+ },
+ {
+  "en": "Luck of the Vaal",
+  "ko": "바알의 행운",
+  "stack": null,
+  "cls": "uniqueitem",
+  "reward": "Vaal Gauntlets",
+  "rewardKo": "바알 건틀릿"
+ },
+ {
+  "en": "Lucky Bastion",
+  "ko": "행운의 보루",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Svalinn",
+  "rewardKo": "스발린"
+ },
+ {
+  "en": "Lucky Connections",
+  "ko": "행운의 연결",
+  "stack": 7,
+  "cls": "currencyitem",
+  "reward": "20x Orb of Fusing",
+  "rewardKo": "연결의 오브 x20"
+ },
+ {
+  "en": "Lucky Deck",
+  "ko": "행운의 카드 묶음",
+  "stack": 9,
+  "cls": "currencyitem",
+  "reward": "10x Stacked Deck",
+  "rewardKo": "카드 묶음 x10"
+ },
+ {
+  "en": "Luminous Trove",
+  "ko": "빛나는 발견물",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Voices",
+  "rewardKo": "목소리(Voices)"
+ },
+ {
+  "en": "Lysah's Respite",
+  "ko": "라이사의 휴식",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Agate Amulet",
+  "rewardKo": "마노 목걸이"
+ },
+ {
+  "en": "Magnum Opus",
+  "ko": "필생의 걸작",
+  "stack": 5,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Man With Bear",
+  "ko": "사람과 곰",
+  "stack": 3,
+  "cls": "whiteitem",
+  "reward": "Bestiary Scarab",
+  "rewardKo": "야수 도감 갑충석"
+ },
+ {
+  "en": "Matryoshka",
+  "ko": "마트료시카",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "Mawr Blaidd",
+  "ko": "모어 블레이드",
+  "stack": 16,
+  "cls": "uniqueitem",
+  "reward": "Eyes of the Greatwolf",
+  "rewardKo": "위대한 늑대의 눈(Eyes of the Greatwolf)"
+ },
+ {
+  "en": "Merciless Armament",
+  "ko": "무자비한 병기",
+  "stack": 4,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Might is Right",
+  "ko": "힘이 정의다",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Trypanon",
+  "rewardKo": "트리파논(Trypanon)"
+ },
+ {
+  "en": "Misery in Darkness",
+  "ko": "어둠 속 비참함",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Shroud of the Lightless",
+  "rewardKo": "무광의 연막(Shroud of the Lightless)"
+ },
+ {
+  "en": "Mitts",
+  "ko": "미트",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Gloves",
+  "rewardKo": "장갑"
+ },
+ {
+  "en": "Monochrome",
+  "ko": "단색화",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "Valdo's Puzzle Box",
+  "rewardKo": "발도의 퍼즐 상자"
+ },
+ {
+  "en": "More is Never Enough",
+  "ko": "끝없는 욕심",
+  "stack": 7,
+  "cls": "whiteitem",
+  "reward": "4x Scarab",
+  "rewardKo": "갑충석 x4"
+ },
+ {
+  "en": "No Traces",
+  "ko": "흔적 없음",
+  "stack": 9,
+  "cls": "currencyitem",
+  "reward": "30x Orb of Scouring",
+  "rewardKo": "정제의 오브 x30"
+ },
+ {
+  "en": "Nook's Crown",
+  "ko": "누크의 왕관",
+  "stack": 4,
+  "cls": "rareitem",
+  "reward": "Bone Helmet",
+  "rewardKo": "뼈 투구"
+ },
+ {
+  "en": "One Last Score",
+  "ko": "마지막 한 번의 기회",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Experimented Jewellery",
+  "rewardKo": "실험적 장신구"
+ },
+ {
+  "en": "Outfoxed",
+  "ko": "한 수 밀림",
+  "stack": 2,
+  "cls": "currencyitem",
+  "reward": "Veiled Exalted Orb",
+  "rewardKo": "장막의 엑잘티드 오브"
+ },
+ {
+  "en": "Parasitic Passengers",
+  "ko": "기생충 밥벌레",
+  "stack": 8,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Peaceful Moments",
+  "ko": "평화로운 순간들",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Timeless Jewel",
+  "rewardKo": "무궁한 주얼(Timeless Jewel)"
+ },
+ {
+  "en": "Pearls Before Swine",
+  "ko": "돼지 목에 진주 목걸이",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Progenesis",
+  "rewardKo": "전창조"
+ },
+ {
+  "en": "Perfection",
+  "ko": "완벽",
+  "stack": 5,
+  "cls": "rareitem",
+  "reward": "Jewellery",
+  "rewardKo": "장신구"
+ },
+ {
+  "en": "Poisoned Faith",
+  "ko": "독을 품은 믿음",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Arakaali's Fang",
+  "rewardKo": "아라칼리의 송곳니"
+ },
+ {
+  "en": "Prejudice",
+  "ko": "편견",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "Pride Before the Fall",
+  "ko": "몰락 직전의 긍지",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Kaom's Heart",
+  "rewardKo": "카옴의 심장(Kaom's Heart)"
+ },
+ {
+  "en": "Pride of the First Ones",
+  "ko": "최초의 존재들의 자부심",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Farrul's Fur",
+  "rewardKo": "페룰의 모피(Farrul's Fur)"
+ },
+ {
+  "en": "Prometheus' Armoury",
+  "ko": "프로메테우스의 무기고",
+  "stack": 6,
+  "cls": "rareitem",
+  "reward": "One-Hand Weapon",
+  "rewardKo": "한손 무기"
+ },
+ {
+  "en": "Prosperity",
+  "ko": "번영",
+  "stack": 10,
+  "cls": "magicitem",
+  "reward": "Perandus' Gold Ring",
+  "rewardKo": "페란두스의 황금 반지"
+ },
+ {
+  "en": "Rain Tempter",
+  "ko": "비 유혹자",
+  "stack": 9,
+  "cls": "whiteitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "Rain of Chaos",
+  "ko": "카오스의 비",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "Chaos Orb",
+  "rewardKo": "카오스 오브"
+ },
+ {
+  "en": "Rats",
+  "ko": "쥐",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Rat's Nest",
+  "rewardKo": "쥐의 둥지(Rat's Nest)"
+ },
+ {
+  "en": "Rebirth",
+  "ko": "부활",
+  "stack": 27,
+  "cls": "uniqueitem",
+  "reward": "Charan's Sword",
+  "rewardKo": "차란의 검(Charan's Sword)"
+ },
+ {
+  "en": "Rebirth and Renewal",
+  "ko": "부활과 새로운 시작",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Horned Scarab",
+  "rewardKo": "뿔 달린 갑충석"
+ },
+ {
+  "en": "Reckless Ambition",
+  "ko": "무모한 야망",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Omeyocan",
+  "rewardKo": "오메이오칸(Omeyocan)"
+ },
+ {
+  "en": "Reflection of the Heart",
+  "ko": "심장의 투영",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Kalandra's Touch",
+  "rewardKo": "칼란드라의 손길"
+ },
+ {
+  "en": "Remembrance",
+  "ko": "추모",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Precursor's Emblem",
+  "rewardKo": "선도자의 상징"
+ },
+ {
+  "en": "Runic Luck",
+  "ko": "룬 행운",
+  "stack": 4,
+  "cls": "currencyitem",
+  "reward": "10x Vendor Refresh Currency",
+  "rewardKo": "탐험 상인 갱신 화폐 x10"
+ },
+ {
+  "en": "Sambodhi's Vow",
+  "ko": "삼보디의 맹세",
+  "stack": 3,
+  "cls": "whiteitem",
+  "reward": "Mortal Fragment",
+  "rewardKo": "필멸의 조각"
+ },
+ {
+  "en": "Sambodhi's Wisdom",
+  "ko": "삼보디의 지혜",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Tabula Rasa",
+  "rewardKo": "타뷸라 라사"
+ },
+ {
+  "en": "Scholar of the Seas",
+  "ko": "바다의 학자",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Mao Kun",
+  "rewardKo": "마오 쿤(Mao Kun)"
+ },
+ {
+  "en": "Seven Years Bad Luck",
+  "ko": "7년 간의 불운",
+  "stack": 13,
+  "cls": "currencyitem",
+  "reward": "Mirror Shard",
+  "rewardKo": "거울 파편"
+ },
+ {
+  "en": "Shard of Fate",
+  "ko": "운명의 파편",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Vivid Jewel",
+  "rewardKo": "선명한 주얼"
+ },
+ {
+  "en": "Silence and Frost",
+  "ko": "침묵과 서리",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "The Pandemonius",
+  "rewardKo": "대혼란(The Pandemonius)"
+ },
+ {
+  "en": "Society's Remorse",
+  "ko": "사회의 회한",
+  "stack": null,
+  "cls": "currencyitem",
+  "reward": "10x Orb of Alteration",
+  "rewardKo": "변화의 오브 x10"
+ },
+ {
+  "en": "Something Dark",
+  "ko": "어두운 것",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Blueprint",
+  "rewardKo": "도면"
+ },
+ {
+  "en": "Squandered Prosperity",
+  "ko": "허비된 번영",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "The Light of Meaning",
+  "rewardKo": "의미의 빛"
+ },
+ {
+  "en": "Struck by Lightning",
+  "ko": "번개에 맞다",
+  "stack": 3,
+  "cls": "magicitem",
+  "reward": "Electrocuting Jewellery",
+  "rewardKo": "전기 처형의 장신구"
+ },
+ {
+  "en": "Succor of the Sinless",
+  "ko": "결백한 자의 원조",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Bottled Faith",
+  "rewardKo": "병에 담긴 믿음(Bottled Faith)"
+ },
+ {
+  "en": "Temperance",
+  "ko": "자제",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Relic",
+  "rewardKo": "유물"
+ },
+ {
+  "en": "Terrible Secret of Space",
+  "ko": "우주의 끔찍한 비밀",
+  "stack": 8,
+  "cls": "gemitem",
+  "reward": "Level 21 Transfigured Golem Gem",
+  "rewardKo": "21레벨 변성 골렘 젬"
+ },
+ {
+  "en": "The Academic",
+  "ko": "학구열",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Inspired Learning",
+  "rewardKo": "탁월한 학습(Inspired Learning)"
+ },
+ {
+  "en": "The Admirer",
+  "ko": "숭배자",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Atziri Item",
+  "rewardKo": "앗지리 아이템(Atziri Item)"
+ },
+ {
+  "en": "The Adventuring Spirit",
+  "ko": "모험 정신",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Victario's Influence",
+  "rewardKo": "빅타리오의 영향력(Victario's Influence)"
+ },
+ {
+  "en": "The Aesthete",
+  "ko": "탐미주의자",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Shavronne Item",
+  "rewardKo": "샤브론 아이템"
+ },
+ {
+  "en": "The Apothecary",
+  "ko": "약제사",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Mageblood",
+  "rewardKo": "마법사의 피"
+ },
+ {
+  "en": "The Archmage's Right Hand",
+  "ko": "대마법사의 심복",
+  "stack": 7,
+  "cls": "magicitem",
+  "reward": "Glyphic Prophecy Wand",
+  "rewardKo": "상형 문자 예언 마법봉"
+ },
+ {
+  "en": "The Arena Champion",
+  "ko": "투기장의 용사",
+  "stack": 10,
+  "cls": "whiteitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "The Army of Blood",
+  "ko": "피의 군대",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Bloodbond",
+  "rewardKo": "피붙이(Bloodbond)"
+ },
+ {
+  "en": "The Artist",
+  "ko": "예술가",
+  "stack": 11,
+  "cls": "gemitem",
+  "reward": "Level 4 Enhance",
+  "rewardKo": "4레벨 향상 보조 젬"
+ },
+ {
+  "en": "The Aspirant",
+  "ko": "지망자",
+  "stack": 5,
+  "cls": "magicitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "The Astromancer",
+  "ko": "점성술사",
+  "stack": 7,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Avenger",
+  "ko": "복수자",
+  "stack": 12,
+  "cls": "uniqueitem",
+  "reward": "Mjölner",
+  "rewardKo": "묠니르(Mjölner)"
+ },
+ {
+  "en": "The Awakened",
+  "ko": "깨어난 자",
+  "stack": 6,
+  "cls": "rareitem",
+  "reward": "Jewellery",
+  "rewardKo": "장신구"
+ },
+ {
+  "en": "The Bargain",
+  "ko": "협상",
+  "stack": 5,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Battle Born",
+  "ko": "타고난 전투원",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Axe",
+  "rewardKo": "도끼"
+ },
+ {
+  "en": "The Bear Woman",
+  "ko": "웅녀",
+  "stack": 6,
+  "cls": "magicitem",
+  "reward": "Fecund Ursine Pelt",
+  "rewardKo": "다산의 곰 가죽모"
+ },
+ {
+  "en": "The Beast",
+  "ko": "짐승",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Belly of the Beast",
+  "rewardKo": "짐승의 소굴(Belly of the Beast)"
+ },
+ {
+  "en": "The Betrayal",
+  "ko": "배신",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Maligaro's Virtuosity",
+  "rewardKo": "말리가로의 기교(Maligaro's Virtuosity)"
+ },
+ {
+  "en": "The Bitter Blossom",
+  "ko": "쓰라린 만개",
+  "stack": 3,
+  "cls": "gemitem",
+  "reward": "Level 21 Chaos Gem",
+  "rewardKo": "21레벨 카오스 젬"
+ },
+ {
+  "en": "The Blazing Fire",
+  "ko": "맹렬한 화염",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Chin Sol",
+  "rewardKo": "친 솔"
+ },
+ {
+  "en": "The Blessing of Moosh",
+  "ko": "무쉬의 축복",
+  "stack": 4,
+  "cls": "gemitem",
+  "reward": "Level 21 Transfigured Gem",
+  "rewardKo": "21레벨 변성 젬"
+ },
+ {
+  "en": "The Body",
+  "ko": "몸통",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Body Armour",
+  "rewardKo": "갑옷"
+ },
+ {
+  "en": "The Bones",
+  "ko": "뼈",
+  "stack": 6,
+  "cls": "gemitem",
+  "reward": "Level 21 Vaal Summon Skeletons",
+  "rewardKo": "21레벨 바알 해골 소환"
+ },
+ {
+  "en": "The Brawny Battle Mage",
+  "ko": "건장한 전투 마법사",
+  "stack": 5,
+  "cls": "magicitem",
+  "reward": "Merciless Tornado Wand",
+  "rewardKo": "무자비한 회오리 마법봉"
+ },
+ {
+  "en": "The Breach",
+  "ko": "균열",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Breach Item",
+  "rewardKo": "균열 아이템"
+ },
+ {
+  "en": "The Brittle Emperor",
+  "ko": "말라붙은 황제",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Voll's Devotion",
+  "rewardKo": "볼의 헌신(Voll's Devotion)"
+ },
+ {
+  "en": "The Cache",
+  "ko": "은닉처",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Jewellery",
+  "rewardKo": "장신구(Jewellery)"
+ },
+ {
+  "en": "The Cacophony",
+  "ko": "불협화음",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "3x Deafening Essence",
+  "rewardKo": "귀를 찢는 에센스 x3"
+ },
+ {
+  "en": "The Calling",
+  "ko": "소명",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Beyond Item",
+  "rewardKo": "이계 아이템"
+ },
+ {
+  "en": "The Card Sharp",
+  "ko": "카드 사기꾼",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Divination Scarab",
+  "rewardKo": "점술 갑충석"
+ },
+ {
+  "en": "The Carrion Crow",
+  "ko": "까마귀",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Life Armour",
+  "rewardKo": "생명 방어구"
+ },
+ {
+  "en": "The Cartographer",
+  "ko": "지도제작자",
+  "stack": null,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Cataclysm",
+  "ko": "대재앙",
+  "stack": 13,
+  "cls": "gemitem",
+  "reward": "Level 21 Spell Gem",
+  "rewardKo": "21레벨 주문 젬"
+ },
+ {
+  "en": "The Catalyst",
+  "ko": "기폭제",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "Vaal Orb",
+  "rewardKo": "바알 오브"
+ },
+ {
+  "en": "The Catch",
+  "ko": "월척",
+  "stack": 18,
+  "cls": "whiteitem",
+  "reward": "Fishing Rod",
+  "rewardKo": "낚싯대"
+ },
+ {
+  "en": "The Celestial Justicar",
+  "ko": "천공의 심판관",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Six-Link Astral Plate",
+  "rewardKo": "6연결 우주의 판금 갑옷"
+ },
+ {
+  "en": "The Celestial Stone",
+  "ko": "천공의 돌",
+  "stack": 10,
+  "cls": "whiteitem",
+  "reward": "Opal Ring",
+  "rewardKo": "오팔 반지"
+ },
+ {
+  "en": "The Chains that Bind",
+  "ko": "속박의 사슬",
+  "stack": 11,
+  "cls": "whiteitem",
+  "reward": "Six-Link Body Armour",
+  "rewardKo": "6연결 갑옷"
+ },
+ {
+  "en": "The Cheater",
+  "ko": "사기꾼",
+  "stack": 3,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Chosen",
+  "ko": "선택받은 자",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Skin of the Lords",
+  "rewardKo": "군주의 가죽(Skin of the Lords)"
+ },
+ {
+  "en": "The Coming Storm",
+  "ko": "다가오는 태풍",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Lightning Coil",
+  "rewardKo": "번개 도선(Lightning Coil)"
+ },
+ {
+  "en": "The Conduit",
+  "ko": "도관",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Doryani's Fist",
+  "rewardKo": "도리아니의 주먹(Doryani's Fist)"
+ },
+ {
+  "en": "The Craving",
+  "ko": "갈망",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Unending Hunger",
+  "rewardKo": "끝없는 허기(Unending Hunger)"
+ },
+ {
+  "en": "The Cursed King",
+  "ko": "저주받은 왕",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Rigwald's Curse",
+  "rewardKo": "리그월드의 저주(Rigwald's Curse)"
+ },
+ {
+  "en": "The Damned",
+  "ko": "저주받은 자",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Soul Ripper",
+  "rewardKo": "영혼 거열기"
+ },
+ {
+  "en": "The Dapper Prodigy",
+  "ko": "말쑥한 영재",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Six-Link Body Armour",
+  "rewardKo": "6연결 갑옷"
+ },
+ {
+  "en": "The Dark Mage",
+  "ko": "어둠 마법사",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Six-Link Staff",
+  "rewardKo": "6연결 지팡이"
+ },
+ {
+  "en": "The Darkest Dream",
+  "ko": "암울한 꿈",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Severed in Sleep",
+  "rewardKo": "야습(Severed in Sleep)"
+ },
+ {
+  "en": "The Deal",
+  "ko": "거래",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Cartography Scarab",
+  "rewardKo": "지도 제작 갑충석"
+ },
+ {
+  "en": "The Deceiver",
+  "ko": "기만자",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Belt of the Deceiver",
+  "rewardKo": "기만자의 허리띠(Belt of the Deceiver)"
+ },
+ {
+  "en": "The Deep Ones",
+  "ko": "심해의 존재",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Tidebreaker",
+  "rewardKo": "물결 분쇄기(Tidebreaker)"
+ },
+ {
+  "en": "The Demon",
+  "ko": "악마",
+  "stack": 10,
+  "cls": "uniqueitem",
+  "reward": "Headhunter",
+  "rewardKo": "헤드헌터"
+ },
+ {
+  "en": "The Demoness",
+  "ko": "여악마",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Death's Hand",
+  "rewardKo": "죽음의 손길(Death's Hand)"
+ },
+ {
+  "en": "The Destination",
+  "ko": "목적지",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Watcher's Eye",
+  "rewardKo": "감시자의 눈"
+ },
+ {
+  "en": "The Devastator",
+  "ko": "파괴자",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Atziri's Disfavour",
+  "rewardKo": "앗지리의 경멸(Atziri's Disfavour)"
+ },
+ {
+  "en": "The Doctor",
+  "ko": "의사",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Headhunter",
+  "rewardKo": "헤드헌터(Headhunter)"
+ },
+ {
+  "en": "The Doppelganger",
+  "ko": "분신",
+  "stack": 2,
+  "cls": "gemitem",
+  "reward": "Mirror Arrow",
+  "rewardKo": "거울 화살"
+ },
+ {
+  "en": "The Dragon",
+  "ko": "용",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Coruscating Elixir",
+  "rewardKo": "빛나는 묘약(Coruscating Elixir)"
+ },
+ {
+  "en": "The Dragon's Heart",
+  "ko": "용의 심장",
+  "stack": 11,
+  "cls": "gemitem",
+  "reward": "Level 4 Empower",
+  "rewardKo": "4레벨 강화 보조 젬"
+ },
+ {
+  "en": "The Dreamer",
+  "ko": "몽상가",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Chayula Item",
+  "rewardKo": "차율라 아이템"
+ },
+ {
+  "en": "The Dreamland",
+  "ko": "꿈의 세계",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Poorjoy's Asylum",
+  "rewardKo": "푸어조이의 은신처(Poorjoy's Asylum)"
+ },
+ {
+  "en": "The Drunken Aristocrat",
+  "ko": "만취한 귀족",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Divination Distillate",
+  "rewardKo": "예언의 정수(Divination Distillate)"
+ },
+ {
+  "en": "The Dungeon Master",
+  "ko": "던전의 주인",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Belt",
+  "rewardKo": "허리띠"
+ },
+ {
+  "en": "The Easy Stroll",
+  "ko": "편안한 산책",
+  "stack": 2,
+  "cls": "rareitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "The Eldritch Decay",
+  "ko": "섬뜩한 부패",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Uber Elder Fragment",
+  "rewardKo": "우버 엘더 조각"
+ },
+ {
+  "en": "The Emptiness",
+  "ko": "허무",
+  "stack": 6,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Encroaching Darkness",
+  "ko": "잠식해오는 어둠",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "The Endless Darkness",
+  "ko": "끝없는 어둠",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Voidforge",
+  "rewardKo": "공허의 탄생(Voidforge)"
+ },
+ {
+  "en": "The Endurance",
+  "ko": "인내",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Vivid Crimson Jewel",
+  "rewardKo": "선명한 진홍색 주얼"
+ },
+ {
+  "en": "The Enforcer",
+  "ko": "집행자",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Spiked Gloves of the Conquest (Culling Strike)",
+  "rewardKo": "가시 장갑 - 점령자(마무리 타격)"
+ },
+ {
+  "en": "The Enlightened",
+  "ko": "계몽된 자",
+  "stack": 6,
+  "cls": "gemitem",
+  "reward": "Level 3 Enlighten",
+  "rewardKo": "3레벨 계몽 보조 젬"
+ },
+ {
+  "en": "The Enthusiasts",
+  "ko": "열광자들",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Victario's Influence",
+  "rewardKo": "빅타리오의 영향력(Victario's Influence)"
+ },
+ {
+  "en": "The Escape",
+  "ko": "탈주",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Seven-League Step",
+  "rewardKo": "바람의 걸음(Seven-League Step)"
+ },
+ {
+  "en": "The Eternal War",
+  "ko": "영원한 전쟁",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Timeless Jewel",
+  "rewardKo": "무궁한 주얼(Timeless Jewel)"
+ },
+ {
+  "en": "The Ethereal",
+  "ko": "천상에 속한 자",
+  "stack": 7,
+  "cls": "whiteitem",
+  "reward": "Six-Link Vaal Regalia",
+  "rewardKo": "6연결 바알 예복"
+ },
+ {
+  "en": "The Everlasting",
+  "ko": "영속하는 자",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Originator Incarnation Item",
+  "rewardKo": "태초자 화신 아이템"
+ },
+ {
+  "en": "The Explorer",
+  "ko": "탐험가",
+  "stack": 6,
+  "cls": "rareitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "The Eye of Terror",
+  "ko": "공포의 눈",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Mageblood",
+  "rewardKo": "마법사의 피"
+ },
+ {
+  "en": "The Eye of the Dragon",
+  "ko": "용의 눈",
+  "stack": 10,
+  "cls": "uniqueitem",
+  "reward": "Jewel",
+  "rewardKo": "주얼"
+ },
+ {
+  "en": "The Fathomless Depths",
+  "ko": "깊이 모를 심연",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Lightpoacher",
+  "rewardKo": "빛의 밀렵꾼(Lightpoacher)"
+ },
+ {
+  "en": "The Feast",
+  "ko": "연회",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Romira's Banquet",
+  "rewardKo": "로미라의 연회(Romira's Banquet)"
+ },
+ {
+  "en": "The Fiend",
+  "ko": "마귀",
+  "stack": 11,
+  "cls": "uniqueitem",
+  "reward": "Headhunter",
+  "rewardKo": "헤드헌터(Headhunter)"
+ },
+ {
+  "en": "The Finishing Touch",
+  "ko": "화룡점정",
+  "stack": 2,
+  "cls": "currencyitem",
+  "reward": "1x Fertile Catalyst",
+  "rewardKo": "풍요의 기폭제 x1"
+ },
+ {
+  "en": "The Fishmonger",
+  "ko": "생선 장수",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Albino Rhoa Feather",
+  "rewardKo": "흰 로아 깃털"
+ },
+ {
+  "en": "The Fletcher",
+  "ko": "화살 제조자",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Drillneck",
+  "rewardKo": "치명적 송곳(Drillneck)"
+ },
+ {
+  "en": "The Flora's Gift",
+  "ko": "식물의 선물",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Five-Link Staff",
+  "rewardKo": "5연결 지팡이"
+ },
+ {
+  "en": "The Fool",
+  "ko": "어리석은 자",
+  "stack": 4,
+  "cls": "currencyitem",
+  "reward": "20x Orb of Chance",
+  "rewardKo": "기회의 오브 x20"
+ },
+ {
+  "en": "The Forbidden Fruit",
+  "ko": "금단의 열매",
+  "stack": null,
+  "cls": "whiteitem",
+  "reward": "Uber Pinnacle Fragment",
+  "rewardKo": "우버 최종 조각"
+ },
+ {
+  "en": "The Forgotten Treasure",
+  "ko": "잊혀진 보물",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Leather Belt",
+  "rewardKo": "가죽 허리띠"
+ },
+ {
+  "en": "The Formless Sea",
+  "ko": "무형의 바다",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Varunastra",
+  "rewardKo": "바루나스트라(Varunastra)"
+ },
+ {
+  "en": "The Forsaken",
+  "ko": "버림받은 자",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Umbilicus Immortalis",
+  "rewardKo": "불멸의 탯줄(Umbilicus Immortalis)"
+ },
+ {
+  "en": "The Fortunate",
+  "ko": "행운아",
+  "stack": 12,
+  "cls": "currencyitem",
+  "reward": "2x Divine Orb",
+  "rewardKo": "신성한 오브 x2"
+ },
+ {
+  "en": "The Forward Gaze",
+  "ko": "전면 응시",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Replica Item",
+  "rewardKo": "모조품 아이템"
+ },
+ {
+  "en": "The Fox",
+  "ko": "여우",
+  "stack": 6,
+  "cls": "gemitem",
+  "reward": "Level 20 Gem",
+  "rewardKo": "20레벨 젬"
+ },
+ {
+  "en": "The Fox in the Brambles",
+  "ko": "가시나무에 얽힌 여우",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Bramblejack",
+  "rewardKo": "가시나무 갑옷(Bramblejack)"
+ },
+ {
+  "en": "The Gambler",
+  "ko": "도박꾼",
+  "stack": 5,
+  "cls": "divination",
+  "reward": "Divination Card",
+  "rewardKo": "점술 카드"
+ },
+ {
+  "en": "The Garish Power",
+  "ko": "화려한 힘",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Jewel",
+  "rewardKo": "주얼"
+ },
+ {
+  "en": "The Gemcutter",
+  "ko": "세공사",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "Gemcutter's Prism",
+  "rewardKo": "세공사의 프리즘"
+ },
+ {
+  "en": "The Gentleman",
+  "ko": "신사",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Sword",
+  "rewardKo": "검"
+ },
+ {
+  "en": "The Gladiator",
+  "ko": "검투사",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Nightmare Bascinet",
+  "rewardKo": "악몽의 배서닛"
+ },
+ {
+  "en": "The Golden Era",
+  "ko": "황금시대",
+  "stack": 7,
+  "cls": "magicitem",
+  "reward": "Flaring Eclipse Staff",
+  "rewardKo": "빛을 뿜는 월식 지팡이"
+ },
+ {
+  "en": "The Greatest Intentions",
+  "ko": "위대한 뜻",
+  "stack": 10,
+  "cls": "uniqueitem",
+  "reward": "The Saviour",
+  "rewardKo": "구원자(The Saviour)"
+ },
+ {
+  "en": "The Gulf",
+  "ko": "만",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Thread of Hope",
+  "rewardKo": "희망의 실타래(Thread of Hope)"
+ },
+ {
+  "en": "The Hale Heart",
+  "ko": "건강한 심장",
+  "stack": 4,
+  "cls": "rareitem",
+  "reward": "Item",
+  "rewardKo": "아이템"
+ },
+ {
+  "en": "The Harvester",
+  "ko": "수확자",
+  "stack": 11,
+  "cls": "uniqueitem",
+  "reward": "The Harvest",
+  "rewardKo": "수확(The Harvest)"
+ },
+ {
+  "en": "The Hermit",
+  "ko": "은둔자",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Lifesprig",
+  "rewardKo": "생명의 가지(Lifesprig)"
+ },
+ {
+  "en": "The Heroic Shot",
+  "ko": "영웅적인 시도",
+  "stack": null,
+  "cls": "currencyitem",
+  "reward": "17x Chromatic Orb",
+  "rewardKo": "색채의 오브 x17"
+ },
+ {
+  "en": "The Hive of Knowledge",
+  "ko": "지식의 산실",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Machina Mitts",
+  "rewardKo": "마키나 미트(Machina Mitts)"
+ },
+ {
+  "en": "The Hoarder",
+  "ko": "비축가",
+  "stack": 12,
+  "cls": "currencyitem",
+  "reward": "Exalted Orb",
+  "rewardKo": "엑잘티드 오브"
+ },
+ {
+  "en": "The Hook",
+  "ko": "갈고리",
+  "stack": 8,
+  "cls": "gemitem",
+  "reward": "Level 21 Transfigured Gem",
+  "rewardKo": "21레벨 변성 젬"
+ },
+ {
+  "en": "The Hunger",
+  "ko": "굶주림",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Taste of Hate",
+  "rewardKo": "증오의 맛(Taste of Hate)"
+ },
+ {
+  "en": "The Immortal",
+  "ko": "불멸자",
+  "stack": 10,
+  "cls": "divination",
+  "reward": "House of Mirrors",
+  "rewardKo": "거울의 집"
+ },
+ {
+  "en": "The Incantation",
+  "ko": "주문",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "The Whispering Ice",
+  "rewardKo": "속삭이는 얼음(The Whispering Ice)"
+ },
+ {
+  "en": "The Innocent",
+  "ko": "결백한 자",
+  "stack": 10,
+  "cls": "currencyitem",
+  "reward": "40x Orb of Regret",
+  "rewardKo": "후회의 오브 x40"
+ },
+ {
+  "en": "The Inoculated",
+  "ko": "접종자",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Seraphim's Armour",
+  "rewardKo": "고위 천사의 방어구"
+ },
+ {
+  "en": "The Insane Cat",
+  "ko": "실성한 고양이",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Mageblood",
+  "rewardKo": "마법사의 피"
+ },
+ {
+  "en": "The Insatiable",
+  "ko": "만족을 모르는 자",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "The Harvest",
+  "rewardKo": "수확(The Harvest)"
+ },
+ {
+  "en": "The Inventor",
+  "ko": "발명가",
+  "stack": 6,
+  "cls": "currencyitem",
+  "reward": "10x Vaal Orb",
+  "rewardKo": "바알 오브 x10"
+ },
+ {
+  "en": "The Jester",
+  "ko": "어릿광대",
+  "stack": 9,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Jeweller's Boon",
+  "ko": "보석 상인의 은혜",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Five-Linked Body Armour",
+  "rewardKo": "5연결 갑옷"
+ },
+ {
+  "en": "The Journalist",
+  "ko": "집필가",
+  "stack": 10,
+  "cls": "rareitem",
+  "reward": "Helmet",
+  "rewardKo": "투구"
+ },
+ {
+  "en": "The Journey",
+  "ko": "여행",
+  "stack": 4,
+  "cls": "currencyitem",
+  "reward": "Journey Tattoo",
+  "rewardKo": "여정 문신"
+ },
+ {
+  "en": "The King's Blade",
+  "ko": "왕의 검",
+  "stack": 5,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The King's Heart",
+  "ko": "왕의 심장",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Kaom's Heart",
+  "rewardKo": "카옴의 심장(Kaom's Heart)"
+ },
+ {
+  "en": "The Lake",
+  "ko": "호수",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "Reflecting Mist",
+  "rewardKo": "투영하는 안개"
+ },
+ {
+  "en": "The Landing",
+  "ko": "상륙",
+  "stack": 5,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Last Laugh",
+  "ko": "최후의 웃음",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Replica Dragonfang's Flight",
+  "rewardKo": "용송곳니의 비상 모조품"
+ },
+ {
+  "en": "The Last One Standing",
+  "ko": "최후의 승자",
+  "stack": 10,
+  "cls": "uniqueitem",
+  "reward": "Atziri's Disfavour",
+  "rewardKo": "앗지리의 경멸(Atziri's Disfavour)"
+ },
+ {
+  "en": "The Last Supper",
+  "ko": "최후의 만찬",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Bino's Kitchen Knife",
+  "rewardKo": "비노의 부엌칼(Bino's Kitchen Knife)"
+ },
+ {
+  "en": "The Leviathan",
+  "ko": "레비아탄",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Maven Item",
+  "rewardKo": "메이븐 아이템"
+ },
+ {
+  "en": "The Lich",
+  "ko": "리치",
+  "stack": 12,
+  "cls": "uniqueitem",
+  "reward": "Midnight Bargain",
+  "rewardKo": "심야의 교섭(Midnight Bargain)"
+ },
+ {
+  "en": "The Life Thief",
+  "ko": "생명력 도둑",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Zerphi's Heart",
+  "rewardKo": "제르피의 심장(Zerphi's Heart)"
+ },
+ {
+  "en": "The Lion",
+  "ko": "사자",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Lioneye Item",
+  "rewardKo": "라이온아이 아이템"
+ },
+ {
+  "en": "The Long Con",
+  "ko": "기나긴 속임수",
+  "stack": 4,
+  "cls": "currencyitem",
+  "reward": "Elderslayer's Exalted Orb",
+  "rewardKo": "엘더슬레이어의 엑잘티드 오브"
+ },
+ {
+  "en": "The Long Watch",
+  "ko": "오랜 감시",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "The Fourth Vow",
+  "rewardKo": "네 번째 맹세"
+ },
+ {
+  "en": "The Lord in Black",
+  "ko": "어둠 속의 군주",
+  "stack": 6,
+  "cls": "magicitem",
+  "reward": "Ring of Bameth",
+  "rewardKo": "반지 - 바메스"
+ },
+ {
+  "en": "The Lord of Celebration",
+  "ko": "축제의 군주",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Sceptre of Celebration",
+  "rewardKo": "셉터- 축제"
+ },
+ {
+  "en": "The Lover",
+  "ko": "연인",
+  "stack": 2,
+  "cls": "rareitem",
+  "reward": "Jewellery",
+  "rewardKo": "장신구"
+ },
+ {
+  "en": "The Lunaris Priestess",
+  "ko": "루나리스 여사제",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Sire of Shards",
+  "rewardKo": "파편의 영주(Sire of Shards)"
+ },
+ {
+  "en": "The Mad King",
+  "ko": "미치광이 왕",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Vaal Aspect",
+  "rewardKo": "바알 위상"
+ },
+ {
+  "en": "The Magma Crab",
+  "ko": "마그마 게",
+  "stack": 6,
+  "cls": "gemitem",
+  "reward": "Level 21 Vaal Molten Shell",
+  "rewardKo": "21레벨 바알 용암 방패"
+ },
+ {
+  "en": "The Master Artisan",
+  "ko": "장인",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "20x Quality Currency",
+  "rewardKo": "퀄리티 화폐 x20"
+ },
+ {
+  "en": "The Mayor",
+  "ko": "시장",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "The Light of Meaning",
+  "rewardKo": "의미의 빛"
+ },
+ {
+  "en": "The Mercenary",
+  "ko": "용병",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Shield",
+  "rewardKo": "방패"
+ },
+ {
+  "en": "The Messenger",
+  "ko": "전달자",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Harbinger Item",
+  "rewardKo": "선구자 아이템"
+ },
+ {
+  "en": "The Metalsmith's Gift",
+  "ko": "금속 세공사의 선물",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Prismatic Ring",
+  "rewardKo": "분광 반지"
+ },
+ {
+  "en": "The Mind's Eyes",
+  "ko": "마음의 눈",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Astral Projector",
+  "rewardKo": "우주의 영사기(Astral Projector)"
+ },
+ {
+  "en": "The Miracle",
+  "ko": "기적",
+  "stack": 3,
+  "cls": "gemitem",
+  "reward": "Awakened Exceptional Gem",
+  "rewardKo": "각성한 특출난 젬"
+ },
+ {
+  "en": "The Mountain",
+  "ko": "산",
+  "stack": 6,
+  "cls": "magicitem",
+  "reward": "Jewel of Potency",
+  "rewardKo": "주얼 - 잠재력"
+ },
+ {
+  "en": "The Nurse",
+  "ko": "간호사",
+  "stack": 8,
+  "cls": "divination",
+  "reward": "The Doctor",
+  "rewardKo": "의사"
+ },
+ {
+  "en": "The Oath",
+  "ko": "서약",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Death's Oath",
+  "rewardKo": "죽음의 서약(Death's Oath)"
+ },
+ {
+  "en": "The Obscured",
+  "ko": "가려진 자",
+  "stack": 7,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Offering",
+  "ko": "공물",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Shavronne's Wrappings",
+  "rewardKo": "샤브론의 겉옷(Shavronne's Wrappings)"
+ },
+ {
+  "en": "The Offspring",
+  "ko": "자손",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Ryslatha's Coil",
+  "rewardKo": "리슬라사의 감개(Ryslatha's Coil)"
+ },
+ {
+  "en": "The Old Man",
+  "ko": "노인",
+  "stack": 12,
+  "cls": "rareitem",
+  "reward": "Fishing Rod",
+  "rewardKo": "낚싯대"
+ },
+ {
+  "en": "The One That Got Away",
+  "ko": "도망친 자",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Replica Bated Breath",
+  "rewardKo": "약해진 숨결(Bated Breath) 모조품"
+ },
+ {
+  "en": "The One With All",
+  "ko": "만인과 함께하는 자",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Le Heup of All",
+  "rewardKo": "만인의 르 흐프(Le Heup of All)"
+ },
+ {
+  "en": "The Opulent",
+  "ko": "호화로움",
+  "stack": 5,
+  "cls": "rareitem",
+  "reward": "Ring",
+  "rewardKo": "반지"
+ },
+ {
+  "en": "The Pack Leader",
+  "ko": "무리의 우두머리",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Alpha's Howl",
+  "rewardKo": "우두머리의 울부짖음(Alpha's Howl)"
+ },
+ {
+  "en": "The Pact",
+  "ko": "계약",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Pledge of Hands",
+  "rewardKo": "손으로 맺은 서약(Pledge of Hands)"
+ },
+ {
+  "en": "The Patient",
+  "ko": "환자",
+  "stack": 8,
+  "cls": "divination",
+  "reward": "The Nurse",
+  "rewardKo": "간호사"
+ },
+ {
+  "en": "The Penitent",
+  "ko": "참회자",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Unset Ring",
+  "rewardKo": "무보석 반지"
+ },
+ {
+  "en": "The Poet",
+  "ko": "시인",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Blood of Corruption",
+  "rewardKo": "타락의 피(Blood of Corruption)"
+ },
+ {
+  "en": "The Polymath",
+  "ko": "박식가",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Astramentis",
+  "rewardKo": "별의 보석(Astramentis)"
+ },
+ {
+  "en": "The Porcupine",
+  "ko": "호저",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Six-Link Short Bow",
+  "rewardKo": "6연결 단궁"
+ },
+ {
+  "en": "The Price of Devotion",
+  "ko": "헌신의 대가",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Mageblood",
+  "rewardKo": "마법사의 피"
+ },
+ {
+  "en": "The Price of Loyalty",
+  "ko": "충성의 대가",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Skin of the Loyal",
+  "rewardKo": "충신의 가죽(Skin of the Loyal)"
+ },
+ {
+  "en": "The Price of Prescience",
+  "ko": "선지의 대가",
+  "stack": 5,
+  "cls": "rareitem",
+  "reward": "Vaal Temple Map",
+  "rewardKo": "바알 사원 지도"
+ },
+ {
+  "en": "The Price of Protection",
+  "ko": "보호의 대가",
+  "stack": 5,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Primordial",
+  "ko": "태고",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Jewel",
+  "rewardKo": "주얼"
+ },
+ {
+  "en": "The Prince of Darkness",
+  "ko": "어둠의 대공",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Elegant Hubris",
+  "rewardKo": "고상한 오만(Elegant Hubris)"
+ },
+ {
+  "en": "The Professor",
+  "ko": "교수",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "The Putrid Cloister",
+  "rewardKo": "악취 나는 수도원(The Putrid Cloister)"
+ },
+ {
+  "en": "The Progeny of Lunaris",
+  "ko": "루나리스의 자손",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Dying Sun",
+  "rewardKo": "죽어가는 해(Dying Sun)"
+ },
+ {
+  "en": "The Puzzle",
+  "ko": "수수께끼",
+  "stack": 5,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Queen",
+  "ko": "여왕",
+  "stack": 16,
+  "cls": "uniqueitem",
+  "reward": "Atziri's Acuity",
+  "rewardKo": "앗지리의 예리함(Atziri's Acuity)"
+ },
+ {
+  "en": "The Rabbit's Foot",
+  "ko": "토끼 발",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "10x Incursion Vial",
+  "rewardKo": "기습 시약 x10"
+ },
+ {
+  "en": "The Rabid Rhoa",
+  "ko": "광포한 로아",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Malicious Gemini Claw",
+  "rewardKo": "악의적인 쌍생아 클로"
+ },
+ {
+  "en": "The Realm",
+  "ko": "영역",
+  "stack": 5,
+  "cls": "gemitem",
+  "reward": "Portal",
+  "rewardKo": "포탈"
+ },
+ {
+  "en": "The Return of the Rat",
+  "ko": "쥐의 귀환",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Tavukai",
+  "rewardKo": "타부카이"
+ },
+ {
+  "en": "The Risk",
+  "ko": "위험",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Ventor's Gamble",
+  "rewardKo": "벤토의 도박(Ventor's Gamble)"
+ },
+ {
+  "en": "The Rite of Elements",
+  "ko": "원소의 의식",
+  "stack": 5,
+  "cls": "gemitem",
+  "reward": "Level 21 Golem Gem",
+  "rewardKo": "21레벨 골렘 젬"
+ },
+ {
+  "en": "The Road to Power",
+  "ko": "힘에 이르는 길",
+  "stack": 7,
+  "cls": "magicitem",
+  "reward": "Runic One-Hand Weapon",
+  "rewardKo": "룬 한손 무기"
+ },
+ {
+  "en": "The Rusted Bard",
+  "ko": "녹슨 음유시인",
+  "stack": 9,
+  "cls": "currencyitem",
+  "reward": "4x Tainted Mythic Orb",
+  "rewardKo": "더럽혀진 신화 오브 x4"
+ },
+ {
+  "en": "The Ruthless Ceinture",
+  "ko": "무정한 허리띠",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Meginord's Girdle",
+  "rewardKo": "메기노드의 허리띠(Meginord's Girdle)"
+ },
+ {
+  "en": "The Sacrifice",
+  "ko": "희생",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Six-Link Sacrificial Garb",
+  "rewardKo": "6연결 희생의 의복"
+ },
+ {
+  "en": "The Saint's Treasure",
+  "ko": "성자의 보물",
+  "stack": 10,
+  "cls": "currencyitem",
+  "reward": "2x Exalted Orb",
+  "rewardKo": "엑잘티드 오브 x2"
+ },
+ {
+  "en": "The Samurai's Eye",
+  "ko": "사무라이의 눈",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Watcher's Eye",
+  "rewardKo": "감시자의 눈(Watcher's Eye)"
+ },
+ {
+  "en": "The Scarred Meadow",
+  "ko": "상처 입은 초원",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Wake of Destruction",
+  "rewardKo": "파괴의 경야(Wake of Destruction)"
+ },
+ {
+  "en": "The Scavenger",
+  "ko": "시체 청소부",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Carcass Jack",
+  "rewardKo": "시체 상인(Carcass Jack)"
+ },
+ {
+  "en": "The Scholar",
+  "ko": "학자",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "40x Scroll of Wisdom",
+  "rewardKo": "감정 주문서 x40"
+ },
+ {
+  "en": "The Scout",
+  "ko": "정찰병",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "7x Exalted Orb",
+  "rewardKo": "엑잘티드 오브 x7"
+ },
+ {
+  "en": "The Seeker",
+  "ko": "탐색자",
+  "stack": 9,
+  "cls": "currencyitem",
+  "reward": "3x Orb of Annulment",
+  "rewardKo": "소멸의 오브 x3"
+ },
+ {
+  "en": "The Sephirot",
+  "ko": "세피로트",
+  "stack": 11,
+  "cls": "currencyitem",
+  "reward": "10x Divine Orb",
+  "rewardKo": "신성한 오브 x10"
+ },
+ {
+  "en": "The Shepherd's Sandals",
+  "ko": "양치기의 샌들",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Boots",
+  "rewardKo": "장화"
+ },
+ {
+  "en": "The Shieldbearer",
+  "ko": "방패 운반자",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "The Squire",
+  "rewardKo": "종자"
+ },
+ {
+  "en": "The Shortcut",
+  "ko": "지름길",
+  "stack": null,
+  "cls": "magicitem",
+  "reward": "Quicksilver Flask of the Cheetah",
+  "rewardKo": "수은 플라스크 - 치타"
+ },
+ {
+  "en": "The Side Quest",
+  "ko": "부가 임무",
+  "stack": 5,
+  "cls": "whiteitem",
+  "reward": "Incarnation Echo",
+  "rewardKo": "화신 메아리"
+ },
+ {
+  "en": "The Sigil",
+  "ko": "부적",
+  "stack": 3,
+  "cls": "magicitem",
+  "reward": "Unassailable Amulet",
+  "rewardKo": "빈틈 없는 목걸이"
+ },
+ {
+  "en": "The Silly Boy",
+  "ko": "어리석은 남자아이",
+  "stack": 9,
+  "cls": "whiteitem",
+  "reward": "6x Horned Scarab",
+  "rewardKo": "뿔 달린 갑충석 6개"
+ },
+ {
+  "en": "The Siren",
+  "ko": "사이렌",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "The Whispering Ice",
+  "rewardKo": "속삭이는 얼음(The Whispering Ice)"
+ },
+ {
+  "en": "The Skeleton",
+  "ko": "해골",
+  "stack": 6,
+  "cls": "gemitem",
+  "reward": "Level 1 Summon Skeletons",
+  "rewardKo": "레벨 1 해골 소환"
+ },
+ {
+  "en": "The Slumbering Beast",
+  "ko": "잠든 야수",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "Hinekora's Lock",
+  "rewardKo": "히네코라의 머리카락"
+ },
+ {
+  "en": "The Soul",
+  "ko": "영혼",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Soul Taker",
+  "rewardKo": "영혼 수확자(Soul Taker)"
+ },
+ {
+  "en": "The Spark and the Flame",
+  "ko": "불꽃과 화염",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Berek's Respite",
+  "rewardKo": "베렉의 유예(Berek's Respite)"
+ },
+ {
+  "en": "The Spoiled Prince",
+  "ko": "버릇 없이 자란 왕자",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Dictator's Prophecy Wand",
+  "rewardKo": "독재자의 예언 마법봉"
+ },
+ {
+  "en": "The Standoff",
+  "ko": "교착 상태",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Rustic Sash",
+  "rewardKo": "소박한 띠"
+ },
+ {
+  "en": "The Stormcaller",
+  "ko": "폭풍 소환사",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Agnerod Staff",
+  "rewardKo": "아그네로드 지팡이"
+ },
+ {
+  "en": "The Strategist",
+  "ko": "전략가",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Inspired Learning",
+  "rewardKo": "탁월한 학습(Inspired Learning)"
+ },
+ {
+  "en": "The Summoner",
+  "ko": "소환자",
+  "stack": 6,
+  "cls": "gemitem",
+  "reward": "Minion Gem",
+  "rewardKo": "소환수 젬"
+ },
+ {
+  "en": "The Sun",
+  "ko": "태양",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Rise of the Phoenix",
+  "rewardKo": "불사조의 비상(Rise of the Phoenix)"
+ },
+ {
+  "en": "The Surgeon",
+  "ko": "외과의사",
+  "stack": 4,
+  "cls": "magicitem",
+  "reward": "Surgeon's Flask",
+  "rewardKo": "의사의 플라스크"
+ },
+ {
+  "en": "The Surveyor",
+  "ko": "측량사",
+  "stack": 4,
+  "cls": "whiteitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "The Survivalist",
+  "ko": "생존주의자",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "7x Orb of Alchemy",
+  "rewardKo": "연금술의 오브 x7"
+ },
+ {
+  "en": "The Sword King's Salute",
+  "ko": "검의 제왕의 경례",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Daresso's Salute",
+  "rewardKo": "다레소의 경례(Daresso's Salute)"
+ },
+ {
+  "en": "The Thaumaturgist",
+  "ko": "마석학자",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Shavronne's Revelation",
+  "rewardKo": "샤브론의 계시(Shavronne's Revelation)"
+ },
+ {
+  "en": "The Throne",
+  "ko": "왕좌",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Kaom's Roots",
+  "rewardKo": "카옴의 근본(Kaom's Roots)"
+ },
+ {
+  "en": "The Tinkerer's Table",
+  "ko": "땜장이의 작업대",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "5x Fossil",
+  "rewardKo": "화석 x5"
+ },
+ {
+  "en": "The Tireless Extractor",
+  "ko": "끈기 있는 추출자",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "10x Oil",
+  "rewardKo": "성유 x10"
+ },
+ {
+  "en": "The Tower",
+  "ko": "탑",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Staff",
+  "rewardKo": "지팡이"
+ },
+ {
+  "en": "The Traitor",
+  "ko": "배반자",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Wand",
+  "rewardKo": "마법봉"
+ },
+ {
+  "en": "The Transformation",
+  "ko": "변화",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "Tainted Mythic Orb",
+  "rewardKo": "더럽혀진 신화 오브"
+ },
+ {
+  "en": "The Trial",
+  "ko": "시험",
+  "stack": 7,
+  "cls": "rareitem",
+  "reward": "Map",
+  "rewardKo": "지도"
+ },
+ {
+  "en": "The Tumbleweed",
+  "ko": "회전초",
+  "stack": 2,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Twilight Moon",
+  "ko": "황혼의 달",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "The Twilight Temple",
+  "rewardKo": "황혼의 사원(The Twilight Temple)"
+ },
+ {
+  "en": "The Twins",
+  "ko": "쌍둥이",
+  "stack": 8,
+  "cls": "magicitem",
+  "reward": "Gemini Claw of Celebration",
+  "rewardKo": "쌍생아 클로 - 축제"
+ },
+ {
+  "en": "The Tyrant",
+  "ko": "폭군",
+  "stack": 9,
+  "cls": "magicitem",
+  "reward": "Merciless Weapon",
+  "rewardKo": "무자비한 무기"
+ },
+ {
+  "en": "The Undaunted",
+  "ko": "의연한 자",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Nemesis Item",
+  "rewardKo": "천벌 아이템(Nemesis Item)"
+ },
+ {
+  "en": "The Undisputed",
+  "ko": "모두가 인정하는 자",
+  "stack": 8,
+  "cls": "magicitem",
+  "reward": "Merciless Vaal Axe",
+  "rewardKo": "무자비한 바알 도끼"
+ },
+ {
+  "en": "The Unexpected Prize",
+  "ko": "뜻밖의 포상",
+  "stack": 2,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Union",
+  "ko": "결합",
+  "stack": 7,
+  "cls": "currencyitem",
+  "reward": "10x Gemcutter's Prism",
+  "rewardKo": "세공사의 프리즘 x10"
+ },
+ {
+  "en": "The Valkyrie",
+  "ko": "발키리",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Nemesis Item",
+  "rewardKo": "천벌 아이템"
+ },
+ {
+  "en": "The Vast",
+  "ko": "광대함",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Song of the Sirens",
+  "rewardKo": "사이렌의 노래(Song of the Sirens)"
+ },
+ {
+  "en": "The Visionary",
+  "ko": "공상가",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Lioneye's Vision",
+  "rewardKo": "라이온아이의 시각(Lioneye's Vision)"
+ },
+ {
+  "en": "The Void",
+  "ko": "공허",
+  "stack": null,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "The Warden",
+  "ko": "간수",
+  "stack": 4,
+  "cls": "rareitem",
+  "reward": "Amulet",
+  "rewardKo": "목걸이"
+ },
+ {
+  "en": "The Warlord",
+  "ko": "전쟁군주",
+  "stack": 6,
+  "cls": "whiteitem",
+  "reward": "Six-Link Coronal Maul",
+  "rewardKo": "6연결 광환의 대형 망치"
+ },
+ {
+  "en": "The Watcher",
+  "ko": "감시자",
+  "stack": 12,
+  "cls": "uniqueitem",
+  "reward": "Crown of Eyes",
+  "rewardKo": "눈알 왕관(Crown of Eyes)"
+ },
+ {
+  "en": "The Web",
+  "ko": "거미줄",
+  "stack": 8,
+  "cls": "magicitem",
+  "reward": "Weapon of Crafting",
+  "rewardKo": "무기 - 제작"
+ },
+ {
+  "en": "The Wedding Gift",
+  "ko": "결혼 선물",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Arakaali's Fang",
+  "rewardKo": "아라칼리의 송곳니"
+ },
+ {
+  "en": "The White Knight",
+  "ko": "백기사",
+  "stack": 8,
+  "cls": "whiteitem",
+  "reward": "Six-Link Astral Plate",
+  "rewardKo": "6연결 우주의 판금 갑옷"
+ },
+ {
+  "en": "The Whiteout",
+  "ko": "백시",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Cospri's Malice",
+  "rewardKo": "코스프리의 장난(Cospri's Malice)"
+ },
+ {
+  "en": "The Wilted Rose",
+  "ko": "시들은 장미",
+  "stack": 7,
+  "cls": "gemitem",
+  "reward": "Level 21 Aura Gem",
+  "rewardKo": "21레벨 오라 젬"
+ },
+ {
+  "en": "The Wind",
+  "ko": "바람",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Windripper",
+  "rewardKo": "윈드리퍼(Windripper)"
+ },
+ {
+  "en": "The Witch",
+  "ko": "마녀",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Kiara's Determination",
+  "rewardKo": "키아라의 결의(Kiara's Determination)"
+ },
+ {
+  "en": "The Wolf",
+  "ko": "늑대",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Rigwald Item",
+  "rewardKo": "리그월드 아이템"
+ },
+ {
+  "en": "The Wolf's Legacy",
+  "ko": "늑대의 유산",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Vaults of Atziri",
+  "rewardKo": "앗지리의 금고실(Vaults of Atziri)"
+ },
+ {
+  "en": "The Wolf's Shadow",
+  "ko": "늑대의 그림자",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Hyaon's Fury",
+  "rewardKo": "하야온의 광분(Hyaon's Fury)"
+ },
+ {
+  "en": "The Wolven King's Bite",
+  "ko": "늑대왕의 이빨",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Rigwald's Quills",
+  "rewardKo": "리그월드의 화살(Rigwald's Quills)"
+ },
+ {
+  "en": "The Wolverine",
+  "ko": "오소리",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Claw",
+  "rewardKo": "클로"
+ },
+ {
+  "en": "The World Eater",
+  "ko": "세계를 먹는 자",
+  "stack": 8,
+  "cls": "uniqueitem",
+  "reward": "Starforge",
+  "rewardKo": "별의 탄생(Starforge)"
+ },
+ {
+  "en": "The Wrath",
+  "ko": "진노",
+  "stack": 8,
+  "cls": "currencyitem",
+  "reward": "10x Chaos Orb",
+  "rewardKo": "카오스 오브 x10"
+ },
+ {
+  "en": "The Wretched",
+  "ko": "불운아",
+  "stack": 6,
+  "cls": "uniqueitem",
+  "reward": "Belt",
+  "rewardKo": "허리띠"
+ },
+ {
+  "en": "Thirst for Knowledge",
+  "ko": "불타는 지식욕",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Gluttony",
+  "rewardKo": "폭식(Gluttony)"
+ },
+ {
+  "en": "Three Faces in the Dark",
+  "ko": "어둠 속의 세 얼굴",
+  "stack": 7,
+  "cls": "currencyitem",
+  "reward": "3x Chaos Orb",
+  "rewardKo": "카오스 오브 x3"
+ },
+ {
+  "en": "Three Voices",
+  "ko": "3개의 목소리",
+  "stack": 3,
+  "cls": "currencyitem",
+  "reward": "3x Essence",
+  "rewardKo": "에센스 x3"
+ },
+ {
+  "en": "Thunderous Skies",
+  "ko": "천둥 치는 하늘",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Storm Cloud",
+  "rewardKo": "태풍 구름(Storm Cloud)"
+ },
+ {
+  "en": "Toxic Tidings",
+  "ko": "유독한 소식",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Dendrobate",
+  "rewardKo": "화살독 갑옷"
+ },
+ {
+  "en": "Tranquillity",
+  "ko": "평온",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Voltaxic Rift",
+  "rewardKo": "전도성 균열(Voltaxic Rift)"
+ },
+ {
+  "en": "Treasure Hunter",
+  "ko": "보물 사냥꾼",
+  "stack": 7,
+  "cls": "uniqueitem",
+  "reward": "Vaults of Atziri",
+  "rewardKo": "앗지리의 금고실(Vaults of Atziri)"
+ },
+ {
+  "en": "Treasures of the Vaal",
+  "ko": "바알의 보물",
+  "stack": 12,
+  "cls": "uniqueitem",
+  "reward": "Vaal Jewel",
+  "rewardKo": "바알 주얼"
+ },
+ {
+  "en": "Triskaidekaphobia",
+  "ko": "13 공포증",
+  "stack": 13,
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
+ },
+ {
+  "en": "Turn the Other Cheek",
+  "ko": "다른 뺨을 내밀라",
+  "stack": 3,
+  "cls": "uniqueitem",
+  "reward": "Pacifism",
+  "rewardKo": "평화주의(Pacifism)"
+ },
+ {
+  "en": "Unchained",
+  "ko": "해방",
+  "stack": 4,
+  "cls": "uniqueitem",
+  "reward": "Facebreaker",
+  "rewardKo": "페이스브레이커(Facebreaker)"
+ },
+ {
+  "en": "Underground Forest",
+  "ko": "지하 숲",
+  "stack": 4,
+  "cls": "currencyitem",
+  "reward": "10x Grand Eldritch Ichor",
+  "rewardKo": "우수한 섬뜩한 영액 x10"
+ },
+ {
+  "en": "Unrequited Love",
+  "ko": "짝사랑",
+  "stack": 16,
+  "cls": "currencyitem",
+  "reward": "19x Mirror Shard",
+  "rewardKo": "거울 파편 x19"
+ },
+ {
+  "en": "Vanity",
+  "ko": "자만심",
+  "stack": 9,
+  "cls": "uniqueitem",
+  "reward": "Tabula Rasa",
+  "rewardKo": "타뷸라 라사(Tabula Rasa)"
+ },
+ {
+  "en": "Vile Power",
+  "ko": "사악한 힘",
+  "stack": 5,
+  "cls": "uniqueitem",
+  "reward": "Doomfletch",
+  "rewardKo": "죽음의 깃"
+ },
+ {
+  "en": "Vinia's Token",
+  "ko": "비니아의 증표",
+  "stack": 5,
+  "cls": "currencyitem",
+  "reward": "10x Orb of Regret",
+  "rewardKo": "후회의 오브 x10"
+ },
+ {
+  "en": "Void of the Elements",
+  "ko": "원소의 공허",
+  "stack": 3,
+  "cls": "magicitem",
+  "reward": "Overpowering Opal Ring",
+  "rewardKo": "압도하는 오팔 반지"
+ },
+ {
+  "en": "Volatile Power",
+  "ko": "불안한 권력",
+  "stack": 9,
+  "cls": "gemitem",
+  "reward": "Vaal Gem",
+  "rewardKo": "바알 젬"
+ },
+ {
+  "en": "Wealth and Power",
+  "ko": "부와 권력",
+  "stack": 11,
+  "cls": "gemitem",
+  "reward": "Level 4 Enlighten",
+  "rewardKo": "4레벨 계몽 보조 젬"
+ },
+ {
+  "en": "When Currents Blaze",
+  "ko": "흐름이 타오를 때",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Stormfire",
+  "rewardKo": "태풍불길"
+ },
+ {
+  "en": "Who Asked",
+  "ko": "누가 물었느냐",
+  "stack": 9,
+  "cls": "magicitem",
+  "reward": "Dictator's Weapon",
+  "rewardKo": "독재자의 무기"
+ },
+ {
+  "en": "Winter's Embrace",
+  "ko": "겨울의 포옹",
+  "stack": 2,
+  "cls": "uniqueitem",
+  "reward": "Circle of Fear",
+  "rewardKo": "두려움의 고리(Circle of Fear)"
+ }
+]

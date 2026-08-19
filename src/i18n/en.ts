@@ -54,6 +54,8 @@ export const en = {
   divCardHide: 'Hide divination cards',
   divCardHideHelp: 'Search cards to hide (Class "Divination Card"). SSF note: cards turn in for the item, so hide only ones you truly ignore.',
   divCardSearchPlaceholder: 'Search divination card…',
+  divCardBrowse: 'Browse all cards & rewards',
+  divCardValueNote: 'Reward color = item rarity (a rough value hint, NOT a market price). SSF has no trade value — judge by whether the reward is useful to you. Click a card to toggle hiding it.',
   share: 'Share',
   shareCopied: 'Copied!',
   finalLines: 'Final filter: {n} lines total',
