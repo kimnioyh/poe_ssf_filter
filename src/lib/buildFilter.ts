@@ -32,6 +32,17 @@ function currencyBlocks(hides: CurrencyHide[]): string {
   return out
 }
 
+/** Hide specific divination cards by name (Class "Divination Card"). */
+function divCardBlock(cards: string[]): string {
+  if (cards.length === 0) return ''
+  return [
+    '# SSF divination card hide (generated)',
+    'Hide',
+    '    Class == "Divination Card"',
+    `    BaseType == ${quote(cards)}`,
+  ].join('\n') + '\n\n'
+}
+
 /** BaseType is ALWAYS English (game filter matches internal English names). */
 function block(comment: string, verb: 'Show' | 'Hide', bases: string[], extra = ''): string {
   if (bases.length === 0) return ''
@@ -99,6 +110,7 @@ export function buildBlocks(
   highlight: HighlightOpts = { bases: [] },
   currencyHides: CurrencyHide[] = [],
   uniqueHighlight: string[] = [],
+  divCards: string[] = [],
 ): string {
   const show = block(
     'SSF still-needed uniques (generated)',
@@ -107,7 +119,7 @@ export function buildBlocks(
     'SetBorderColor 255 200 0',
   )
   const hide = block('SSF collected-base hide (generated)', 'Hide', hideBases)
-  return `${BEGIN}\n\n${currencyBlocks(currencyHides)}${uniqueHighlightBlock(uniqueHighlight)}${highlightBlock(highlight)}${show}${hide}${END}\n\n`
+  return `${BEGIN}\n\n${currencyBlocks(currencyHides)}${divCardBlock(divCards)}${uniqueHighlightBlock(uniqueHighlight)}${highlightBlock(highlight)}${show}${hide}${END}\n\n`
 }
 
 /** Remove a previously generated region so re-applying stays idempotent. */
@@ -126,6 +138,7 @@ export function buildFilter(
   highlight: HighlightOpts = { bases: [] },
   currencyHides: CurrencyHide[] = [],
   uniqueHighlight: string[] = [],
+  divCards: string[] = [],
 ): string {
-  return buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueHighlight) + stripGenerated(baseFilterText)
+  return buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueHighlight, divCards) + stripGenerated(baseFilterText)
 }

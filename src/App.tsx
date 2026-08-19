@@ -3,6 +3,7 @@ import { useI18n, type Locale } from './i18n'
 import { parseCsv } from './lib/parseCsv'
 import sampleCsv from '../sample-uniques.csv?raw'
 import baseTranslations from './data/base_translations.json'
+import divCardNames from './data/div-cards.json'
 import { CHANGELOG } from './data/changelog'
 import { CURRENCIES, JUNK_CURRENCY } from './data/currencies'
 import { FEEDBACK_URL } from './data/config'
@@ -177,6 +178,27 @@ export function App() {
   }
   const removeUniqueBase = (base: string) => setUniqueBases((p) => p.filter((b) => b !== base))
 
+  // Divination card hide. Search over EN/KO card names; selected cards are hidden.
+  const [divCards, setDivCards] = useState<string[]>(STORED?.divCards ?? [])
+  const [dQuery, setDQuery] = useState('')
+  const [dSearchOpen, setDSearchOpen] = useState(false)
+  const cardEntries = useMemo(() => Object.entries(divCardNames as Record<string, string>), [])
+  const localizeCard = (en: string) => (locale === 'ko' ? (divCardNames as Record<string, string>)[en] ?? en : en)
+  const cardMatches = useMemo(() => {
+    const q = dQuery.trim()
+    if (!q) return []
+    const ql = q.toLowerCase()
+    return cardEntries
+      .filter(([en, ko]) => !divCards.includes(en) && (en.toLowerCase().includes(ql) || ko.includes(q)))
+      .slice(0, 20)
+  }, [dQuery, cardEntries, divCards])
+  const addDivCard = (en: string) => {
+    setDivCards((p) => (p.includes(en) ? p : [...p, en]))
+    setDQuery('')
+    setDSearchOpen(false)
+  }
+  const removeDivCard = (en: string) => setDivCards((p) => p.filter((c) => c !== en))
+
   // Curation view: uniques grouped by category. 'owned' = only owned, 'all' = all.
   const [collFilter, setCollFilter] = useState<'owned' | 'all'>('owned')
   const [collQuery, setCollQuery] = useState('')
@@ -234,10 +256,11 @@ export function App() {
       currencyHide,
       highlightBases,
       uniqueBases,
+      divCards,
       minIlvl,
       maxIlvl,
     }),
-    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, currencyHide, highlightBases, uniqueBases, minIlvl, maxIlvl],
+    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, currencyHide, highlightBases, uniqueBases, divCards, minIlvl, maxIlvl],
   )
   useEffect(() => saveSettings(settings), [settings])
 
@@ -522,6 +545,42 @@ export function App() {
           </section>
 
           <section>
+            <h2>{t('divCardHide')}</h2>
+            <p className="hint">{t('divCardHideHelp')}</p>
+            <input
+              className="search"
+              value={dQuery}
+              onChange={(e) => {
+                setDQuery(e.target.value)
+                setDSearchOpen(true)
+              }}
+              onFocus={() => setDSearchOpen(true)}
+              onBlur={() => setTimeout(() => setDSearchOpen(false), 150)}
+              placeholder={t('divCardSearchPlaceholder')}
+            />
+            {dSearchOpen && cardMatches.length > 0 && (
+              <ul className="search-results">
+                {cardMatches.map(([en, ko]) => (
+                  <li key={en}>
+                    <button onClick={() => addDivCard(en)}>
+                      {localizeCard(en)} <span className="en">{locale === 'ko' ? en : ko}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {divCards.length > 0 && (
+              <div className="chips">
+                {divCards.map((en) => (
+                  <span key={en} className="chip" onClick={() => removeDivCard(en)}>
+                    {localizeCard(en)} ✕
+                  </span>
+                ))}
+              </div>
+            )}
+          </section>
+
+          <section>
             <h2>{t('step4')}</h2>
             <label className="scope">
               <input type="checkbox" checked={scopeHidden} onChange={() => setScopeHidden((v) => !v)} />
@@ -542,23 +601,23 @@ export function App() {
               disabled={!filterText}
               onClick={() =>
                 filterText &&
-                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases))
+                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
             {filterText && (
               <p className="hint">
                 {t('finalLines', {
-                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases).split('\n').length,
+                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards).split('\n').length,
                 })}
               </p>
             )}
-            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases)}</pre>
+            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards)}</pre>
           </section>
         </>
       )}

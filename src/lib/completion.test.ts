@@ -76,6 +76,11 @@ assert.match(cur, /Class == "Stackable Currency"[\s\S]*BaseType == "Scroll of Wi
 assert.match(cur, /BaseType == "Orb of Alteration"\n\s*StackSize <= 5/, 'threshold group has StackSize')
 assert.doesNotMatch(buildBlocks(need, done), /Stackable Currency/, 'no currency block when none selected')
 
+// divination card hide: Class + BaseType list, only when cards selected.
+const dc = buildBlocks(need, done, { bases: [] }, [], [], ['The Doctor', 'Humility'])
+assert.match(dc, /Hide[\s\S]*Class == "Divination Card"[\s\S]*BaseType == "The Doctor" "Humility"/, 'div card hide block')
+assert.doesNotMatch(buildBlocks(need, done), /Divination Card/, 'no div card block when none selected')
+
 // ilvl bounds only appear when set.
 const withIlvl = buildBlocks(need, done, { bases: ['Vaal Regalia'], minIlvl: 84 })
 assert.match(withIlvl, /ItemLevel >= 84/, 'min ilvl added')

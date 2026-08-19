@@ -10,6 +10,7 @@ export interface Settings {
   currencyHide: Record<string, string>
   highlightBases: string[]
   uniqueBases: string[]
+  divCards: string[]
   minIlvl: string
   maxIlvl: string
 }

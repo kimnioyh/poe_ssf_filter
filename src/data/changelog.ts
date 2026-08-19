@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.17.0',
+    ko: '점술카드 숨기기 — 카드 검색(EN/KO 464종)해서 개별 숨김(Class "Divination Card").',
+    en: 'Hide divination cards — search (464 EN/KO) to hide individually.',
+  },
+  {
     version: 'v0.16.0',
     ko: '설정 자동 저장(localStorage)·공유 링크, 수집 진행도·검색, 리그 제외, 최종 필터 줄 수 표시.',
     en: 'Settings persistence + share link, collection progress & search, league exclude, final-filter line count.',
