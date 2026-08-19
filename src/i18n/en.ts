@@ -65,6 +65,8 @@ export const en = {
   finalLines: 'Final filter: {n} lines total',
   collProgress: '{owned} / {total} collected ({pct}%)',
   collSearchPlaceholder: 'Search unique…',
+  ownedToggleHint: 'Click a card to toggle owned/unowned. Changes are saved in this browser, layered on top of the CSV, and survive re-uploads.',
+  resetOverrides: 'Reset manual changes ({n})',
 } as const
 
 export type MessageKey = keyof typeof en

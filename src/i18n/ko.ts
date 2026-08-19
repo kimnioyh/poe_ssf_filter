@@ -67,4 +67,6 @@ export const ko: Record<MessageKey, string> = {
   finalLines: '최종 필터: 총 {n}줄',
   collProgress: '{total}개 중 {owned}개 수집 ({pct}%)',
   collSearchPlaceholder: '유니크 검색…',
+  ownedToggleHint: '카드를 클릭하면 보유↔미보유가 바뀌어요. 변경은 이 브라우저에 저장되고 CSV 위에 덧입혀져서, CSV를 다시 올려도 유지돼요.',
+  resetOverrides: '수동 변경 초기화 ({n}개)',
 }

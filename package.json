@@ -1,13 +1,13 @@
 {
   "name": "poe-ssf-filter",
   "private": true,
-  "version": "0.21.0",
+  "version": "0.22.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "test": "tsx src/lib/completion.test.ts && tsx src/lib/autoCards.test.ts"
+    "test": "tsx src/lib/completion.test.ts && tsx src/lib/autoCards.test.ts && tsx src/lib/overrides.test.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.22.0',
+    ko: '컬렉션 탭에서 카드 클릭으로 보유 토글 — 브라우저(localStorage)에 저장되고 CSV 재업로드에도 유지. 수동 변경 표시(✎)·초기화 버튼.',
+    en: 'Click-to-toggle owned state in the Collection tab — saved in localStorage, survives CSV re-uploads; ✎ marker + reset.',
+  },
+  {
     version: 'v0.21.0',
     ko: '보유한 유니크가 보상인 점술카드 자동 숨김 토글 — 보상이 명확한 카드만, 변종까지 전부 보유했을 때.',
     en: 'Auto-hide divination cards rewarding uniques you fully own (exact unique rewards only) — toggle.',

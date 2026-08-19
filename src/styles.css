@@ -118,6 +118,11 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 .card.unowned { opacity: 0.55; }
 .card.unowned img { filter: grayscale(1); }
 .card.unowned .card-name { color: #8a8a8a; }
+.card.clickable { cursor: pointer; position: relative; }
+.card.clickable:hover { border-color: #4a6; }
+.card.overridden::after { /* manually toggled (differs from / adds to the CSV) */
+  content: '✎'; position: absolute; top: 3px; right: 6px; font-size: 0.7rem; color: #7fe0ff; }
+.reset-overrides { font-size: 0.85em; margin-left: 6px; }
 .coll-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
 .coll-head h2 { margin: 0; }
 .progress { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
