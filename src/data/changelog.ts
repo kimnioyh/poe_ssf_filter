@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.21.0',
+    ko: '보유한 유니크가 보상인 점술카드 자동 숨김 토글 — 보상이 명확한 카드만, 변종까지 전부 보유했을 때.',
+    en: 'Auto-hide divination cards rewarding uniques you fully own (exact unique rewards only) — toggle.',
+  },
+  {
     version: 'v0.20.0',
     ko: '미보유 유니크 드랍 알림 강화 토글 — 강제 표시 블록에 미니맵 아이콘·알림 사운드·드랍 빔 추가.',
     en: 'Loud-alert toggle for still-needed unique drops — minimap icon, alert sound and drop beam on the force-show block.',

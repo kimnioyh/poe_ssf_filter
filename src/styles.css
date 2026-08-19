@@ -137,6 +137,7 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 .dc:hover { border-color: #4a4d58; }
 .dc.on { border-color: #3a5; background: #16241a; }
 .dc.on .dc-name { text-decoration: line-through; color: #7a7d88; }
+.dc.on.auto { border-style: dashed; } /* auto-hidden (owned reward), not a manual pick */
 .dc-name { font-size: 0.8rem; color: #cf9b52; word-break: keep-all; }
 .dc-reward { font-size: 0.75rem; width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dc-stack { font-size: 0.7rem; color: #7f8fa0; }

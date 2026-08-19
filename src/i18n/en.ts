@@ -55,6 +55,8 @@ export const en = {
   stackAll: 'all',
   divCardHide: 'Hide divination cards',
   divCardHideHelp: 'Search cards to hide (Class "Divination Card"). SSF note: cards turn in for the item, so hide only ones you truly ignore.',
+  autoHideOwned: 'Auto-hide cards rewarding uniques I already own ({n})',
+  autoHideOwnedHelp: 'Hides cards whose reward is a specific unique you fully own (every variant) — duplicates have no value in SSF. Only exact unique rewards count; random/generic reward cards are never touched.',
   divCardSearchPlaceholder: 'Search divination card…',
   divCardBrowse: 'Browse all cards & rewards',
   divCardValueNote: 'Reward color = item rarity (a rough value hint, NOT a market price). SSF has no trade value — judge by whether the reward is useful to you. Click a card to toggle hiding it.',

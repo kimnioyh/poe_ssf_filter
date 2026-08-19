@@ -8,6 +8,7 @@ import { CHANGELOG } from './data/changelog'
 import { CURRENCIES, JUNK_CURRENCY } from './data/currencies'
 import { FEEDBACK_URL } from './data/config'
 import { computeBases, completedBases, incompleteBases, hideableBases, facets } from './lib/completion'
+import { ownedRewardCards } from './lib/autoCards'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
@@ -214,6 +215,19 @@ export function App() {
   const [divCards, setDivCards] = useState<string[]>(STORED?.divCards ?? [])
   const [dQuery, setDQuery] = useState('')
   const [dSearchOpen, setDSearchOpen] = useState(false)
+
+  // Auto-hide cards whose reward is a unique the player already fully owns
+  // (dupes have no value in SSF). Toggle only — manual picks stay separate.
+  const [autoHideOwned, setAutoHideOwned] = useState(STORED?.autoHideOwned ?? false)
+  const autoCards = useMemo(
+    () => (uniques ? ownedRewardCards(CARDS, uniques).map((c) => c.en) : []),
+    [CARDS, uniques],
+  )
+  const effectiveDivCards = useMemo(
+    () => (autoHideOwned && autoCards.length ? [...new Set([...divCards, ...autoCards])] : divCards),
+    [divCards, autoCards, autoHideOwned],
+  )
+  const effectiveDivSet = useMemo(() => new Set(effectiveDivCards), [effectiveDivCards])
   const cardByEn = useMemo(() => new Map(CARDS.map((c) => [c.en, c])), [CARDS])
   const localizeCard = (en: string) => (locale === 'ko' ? cardByEn.get(en)?.ko ?? en : en)
   const cardReward = (c: DivCard) => (locale === 'ko' ? c.rewardKo || c.reward : c.reward)
@@ -224,8 +238,8 @@ export function App() {
     return CARDS.filter((c) => c.en.toLowerCase().includes(ql) || c.ko.includes(q))
   }, [dQuery, CARDS])
   const cardMatches = useMemo(
-    () => dFiltered.filter((c) => !divCards.includes(c.en)).slice(0, 20),
-    [dFiltered, divCards],
+    () => dFiltered.filter((c) => !effectiveDivSet.has(c.en)).slice(0, 20),
+    [dFiltered, effectiveDivSet],
   )
   const dGroups = useMemo(() => {
     const m = new Map<string, DivCard[]>()
@@ -305,10 +319,11 @@ export function App() {
       highlightBases,
       uniqueBases,
       divCards,
+      autoHideOwned,
       minIlvl,
       maxIlvl,
     }),
-    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, alertNeeded, currencyHide, highlightBases, uniqueBases, divCards, minIlvl, maxIlvl],
+    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, alertNeeded, currencyHide, highlightBases, uniqueBases, divCards, autoHideOwned, minIlvl, maxIlvl],
   )
   useEffect(() => saveSettings(settings), [settings])
 
@@ -595,6 +610,11 @@ export function App() {
           <section>
             <h2>{t('divCardHide')}</h2>
             <p className="hint">{t('divCardHideHelp')}</p>
+            <label className="scope">
+              <input type="checkbox" checked={autoHideOwned} onChange={() => setAutoHideOwned((v) => !v)} />
+              {t('autoHideOwned', { n: autoCards.length })}
+            </label>
+            <p className="hint">{t('autoHideOwnedHelp')}</p>
             <input
               className="search"
               value={dQuery}
@@ -639,7 +659,7 @@ export function App() {
                     {list.map((c) => (
                       <button
                         key={c.en}
-                        className={divCards.includes(c.en) ? 'dc on' : 'dc'}
+                        className={divCards.includes(c.en) ? 'dc on' : effectiveDivSet.has(c.en) ? 'dc on auto' : 'dc'}
                         onClick={() => toggleDivCard(c.en)}
                         title={`${c.en}${cardReward(c) ? ` → ${cardReward(c)}` : ''}`}
                       >
@@ -680,23 +700,23 @@ export function App() {
               disabled={!filterText}
               onClick={() =>
                 filterText &&
-                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards, alertNeeded))
+                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards, alertNeeded))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
             {filterText && (
               <p className="hint">
                 {t('finalLines', {
-                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards, alertNeeded).split('\n').length,
+                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded).split('\n').length,
                 })}
               </p>
             )}
-            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards, alertNeeded)}</pre>
+            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded)}</pre>
           </section>
         </>
       )}

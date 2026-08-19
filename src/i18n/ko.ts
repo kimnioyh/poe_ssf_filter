@@ -57,6 +57,8 @@ export const ko: Record<MessageKey, string> = {
   stackAll: '전체',
   divCardHide: '점술카드 숨기기',
   divCardHideHelp: '숨길 점술카드를 검색 (Class "Divination Card"). SSF 참고: 카드는 모으면 아이템으로 교환되니 정말 필요 없는 것만 숨기세요.',
+  autoHideOwned: '보유한 유니크가 보상인 카드 자동 숨김 ({n}장)',
+  autoHideOwnedHelp: '보상이 이미 (변종까지) 전부 보유한 특정 유니크인 카드를 자동으로 숨겨요 — SSF에서 중복 유니크는 가치가 없으니까요. 보상이 명확한 카드만 대상이고, 랜덤/범용 보상 카드는 건드리지 않아요.',
   divCardSearchPlaceholder: '점술카드 검색…',
   divCardBrowse: '전체 카드·보상 보기',
   divCardValueNote: '보상 색 = 아이템 등급(대략적 가치 힌트일 뿐, 시세 아님). SSF는 거래 시세가 없으니 "보상이 나한테 쓸모 있나"로 판단하세요. 카드를 누르면 숨김 토글.',

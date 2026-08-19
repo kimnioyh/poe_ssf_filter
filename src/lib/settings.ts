@@ -12,6 +12,7 @@ export interface Settings {
   highlightBases: string[]
   uniqueBases: string[]
   divCards: string[]
+  autoHideOwned: boolean
   minIlvl: string
   maxIlvl: string
 }
