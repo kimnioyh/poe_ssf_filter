@@ -8,6 +8,8 @@ import { CHANGELOG } from './data/changelog'
 import { CURRENCIES, JUNK_CURRENCY } from './data/currencies'
 import { FEEDBACK_URL } from './data/config'
 import { computeBases, completedBases, incompleteBases, hideableBases, facets } from './lib/completion'
+import { ownedRewardCards } from './lib/autoCards'
+import { applyOverrides, loadOverrides, saveOverrides, overrideKey, type OwnedOverrides } from './lib/overrides'
 import { buildFilter, buildBlocks } from './lib/buildFilter'
 import { localizeBase, localizeUnique, localizeCategory, uniqueImage } from './lib/nameMap'
 import { NON_DROPPABLE_GROUPINGS, type Unique } from './lib/types'
@@ -58,10 +60,14 @@ function UniqueItem({ u, locale }: { u: Unique; locale: Locale }) {
 }
 
 /** PoE-ladder-style item card: art on top, name + disambiguation below. */
-function UniqueCard({ u, locale }: { u: Unique; locale: Locale }) {
+function UniqueCard({ u, locale, overridden, onToggle }: {
+  u: Unique; locale: Locale; overridden?: boolean; onToggle?: () => void
+}) {
   const img = uniqueImage(u.name)
+  const cls = ['card', u.owned ? '' : 'unowned', onToggle ? 'clickable' : '', overridden ? 'overridden' : '']
+    .filter(Boolean).join(' ')
   return (
-    <div className={u.owned ? 'card' : 'card unowned'}>
+    <div className={cls} onClick={onToggle}>
       <div className="card-art">
         {img && <img src={`${import.meta.env.BASE_URL}${img}`} alt="" loading="lazy" />}
       </div>
@@ -82,7 +88,29 @@ function download(name: string, text: string) {
 
 export function App() {
   const { t, locale, setLocale } = useI18n()
-  const [uniques, setUniques] = useState<Unique[] | null>(null)
+  const [rawUniques, setRawUniques] = useState<Unique[] | null>(null)
+
+  // Manual owned toggles layered on top of the CSV (own localStorage entry,
+  // keyed per unique) so the collection updates mid-farm without re-exporting.
+  const [overrides, setOverrides] = useState<OwnedOverrides>(() => loadOverrides())
+  useEffect(() => saveOverrides(overrides), [overrides])
+  const uniques = useMemo(
+    () => (rawUniques ? applyOverrides(rawUniques, overrides) : null),
+    [rawUniques, overrides],
+  )
+  const overrideCount = Object.keys(overrides).length
+  const toggleOwned = (u: Unique) => {
+    const key = overrideKey(u)
+    const csv = rawUniques?.find((r) => overrideKey(r) === key)
+    const next = !u.owned
+    setOverrides((p) => {
+      const n = { ...p }
+      // Back to the CSV value -> drop the override so future CSVs flow through.
+      if (csv && csv.owned === next) delete n[key]
+      else n[key] = next
+      return n
+    })
+  }
   const [include, setInclude] = useState<Set<string>>(new Set())
   const [exclude, setExclude] = useState<Set<string>>(new Set())
   const [excludeLeagues, setExcludeLeagues] = useState<Set<string>>(new Set())
@@ -123,6 +151,9 @@ export function App() {
   // Never hide bases that can drop a top-tier (T0–T2) unique.
   const [protectTop, setProtectTop] = useState(STORED?.protectTop ?? true)
   const hideBases = useMemo(() => hideableBases(bases, protectTop), [bases, protectTop])
+
+  // Loud alert (minimap icon + sound + beam) on still-needed unique drops.
+  const [alertNeeded, setAlertNeeded] = useState(STORED?.alertNeeded ?? true)
 
   // Per-currency hiding. Record key present = hide; value = stack threshold ('' = hide all).
   const [currencyHide, setCurrencyHide] = useState<Record<string, string>>(STORED?.currencyHide ?? {})
@@ -211,6 +242,19 @@ export function App() {
   const [divCards, setDivCards] = useState<string[]>(STORED?.divCards ?? [])
   const [dQuery, setDQuery] = useState('')
   const [dSearchOpen, setDSearchOpen] = useState(false)
+
+  // Auto-hide cards whose reward is a unique the player already fully owns
+  // (dupes have no value in SSF). Toggle only — manual picks stay separate.
+  const [autoHideOwned, setAutoHideOwned] = useState(STORED?.autoHideOwned ?? false)
+  const autoCards = useMemo(
+    () => (uniques ? ownedRewardCards(CARDS, uniques).map((c) => c.en) : []),
+    [CARDS, uniques],
+  )
+  const effectiveDivCards = useMemo(
+    () => (autoHideOwned && autoCards.length ? [...new Set([...divCards, ...autoCards])] : divCards),
+    [divCards, autoCards, autoHideOwned],
+  )
+  const effectiveDivSet = useMemo(() => new Set(effectiveDivCards), [effectiveDivCards])
   const cardByEn = useMemo(() => new Map(CARDS.map((c) => [c.en, c])), [CARDS])
   const localizeCard = (en: string) => (locale === 'ko' ? cardByEn.get(en)?.ko ?? en : en)
   const cardReward = (c: DivCard) => (locale === 'ko' ? c.rewardKo || c.reward : c.reward)
@@ -221,8 +265,8 @@ export function App() {
     return CARDS.filter((c) => c.en.toLowerCase().includes(ql) || c.ko.includes(q))
   }, [dQuery, CARDS])
   const cardMatches = useMemo(
-    () => dFiltered.filter((c) => !divCards.includes(c.en)).slice(0, 20),
-    [dFiltered, divCards],
+    () => dFiltered.filter((c) => !effectiveDivSet.has(c.en)).slice(0, 20),
+    [dFiltered, effectiveDivSet],
   )
   const dGroups = useMemo(() => {
     const m = new Map<string, DivCard[]>()
@@ -265,7 +309,7 @@ export function App() {
   }, [uniques])
 
   function applyUniques(parsed: Unique[], sample: boolean) {
-    setUniques(parsed)
+    setRawUniques(parsed)
     // default: everything droppable except vaal/recipe groupings.
     const g = facets(parsed).groupings.filter((x) => !NON_DROPPABLE_GROUPINGS.includes(x as never))
     setInclude(new Set(g))
@@ -297,14 +341,16 @@ export function App() {
       excludeLeagues: [...excludeLeagues],
       scopeHidden,
       protectTop,
+      alertNeeded,
       currencyHide,
       highlightBases,
       uniqueBases,
       divCards,
+      autoHideOwned,
       minIlvl,
       maxIlvl,
     }),
-    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, currencyHide, highlightBases, uniqueBases, divCards, minIlvl, maxIlvl],
+    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, alertNeeded, currencyHide, highlightBases, uniqueBases, divCards, autoHideOwned, minIlvl, maxIlvl],
   )
   useEffect(() => saveSettings(settings), [settings])
 
@@ -591,6 +637,11 @@ export function App() {
           <section>
             <h2>{t('divCardHide')}</h2>
             <p className="hint">{t('divCardHideHelp')}</p>
+            <label className="scope">
+              <input type="checkbox" checked={autoHideOwned} onChange={() => setAutoHideOwned((v) => !v)} />
+              {t('autoHideOwned', { n: autoCards.length })}
+            </label>
+            <p className="hint">{t('autoHideOwnedHelp')}</p>
             <input
               className="search"
               value={dQuery}
@@ -635,7 +686,7 @@ export function App() {
                     {list.map((c) => (
                       <button
                         key={c.en}
-                        className={divCards.includes(c.en) ? 'dc on' : 'dc'}
+                        className={divCards.includes(c.en) ? 'dc on' : effectiveDivSet.has(c.en) ? 'dc on auto' : 'dc'}
                         onClick={() => toggleDivCard(c.en)}
                         title={`${c.en}${cardReward(c) ? ` → ${cardReward(c)}` : ''}`}
                       >
@@ -667,27 +718,32 @@ export function App() {
               {t('protectTop')}
             </label>
             <p className="hint">{t('protectTopHelp')}</p>
+            <label className="scope">
+              <input type="checkbox" checked={alertNeeded} onChange={() => setAlertNeeded((v) => !v)} />
+              {t('alertNeeded')}
+            </label>
+            <p className="hint">{t('alertNeededHelp')}</p>
             <button
               disabled={!filterText}
               onClick={() =>
                 filterText &&
-                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards))
+                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
             {filterText && (
               <p className="hint">
                 {t('finalLines', {
-                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards).split('\n').length,
+                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded).split('\n').length,
                 })}
               </p>
             )}
-            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards)}</pre>
+            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, effectiveDivCards, alertNeeded)}</pre>
           </section>
         </>
       )}
@@ -709,6 +765,14 @@ export function App() {
               {t('collProgress', { owned: collStats.owned, total: collStats.total, pct: collStats.pct })}
             </span>
           </div>
+          <p className="hint">
+            {t('ownedToggleHint')}{' '}
+            {overrideCount > 0 && (
+              <button className="reset-overrides" onClick={() => setOverrides({})}>
+                {t('resetOverrides', { n: overrideCount })}
+              </button>
+            )}
+          </p>
           <input
             className="search"
             value={collQuery}
@@ -725,7 +789,13 @@ export function App() {
                 </summary>
                 <div className="card-grid">
                   {list.map((u, i) => (
-                    <UniqueCard key={`${u.name}|${u.disambiguation}|${i}`} u={u} locale={locale} />
+                    <UniqueCard
+                      key={`${u.name}|${u.disambiguation}|${i}`}
+                      u={u}
+                      locale={locale}
+                      overridden={overrideKey(u) in overrides}
+                      onToggle={() => toggleOwned(u)}
+                    />
                   ))}
                 </div>
               </details>

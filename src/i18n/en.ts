@@ -47,12 +47,16 @@ export const en = {
   tabCollection: 'Collection',
   protectTop: 'Never hide T0–T2 bases',
   protectTopHelp: 'Keep bases that can drop a top-tier (T0–T2) unique visible even when fully collected.',
+  alertNeeded: 'Loud alert on still-needed unique drops',
+  alertNeededHelp: 'Adds a minimap icon, alert sound and drop beam to the force-show block so you cannot miss them.',
   currencyHide: 'Hide currency',
   currencyHideHelp: 'Pick currencies to hide. Set a number to hide only stacks of that size or fewer (StackSize ≤ N); leave blank to hide all.',
   selectJunk: 'Select junk currency',
   stackAll: 'all',
   divCardHide: 'Hide divination cards',
   divCardHideHelp: 'Search cards to hide (Class "Divination Card"). SSF note: cards turn in for the item, so hide only ones you truly ignore.',
+  autoHideOwned: 'Auto-hide cards rewarding uniques I already own ({n})',
+  autoHideOwnedHelp: 'Hides cards whose reward is a specific unique you fully own (every variant) — duplicates have no value in SSF. Only exact unique rewards count; random/generic reward cards are never touched.',
   divCardSearchPlaceholder: 'Search divination card…',
   divCardBrowse: 'Browse all cards & rewards',
   divCardValueNote: 'Reward color = item rarity (a rough value hint, NOT a market price). SSF has no trade value — judge by whether the reward is useful to you. Click a card to toggle hiding it.',
@@ -61,6 +65,8 @@ export const en = {
   finalLines: 'Final filter: {n} lines total',
   collProgress: '{owned} / {total} collected ({pct}%)',
   collSearchPlaceholder: 'Search unique…',
+  ownedToggleHint: 'Click a card to toggle owned/unowned. Changes are saved in this browser, layered on top of the CSV, and survive re-uploads.',
+  resetOverrides: 'Reset manual changes ({n})',
 } as const
 
 export type MessageKey = keyof typeof en
