@@ -44,15 +44,15 @@ function divCardBlock(cards: string[]): string {
 }
 
 /** BaseType is ALWAYS English (game filter matches internal English names). */
-function block(comment: string, verb: 'Show' | 'Hide', bases: string[], extra = ''): string {
+function block(comment: string, verb: 'Show' | 'Hide', bases: string[], extra: string[] = []): string {
   if (bases.length === 0) return ''
   const lines = [
     `# ${comment}`,
     verb,
     `    Rarity Unique`,
     `    BaseType == ${quote(bases)}`,
+    ...extra.map((e) => `    ${e}`),
   ]
-  if (extra) lines.push(`    ${extra}`)
   return lines.join('\n') + '\n\n'
 }
 
@@ -111,13 +111,19 @@ export function buildBlocks(
   currencyHides: CurrencyHide[] = [],
   uniqueHighlight: string[] = [],
   divCards: string[] = [],
+  alertNeeded = false,
 ): string {
-  const show = block(
-    'SSF still-needed uniques (generated)',
-    'Show',
-    showBases,
-    'SetBorderColor 255 200 0',
-  )
+  // Loud alert (toggle): a busy screen easily swallows the one drop this tool
+  // exists to surface, so opt into minimap icon + sound + beam.
+  const showExtra = ['SetBorderColor 255 200 0']
+  if (alertNeeded)
+    showExtra.push(
+      'SetFontSize 45',
+      'MinimapIcon 0 Yellow Star',
+      'PlayEffect Yellow',
+      'PlayAlertSound 6 300',
+    )
+  const show = block('SSF still-needed uniques (generated)', 'Show', showBases, showExtra)
   const hide = block('SSF collected-base hide (generated)', 'Hide', hideBases)
   return `${BEGIN}\n\n${currencyBlocks(currencyHides)}${divCardBlock(divCards)}${uniqueHighlightBlock(uniqueHighlight)}${highlightBlock(highlight)}${show}${hide}${END}\n\n`
 }
@@ -139,6 +145,7 @@ export function buildFilter(
   currencyHides: CurrencyHide[] = [],
   uniqueHighlight: string[] = [],
   divCards: string[] = [],
+  alertNeeded = false,
 ): string {
-  return buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueHighlight, divCards) + stripGenerated(baseFilterText)
+  return buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueHighlight, divCards, alertNeeded) + stripGenerated(baseFilterText)
 }

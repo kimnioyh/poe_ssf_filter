@@ -95,6 +95,11 @@ assert.match(
 const optsExcl = { includeGroupings: opts.includeGroupings, excludeCategories: new Set(['Amulet']), excludeLeagues: new Set<string>() }
 assert.equal(computeBases(data, optsExcl).length, 0, 'excluded category -> no bases')
 
+// alert toggle: loud lines on the still-needed Show block only when enabled.
+const loud = buildBlocks(need, done, { bases: [] }, [], [], [], true)
+assert.match(loud, /Show[\s\S]*MinimapIcon 0 Yellow Star[\s\S]*PlayAlertSound 6 300/, 'alert adds icon + sound')
+assert.doesNotMatch(buildBlocks(need, done), /PlayAlertSound/, 'no alert lines by default')
+
 // league exclusion: a Heist-league unique is ignored in completion.
 const leagueData: Unique[] = [
   u('Core', 'Coral Ring', 'T3', true, 'Ring', '3', ''),

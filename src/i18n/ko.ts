@@ -49,6 +49,8 @@ export const ko: Record<MessageKey, string> = {
   tabCollection: '보유 유니크',
   protectTop: 'T0~T2 베이스는 항상 표시',
   protectTopHelp: 'T0~T2 유니크가 나올 수 있는 베이스는 다 모았어도 숨기지 않아요.',
+  alertNeeded: '미보유 유니크 드랍 알림 강화',
+  alertNeededHelp: '강제 표시 블록에 미니맵 아이콘·알림 사운드·드랍 빔을 추가해 놓치지 않게 해요.',
   currencyHide: '화폐 숨기기',
   currencyHideHelp: '숨길 화폐를 고르세요. 숫자를 넣으면 그 개수 이하 스택만 숨김(StackSize ≤ N), 비우면 통으로 숨김.',
   selectJunk: '잡화폐 일괄 선택',

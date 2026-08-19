@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.20.0',
+    ko: '미보유 유니크 드랍 알림 강화 토글 — 강제 표시 블록에 미니맵 아이콘·알림 사운드·드랍 빔 추가.',
+    en: 'Loud-alert toggle for still-needed unique drops — minimap icon, alert sound and drop beam on the force-show block.',
+  },
+  {
     version: 'v0.19.1',
     ko: '숨김 선택한 화폐·점술카드 이름에 취소선 표시(숨김 인지 개선).',
     en: 'Strikethrough on selected currencies/cards for clearer hidden state.',

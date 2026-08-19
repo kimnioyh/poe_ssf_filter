@@ -124,6 +124,9 @@ export function App() {
   const [protectTop, setProtectTop] = useState(STORED?.protectTop ?? true)
   const hideBases = useMemo(() => hideableBases(bases, protectTop), [bases, protectTop])
 
+  // Loud alert (minimap icon + sound + beam) on still-needed unique drops.
+  const [alertNeeded, setAlertNeeded] = useState(STORED?.alertNeeded ?? true)
+
   // Per-currency hiding. Record key present = hide; value = stack threshold ('' = hide all).
   const [currencyHide, setCurrencyHide] = useState<Record<string, string>>(STORED?.currencyHide ?? {})
   const currencyHides = useMemo(
@@ -297,6 +300,7 @@ export function App() {
       excludeLeagues: [...excludeLeagues],
       scopeHidden,
       protectTop,
+      alertNeeded,
       currencyHide,
       highlightBases,
       uniqueBases,
@@ -304,7 +308,7 @@ export function App() {
       minIlvl,
       maxIlvl,
     }),
-    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, currencyHide, highlightBases, uniqueBases, divCards, minIlvl, maxIlvl],
+    [preset, include, exclude, excludeLeagues, scopeHidden, protectTop, alertNeeded, currencyHide, highlightBases, uniqueBases, divCards, minIlvl, maxIlvl],
   )
   useEffect(() => saveSettings(settings), [settings])
 
@@ -667,27 +671,32 @@ export function App() {
               {t('protectTop')}
             </label>
             <p className="hint">{t('protectTopHelp')}</p>
+            <label className="scope">
+              <input type="checkbox" checked={alertNeeded} onChange={() => setAlertNeeded((v) => !v)} />
+              {t('alertNeeded')}
+            </label>
+            <p className="hint">{t('alertNeededHelp')}</p>
             <button
               disabled={!filterText}
               onClick={() =>
                 filterText &&
-                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards))
+                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards, alertNeeded))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards, alertNeeded))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
             {filterText && (
               <p className="hint">
                 {t('finalLines', {
-                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards).split('\n').length,
+                  n: buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases, divCards, alertNeeded).split('\n').length,
                 })}
               </p>
             )}
-            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards)}</pre>
+            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases, divCards, alertNeeded)}</pre>
           </section>
         </>
       )}

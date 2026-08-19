@@ -7,6 +7,7 @@ export interface Settings {
   excludeLeagues: string[]
   scopeHidden: boolean
   protectTop: boolean
+  alertNeeded: boolean
   currencyHide: Record<string, string>
   highlightBases: string[]
   uniqueBases: string[]

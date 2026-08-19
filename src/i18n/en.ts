@@ -47,6 +47,8 @@ export const en = {
   tabCollection: 'Collection',
   protectTop: 'Never hide T0–T2 bases',
   protectTopHelp: 'Keep bases that can drop a top-tier (T0–T2) unique visible even when fully collected.',
+  alertNeeded: 'Loud alert on still-needed unique drops',
+  alertNeededHelp: 'Adds a minimap icon, alert sound and drop beam to the force-show block so you cannot miss them.',
   currencyHide: 'Hide currency',
   currencyHideHelp: 'Pick currencies to hide. Set a number to hide only stacks of that size or fewer (StackSize ≤ N); leave blank to hide all.',
   selectJunk: 'Select junk currency',
