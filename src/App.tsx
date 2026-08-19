@@ -32,6 +32,19 @@ const RARITY: Record<string, string> = {
 }
 const rarityColor = (cls: string) => RARITY[cls] ?? '#9aa'
 
+// Reward-rarity groups for the card browser, in display order.
+const RARITY_ORDER = ['uniqueitem', 'rareitem', 'magicitem', 'gemitem', 'currencyitem', 'divination', 'whiteitem', '']
+const RARITY_LABEL: Record<string, { en: string; ko: string }> = {
+  uniqueitem: { en: 'Unique', ko: '유니크' },
+  rareitem: { en: 'Rare', ko: '레어' },
+  magicitem: { en: 'Magic', ko: '매직' },
+  gemitem: { en: 'Gem', ko: '젬' },
+  currencyitem: { en: 'Currency', ko: '화폐' },
+  divination: { en: 'Divination', ko: '점술' },
+  whiteitem: { en: 'Normal', ko: '노말' },
+  '': { en: 'Other', ko: '기타' },
+}
+
 /** One unique row: icon + localized name + disambiguation label. */
 function UniqueItem({ u, locale }: { u: Unique; locale: Locale }) {
   const img = uniqueImage(u.name)
@@ -211,6 +224,16 @@ export function App() {
     () => dFiltered.filter((c) => !divCards.includes(c.en)).slice(0, 20),
     [dFiltered, divCards],
   )
+  const dGroups = useMemo(() => {
+    const m = new Map<string, DivCard[]>()
+    for (const c of dFiltered) {
+      const k = c.cls === 'normal' ? 'whiteitem' : c.cls || ''
+      const arr = m.get(k)
+      if (arr) arr.push(c)
+      else m.set(k, [c])
+    }
+    return RARITY_ORDER.filter((k) => m.has(k)).map((k) => [k, m.get(k)!] as const)
+  }, [dFiltered])
   const toggleDivCard = (en: string) =>
     setDivCards((p) => (p.includes(en) ? p.filter((c) => c !== en) : [...p, en]))
   const addDivCard = (en: string) => {
@@ -603,20 +626,27 @@ export function App() {
             <details className="curation">
               <summary>{t('divCardBrowse')} <em>({dFiltered.length})</em></summary>
               <p className="hint">{t('divCardValueNote')}</p>
-              <div className="card-grid divcard-grid">
-                {dFiltered.map((c) => (
-                  <button
-                    key={c.en}
-                    className={divCards.includes(c.en) ? 'dc on' : 'dc'}
-                    onClick={() => toggleDivCard(c.en)}
-                    title={c.en}
-                  >
-                    <span className="dc-name">{localizeCard(c.en)}</span>
-                    <span className="dc-reward" style={{ color: rarityColor(c.cls) }}>{cardReward(c) || '—'}</span>
-                    {c.stack != null && <span className="dc-stack">×{c.stack}</span>}
-                  </button>
-                ))}
-              </div>
+              {dGroups.map(([cls, list]) => (
+                <details key={cls || 'other'} className="dc-group">
+                  <summary className="dc-group-head" style={{ color: rarityColor(cls) }}>
+                    {locale === 'ko' ? RARITY_LABEL[cls].ko : RARITY_LABEL[cls].en} <em>({list.length})</em>
+                  </summary>
+                  <div className="card-grid divcard-grid">
+                    {list.map((c) => (
+                      <button
+                        key={c.en}
+                        className={divCards.includes(c.en) ? 'dc on' : 'dc'}
+                        onClick={() => toggleDivCard(c.en)}
+                        title={`${c.en}${cardReward(c) ? ` → ${cardReward(c)}` : ''}`}
+                      >
+                        <span className="dc-name">{localizeCard(c.en)}</span>
+                        <span className="dc-reward" style={{ color: rarityColor(c.cls) }}>{cardReward(c) || '—'}</span>
+                        {c.stack != null && <span className="dc-stack">×{c.stack}</span>}
+                      </button>
+                    ))}
+                  </div>
+                </details>
+              ))}
             </details>
           </section>
 

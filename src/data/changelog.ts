@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.19.0',
+    ko: '점술카드 등급별 접이식 그룹, 보상에 인플루언스/변형 표시(쉐이퍼 방패 등), 비활성 카드 제외.',
+    en: 'Divination cards grouped by rarity (collapsible); reward shows influence/variant; disabled cards dropped.',
+  },
+  {
     version: 'v0.18.0',
     ko: '점술카드 보상·스택·등급 표시(카드 그리드), 등급색 힌트, 카드 클릭으로 숨김 토글.',
     en: 'Divination card rewards/stack/rarity grid; rarity-color hint; click to toggle hide.',

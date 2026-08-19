@@ -127,7 +127,10 @@ fieldset label { display: inline-block; margin-right: 12px; white-space: nowrap;
 @media (max-width: 640px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 400px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
 
-.divcard-grid { grid-template-columns: repeat(4, 1fr); max-height: 420px; overflow: auto; }
+.divcard-grid { grid-template-columns: repeat(4, 1fr); }
+.dc-group { margin-top: 8px; }
+.dc-group-head { margin: 6px 0 4px; font-size: 0.9rem; cursor: pointer; font-weight: 600; }
+.dc-group-head em { color: #7f8fa0; font-style: normal; font-weight: 400; font-size: 0.85em; }
 .dc { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left;
   background: #191b21; border: 1px solid #2f3038; border-radius: 6px; padding: 6px 8px; min-width: 0; }
 .dc:hover { border-color: #4a4d58; }

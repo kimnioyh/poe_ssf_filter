@@ -28,8 +28,8 @@
   "ko": "귀에 익은 외침",
   "stack": 3,
   "cls": "magicitem",
-  "reward": "Jewellery of Farrul",
-  "rewardKo": "장신구 - 페룰"
+  "reward": "Shaper + Hunter Jewellery of Farrul",
+  "rewardKo": "쉐이퍼 + 사냥꾼 장신구 - 페룰"
  },
  {
   "en": "A Fate Worse Than Death",
@@ -188,8 +188,8 @@
   "ko": "우주의 보호",
   "stack": 5,
   "cls": "whiteitem",
-  "reward": "Shield",
-  "rewardKo": "방패"
+  "reward": "Shaper Shield",
+  "rewardKo": "쉐이퍼 방패"
  },
  {
   "en": "Atziri's Arsenal",
@@ -212,8 +212,8 @@
   "ko": "상서로운 야망",
   "stack": 4,
   "cls": "whiteitem",
-  "reward": "Experimented Item",
-  "rewardKo": "실험적 아이템"
+  "reward": "Double-Influenced Experimented Item",
+  "rewardKo": "영향을 2개 받은 실험적 아이템"
  },
  {
   "en": "Avian Pursuit",
@@ -312,14 +312,6 @@
   "rewardKo": "6연결 선구자 활"
  },
  {
-  "en": "Broken Promises",
-  "ko": "깨진 약속",
-  "stack": 2,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
- },
- {
   "en": "Broken Truce",
   "ko": "깨진 휴전",
   "stack": 5,
@@ -395,9 +387,9 @@
   "en": "Cartographer's Delight",
   "ko": "지도제작자의 기쁨",
   "stack": 3,
-  "cls": "normal",
-  "reward": "Map",
-  "rewardKo": "지도"
+  "cls": "",
+  "reward": "",
+  "rewardKo": ""
  },
  {
   "en": "Chaotic Disposition",
@@ -436,8 +428,8 @@
   "ko": "값비싼 예술품",
   "stack": 6,
   "cls": "uniqueitem",
-  "reward": "Item",
-  "rewardKo": "아이템"
+  "reward": "Double-Influenced Item",
+  "rewardKo": "영향을 2개 받은 아이템"
  },
  {
   "en": "Council of Cats",
@@ -476,8 +468,8 @@
   "ko": "암흑의 꿈",
   "stack": 4,
   "cls": "rareitem",
-  "reward": "Bone Helmet",
-  "rewardKo": "뼈 투구"
+  "reward": "Elder Bone Helmet",
+  "rewardKo": "엘더 뼈 투구"
  },
  {
   "en": "Dark Temptation",
@@ -563,9 +555,9 @@
   "en": "Dialla's Subjugation",
   "ko": "디알라의 예속",
   "stack": 7,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "gemitem",
+  "reward": "Support Gem",
+  "rewardKo": "보조 젬"
  },
  {
   "en": "Disdain",
@@ -636,16 +628,16 @@
   "ko": "드리운 꿈",
   "stack": 5,
   "cls": "whiteitem",
-  "reward": "Six-Link Astral Plate",
-  "rewardKo": "6연결 우주의 판금 갑옷"
+  "reward": "Influenced Six-Link Astral Plate",
+  "rewardKo": "영향을 받은 6연결 우주의 판금 갑옷"
  },
  {
   "en": "Duality",
   "ko": "이중성",
   "stack": 2,
   "cls": "whiteitem",
-  "reward": "Body Armour",
-  "rewardKo": "갑옷"
+  "reward": "Double-Influenced Body Armour",
+  "rewardKo": "영향을 2개 받은 갑옷"
  },
  {
   "en": "Dying Anguish",
@@ -660,8 +652,8 @@
   "ko": "죽어가는 빛",
   "stack": 10,
   "cls": "rareitem",
-  "reward": "Diamond Ring",
-  "rewardKo": "다이아몬드 반지"
+  "reward": "Shaper + Elder Diamond Ring",
+  "rewardKo": "쉐이퍼 + 엘더 다이아몬드 반지"
  },
  {
   "en": "Earth Drinker",
@@ -740,8 +732,8 @@
   "ko": "운명적인 만남",
   "stack": 9,
   "cls": "uniqueitem",
-  "reward": "League-Specific Item",
-  "rewardKo": "리그 전용 아이템"
+  "reward": "Double-Influenced League-Specific Item",
+  "rewardKo": "영향을 2개 받은 리그 전용 아이템"
  },
  {
   "en": "Father's Love",
@@ -788,8 +780,8 @@
   "ko": "추가 발명",
   "stack": 4,
   "cls": "magicitem",
-  "reward": "Helmet",
-  "rewardKo": "투구"
+  "reward": "Double-Influenced Helmet",
+  "rewardKo": "영향을 2개 받은 투구"
  },
  {
   "en": "Gemcutter's Mercy",
@@ -956,8 +948,8 @@
   "ko": "불멸의 결의",
   "stack": 6,
   "cls": "whiteitem",
-  "reward": "Six-Linked Body Armour",
-  "rewardKo": "6연결 갑옷"
+  "reward": "Influenced Six-Linked Body Armour",
+  "rewardKo": "영향을 받은 6연결 갑옷"
  },
  {
   "en": "Imperfect Memories",
@@ -1004,8 +996,8 @@
   "ko": "보관자의 타락",
   "stack": 7,
   "cls": "magicitem",
-  "reward": "Eldritch Bone Helmet (Concentrated Effect)",
-  "rewardKo": "섬뜩한 뼈 투구(효과 집중)"
+  "reward": "Elder Eldritch Bone Helmet (Concentrated Effect)",
+  "rewardKo": "엘더 섬뜩한 뼈 투구(효과 집중)"
  },
  {
   "en": "Lachrymal Necrosis",
@@ -1152,14 +1144,6 @@
   "rewardKo": "마노 목걸이"
  },
  {
-  "en": "Magnum Opus",
-  "ko": "필생의 걸작",
-  "stack": 5,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
- },
- {
   "en": "Man With Bear",
   "ko": "사람과 곰",
   "stack": 3,
@@ -1187,9 +1171,9 @@
   "en": "Merciless Armament",
   "ko": "무자비한 병기",
   "stack": 4,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "magicitem",
+  "reward": "Merciless Two-Hand Weapon",
+  "rewardKo": "무자비한 양손 무기"
  },
  {
   "en": "Might is Right",
@@ -1244,8 +1228,8 @@
   "ko": "누크의 왕관",
   "stack": 4,
   "cls": "rareitem",
-  "reward": "Bone Helmet",
-  "rewardKo": "뼈 투구"
+  "reward": "Elder Bone Helmet",
+  "rewardKo": "엘더 뼈 투구"
  },
  {
   "en": "One Last Score",
@@ -1262,14 +1246,6 @@
   "cls": "currencyitem",
   "reward": "Veiled Exalted Orb",
   "rewardKo": "장막의 엑잘티드 오브"
- },
- {
-  "en": "Parasitic Passengers",
-  "ko": "기생충 밥벌레",
-  "stack": 8,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
  },
  {
   "en": "Peaceful Moments",
@@ -1292,8 +1268,8 @@
   "ko": "완벽",
   "stack": 5,
   "cls": "rareitem",
-  "reward": "Jewellery",
-  "rewardKo": "장신구"
+  "reward": "Shaper Jewellery",
+  "rewardKo": "쉐이퍼 장신구"
  },
  {
   "en": "Poisoned Faith",
@@ -1308,8 +1284,8 @@
   "ko": "편견",
   "stack": 7,
   "cls": "uniqueitem",
-  "reward": "Item",
-  "rewardKo": "아이템"
+  "reward": "Influenced Item",
+  "rewardKo": "영향을 받은 아이템"
  },
  {
   "en": "Pride Before the Fall",
@@ -1332,8 +1308,8 @@
   "ko": "프로메테우스의 무기고",
   "stack": 6,
   "cls": "rareitem",
-  "reward": "One-Hand Weapon",
-  "rewardKo": "한손 무기"
+  "reward": "Double-Influenced One-Hand Weapon",
+  "rewardKo": "영향을 2개 받은 한손 무기"
  },
  {
   "en": "Prosperity",
@@ -1476,8 +1452,8 @@
   "ko": "어두운 것",
   "stack": 5,
   "cls": "whiteitem",
-  "reward": "Blueprint",
-  "rewardKo": "도면"
+  "reward": "Fully Revealed Blueprint",
+  "rewardKo": "완전히 드러남 도면"
  },
  {
   "en": "Squandered Prosperity",
@@ -1596,16 +1572,16 @@
   "ko": "지망자",
   "stack": 5,
   "cls": "magicitem",
-  "reward": "Item",
-  "rewardKo": "아이템"
+  "reward": "Elevated Item",
+  "rewardKo": "고양된 아이템"
  },
  {
   "en": "The Astromancer",
   "ko": "점성술사",
   "stack": 7,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "uniqueitem",
+  "reward": "The Eternity Shroud",
+  "rewardKo": "영원의 연막(The Eternity Shroud)"
  },
  {
   "en": "The Avenger",
@@ -1620,16 +1596,8 @@
   "ko": "깨어난 자",
   "stack": 6,
   "cls": "rareitem",
-  "reward": "Jewellery",
-  "rewardKo": "장신구"
- },
- {
-  "en": "The Bargain",
-  "ko": "협상",
-  "stack": 5,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "reward": "Double-Influenced Jewellery",
+  "rewardKo": "영향을 2개 받은 장신구"
  },
  {
   "en": "The Battle Born",
@@ -1644,8 +1612,8 @@
   "ko": "웅녀",
   "stack": 6,
   "cls": "magicitem",
-  "reward": "Fecund Ursine Pelt",
-  "rewardKo": "다산의 곰 가죽모"
+  "reward": "Warlord Fecund Ursine Pelt",
+  "rewardKo": "전쟁군주 다산의 곰 가죽모"
  },
  {
   "en": "The Beast",
@@ -1768,14 +1736,6 @@
   "rewardKo": "생명 방어구"
  },
  {
-  "en": "The Cartographer",
-  "ko": "지도제작자",
-  "stack": null,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
- },
- {
   "en": "The Cataclysm",
   "ko": "대재앙",
   "stack": 13,
@@ -1812,8 +1772,8 @@
   "ko": "천공의 돌",
   "stack": 10,
   "cls": "whiteitem",
-  "reward": "Opal Ring",
-  "rewardKo": "오팔 반지"
+  "reward": "Shaper Opal Ring",
+  "rewardKo": "쉐이퍼 오팔 반지"
  },
  {
   "en": "The Chains that Bind",
@@ -1822,14 +1782,6 @@
   "cls": "whiteitem",
   "reward": "Six-Link Body Armour",
   "rewardKo": "6연결 갑옷"
- },
- {
-  "en": "The Cheater",
-  "ko": "사기꾼",
-  "stack": 3,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
  },
  {
   "en": "The Chosen",
@@ -2020,8 +1972,8 @@
   "ko": "던전의 주인",
   "stack": 7,
   "cls": "uniqueitem",
-  "reward": "Belt",
-  "rewardKo": "허리띠"
+  "reward": "Double-Influenced Belt",
+  "rewardKo": "영향을 2개 받은 허리띠"
  },
  {
   "en": "The Easy Stroll",
@@ -2038,14 +1990,6 @@
   "cls": "whiteitem",
   "reward": "Uber Elder Fragment",
   "rewardKo": "우버 엘더 조각"
- },
- {
-  "en": "The Emptiness",
-  "ko": "허무",
-  "stack": 6,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
  },
  {
   "en": "The Encroaching Darkness",
@@ -2076,8 +2020,8 @@
   "ko": "집행자",
   "stack": 4,
   "cls": "magicitem",
-  "reward": "Spiked Gloves of the Conquest (Culling Strike)",
-  "rewardKo": "가시 장갑 - 점령자(마무리 타격)"
+  "reward": "Warlord Spiked Gloves of the Conquest (Culling Strike)",
+  "rewardKo": "전쟁군주 가시 장갑 - 점령자(마무리 타격)"
  },
  {
   "en": "The Enlightened",
@@ -2228,8 +2172,8 @@
   "ko": "잊혀진 보물",
   "stack": 6,
   "cls": "uniqueitem",
-  "reward": "Leather Belt",
-  "rewardKo": "가죽 허리띠"
+  "reward": "Double-Influenced Leather Belt",
+  "rewardKo": "영향을 2개 받은 가죽 허리띠"
  },
  {
   "en": "The Formless Sea",
@@ -2348,8 +2292,8 @@
   "ko": "건강한 심장",
   "stack": 4,
   "cls": "rareitem",
-  "reward": "Item",
-  "rewardKo": "아이템"
+  "reward": "Elder Item",
+  "rewardKo": "엘더 아이템"
  },
  {
   "en": "The Harvester",
@@ -2467,25 +2411,25 @@
   "en": "The Jester",
   "ko": "어릿광대",
   "stack": 9,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "magicitem",
+  "reward": "Merciless One-Hand Weapon",
+  "rewardKo": "무자비한 한손 무기"
  },
  {
   "en": "The Jeweller's Boon",
   "ko": "보석 상인의 은혜",
   "stack": 5,
   "cls": "whiteitem",
-  "reward": "Five-Linked Body Armour",
-  "rewardKo": "5연결 갑옷"
+  "reward": "Influenced Five-Linked Body Armour",
+  "rewardKo": "영향을 받은 5연결 갑옷"
  },
  {
   "en": "The Journalist",
   "ko": "집필가",
   "stack": 10,
   "cls": "rareitem",
-  "reward": "Helmet",
-  "rewardKo": "투구"
+  "reward": "Double-Veiled Helmet",
+  "rewardKo": "이중 장막 투구"
  },
  {
   "en": "The Journey",
@@ -2499,9 +2443,9 @@
   "en": "The King's Blade",
   "ko": "왕의 검",
   "stack": 5,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "magicitem",
+  "reward": "Bloodthirsty Eternal Sword",
+  "rewardKo": "피에 목마른 영원의 검"
  },
  {
   "en": "The King's Heart",
@@ -2518,14 +2462,6 @@
   "cls": "currencyitem",
   "reward": "Reflecting Mist",
   "rewardKo": "투영하는 안개"
- },
- {
-  "en": "The Landing",
-  "ko": "상륙",
-  "stack": 5,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
  },
  {
   "en": "The Last Laugh",
@@ -2612,8 +2548,8 @@
   "ko": "축제의 군주",
   "stack": 4,
   "cls": "magicitem",
-  "reward": "Sceptre of Celebration",
-  "rewardKo": "셉터- 축제"
+  "reward": "Shaper Sceptre of Celebration",
+  "rewardKo": "쉐이퍼 셉터- 축제"
  },
  {
   "en": "The Lover",
@@ -2726,14 +2662,6 @@
   "cls": "uniqueitem",
   "reward": "Death's Oath",
   "rewardKo": "죽음의 서약(Death's Oath)"
- },
- {
-  "en": "The Obscured",
-  "ko": "가려진 자",
-  "stack": 7,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
  },
  {
   "en": "The Offering",
@@ -2867,9 +2795,9 @@
   "en": "The Price of Protection",
   "ko": "보호의 대가",
   "stack": 5,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "rareitem",
+  "reward": "Elder Guardian Occupied Map",
+  "rewardKo": "엘더 수호자의 손에 넘어간 지도"
  },
  {
   "en": "The Primordial",
@@ -2902,14 +2830,6 @@
   "cls": "uniqueitem",
   "reward": "Dying Sun",
   "rewardKo": "죽어가는 해(Dying Sun)"
- },
- {
-  "en": "The Puzzle",
-  "ko": "수수께끼",
-  "stack": 5,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
  },
  {
   "en": "The Queen",
@@ -3299,9 +3219,9 @@
   "en": "The Tumbleweed",
   "ko": "회전초",
   "stack": 2,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "magicitem",
+  "reward": "Redeemer Diamond Ring of Redemption",
+  "rewardKo": "대속자 다이아몬드 반지 - 구원"
  },
  {
   "en": "The Twilight Moon",
@@ -3340,16 +3260,16 @@
   "ko": "모두가 인정하는 자",
   "stack": 8,
   "cls": "magicitem",
-  "reward": "Merciless Vaal Axe",
-  "rewardKo": "무자비한 바알 도끼"
+  "reward": "Elder Merciless Vaal Axe",
+  "rewardKo": "엘더 무자비한 바알 도끼"
  },
  {
   "en": "The Unexpected Prize",
   "ko": "뜻밖의 포상",
   "stack": 2,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "uniqueitem",
+  "reward": "Attribute Transforming Jewel",
+  "rewardKo": "능력치 변환 주얼"
  },
  {
   "en": "The Union",
@@ -3436,8 +3356,8 @@
   "ko": "백기사",
   "stack": 8,
   "cls": "whiteitem",
-  "reward": "Six-Link Astral Plate",
-  "rewardKo": "6연결 우주의 판금 갑옷"
+  "reward": "Crusader Six-Link Astral Plate",
+  "rewardKo": "십자군 6연결 우주의 판금 갑옷"
  },
  {
   "en": "The Whiteout",
@@ -3603,9 +3523,9 @@
   "en": "Triskaidekaphobia",
   "ko": "13 공포증",
   "stack": 13,
-  "cls": "",
-  "reward": "",
-  "rewardKo": ""
+  "cls": "rareitem",
+  "reward": "Map",
+  "rewardKo": "지도"
  },
  {
   "en": "Turn the Other Cheek",
@@ -3668,8 +3588,8 @@
   "ko": "원소의 공허",
   "stack": 3,
   "cls": "magicitem",
-  "reward": "Overpowering Opal Ring",
-  "rewardKo": "압도하는 오팔 반지"
+  "reward": "Elder Overpowering Opal Ring",
+  "rewardKo": "엘더 압도하는 오팔 반지"
  },
  {
   "en": "Volatile Power",
