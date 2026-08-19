@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.19.1',
+    ko: '숨김 선택한 화폐·점술카드 이름에 취소선 표시(숨김 인지 개선).',
+    en: 'Strikethrough on selected currencies/cards for clearer hidden state.',
+  },
+  {
     version: 'v0.19.0',
     ko: '점술카드 등급별 접이식 그룹, 보상에 인플루언스/변형 표시(쉐이퍼 방패 등), 비활성 카드 제외.',
     en: 'Divination cards grouped by rarity (collapsible); reward shows influence/variant; disabled cards dropped.',

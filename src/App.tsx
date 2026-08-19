@@ -572,7 +572,7 @@ export function App() {
                 return (
                   <label key={c.en} className="cur-row">
                     <input type="checkbox" checked={on} onChange={() => toggleCurrency(c.en)} />
-                    <span className="cur-name">{locale === 'ko' ? c.ko : c.en}</span>
+                    <span className={on ? 'cur-name hiding' : 'cur-name'}>{locale === 'ko' ? c.ko : c.en}</span>
                     <input
                       type="number"
                       className="cur-th"
