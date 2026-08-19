@@ -1,6 +1,11 @@
 // Shown in the in-app changelog modal. Newest first.
 export const CHANGELOG: { version: string; ko: string; en: string }[] = [
   {
+    version: 'v0.15.0',
+    ko: '고유템 검색 강조 추가 — 그 베이스의 고유템만 표시(노말/매직/레어 제외), 베이스 강조와 별도 블록.',
+    en: 'Highlight-uniques-by-base search — shows only uniques on that base, separate from base highlight.',
+  },
+  {
     version: 'v0.14.0',
     ko: 'Vercel Web Analytics 방문 통계 연동.',
     en: 'Vercel Web Analytics for visitor stats.',

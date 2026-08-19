@@ -72,6 +72,21 @@ function highlightBlock({ bases, minIlvl, maxIlvl }: HighlightOpts): string {
   return lines.join('\n') + '\n\n'
 }
 
+/** Force-show ONLY the uniques on the given bases (no Normal/Magic/Rare). */
+function uniqueHighlightBlock(bases: string[]): string {
+  if (bases.length === 0) return ''
+  return [
+    '# SSF unique highlight (generated)',
+    'Show',
+    `    BaseType == ${quote(bases)}`,
+    '    Rarity Unique',
+    '    SetBorderColor 255 0 255',
+    '    SetFontSize 45',
+    '    MinimapIcon 0 Pink Star',
+    '    PlayEffect Pink',
+  ].join('\n') + '\n\n'
+}
+
 /**
  * Generate the prepended blocks, wrapped in sentinel markers.
  * @param showBases still-needed unique bases to force-show + emphasize
@@ -83,6 +98,7 @@ export function buildBlocks(
   hideBases: string[],
   highlight: HighlightOpts = { bases: [] },
   currencyHides: CurrencyHide[] = [],
+  uniqueHighlight: string[] = [],
 ): string {
   const show = block(
     'SSF still-needed uniques (generated)',
@@ -91,7 +107,7 @@ export function buildBlocks(
     'SetBorderColor 255 200 0',
   )
   const hide = block('SSF collected-base hide (generated)', 'Hide', hideBases)
-  return `${BEGIN}\n\n${currencyBlocks(currencyHides)}${highlightBlock(highlight)}${show}${hide}${END}\n\n`
+  return `${BEGIN}\n\n${currencyBlocks(currencyHides)}${uniqueHighlightBlock(uniqueHighlight)}${highlightBlock(highlight)}${show}${hide}${END}\n\n`
 }
 
 /** Remove a previously generated region so re-applying stays idempotent. */
@@ -109,6 +125,7 @@ export function buildFilter(
   baseFilterText: string,
   highlight: HighlightOpts = { bases: [] },
   currencyHides: CurrencyHide[] = [],
+  uniqueHighlight: string[] = [],
 ): string {
-  return buildBlocks(showBases, hideBases, highlight, currencyHides) + stripGenerated(baseFilterText)
+  return buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueHighlight) + stripGenerated(baseFilterText)
 }

@@ -141,6 +141,34 @@ export function App() {
   }
   const removeBase = (en: string) => setHighlightBases((p) => p.filter((b) => b !== en))
 
+  // Highlight-by-unique (separate block, Rarity Unique only — no Normal/Magic/Rare).
+  const [uniqueBases, setUniqueBases] = useState<string[]>([])
+  const [uQuery, setUQuery] = useState('')
+  const [uSearchOpen, setUSearchOpen] = useState(false)
+  const uniqueMatches = useMemo(() => {
+    const q = uQuery.trim()
+    if (!q || !uniques) return []
+    const ql = q.toLowerCase()
+    const seen = new Set<string>()
+    const out: { name: string; base: string }[] = []
+    for (const u of uniques) {
+      if (u.name.toLowerCase().includes(ql) || localizeUnique(u.name, 'ko').includes(q)) {
+        const key = `${u.name}|${u.baseItem}`
+        if (seen.has(key)) continue
+        seen.add(key)
+        out.push({ name: u.name, base: u.baseItem })
+        if (out.length >= 20) break
+      }
+    }
+    return out
+  }, [uQuery, uniques])
+  const addUniqueBase = (base: string) => {
+    setUniqueBases((p) => (p.includes(base) ? p : [...p, base]))
+    setUQuery('')
+    setUSearchOpen(false)
+  }
+  const removeUniqueBase = (base: string) => setUniqueBases((p) => p.filter((b) => b !== base))
+
   // Curation view: uniques grouped by category. 'owned' = only owned, 'all' = all.
   const [collFilter, setCollFilter] = useState<'owned' | 'all'>('owned')
   const byCat = useMemo(() => {
@@ -372,6 +400,43 @@ export function App() {
           </section>
 
           <section>
+            <h2>{t('uniqueHighlight')}</h2>
+            <p className="hint">{t('uniqueHighlightHelp')}</p>
+            <input
+              className="search"
+              value={uQuery}
+              onChange={(e) => {
+                setUQuery(e.target.value)
+                setUSearchOpen(true)
+              }}
+              onFocus={() => setUSearchOpen(true)}
+              onBlur={() => setTimeout(() => setUSearchOpen(false), 150)}
+              placeholder={t('uniqueSearchPlaceholder')}
+            />
+            {uSearchOpen && uniqueMatches.length > 0 && (
+              <ul className="search-results">
+                {uniqueMatches.map((m) => (
+                  <li key={`${m.name}|${m.base}`}>
+                    <button onClick={() => addUniqueBase(m.base)}>
+                      {localizeUnique(m.name, locale)}{' '}
+                      <span className="en">{localizeBase(m.base, locale)}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {uniqueBases.length > 0 && (
+              <div className="chips">
+                {uniqueBases.map((b) => (
+                  <span key={b} className="chip" onClick={() => removeUniqueBase(b)}>
+                    {localizeBase(b, locale)} ✕
+                  </span>
+                ))}
+              </div>
+            )}
+          </section>
+
+          <section>
             <h2>{t('currencyHide')}</h2>
             <p className="hint">{t('currencyHideHelp')}</p>
             <button className="preset-btn" onClick={selectJunkCurrency}>{t('selectJunk')}</button>
@@ -418,16 +483,16 @@ export function App() {
               disabled={!filterText}
               onClick={() =>
                 filterText &&
-                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides))
+                download('SSF-modified.filter', buildFilter(showBases, hideBases, filterText, highlight, currencyHides, uniqueBases))
               }
             >
               {t('download')}
             </button>
-            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides))}>
+            <button onClick={() => download('SSF-blocks.filter', buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases))}>
               {t('downloadBlocks')}
             </button>
             {!filterText && <span className="hint">{t('noFilter')}</span>}
-            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides)}</pre>
+            <pre className="preview">{buildBlocks(showBases, hideBases, highlight, currencyHides, uniqueBases)}</pre>
           </section>
         </>
       )}
